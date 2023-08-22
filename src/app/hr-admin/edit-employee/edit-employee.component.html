@@ -1,1 +1,36 @@
-<p>edit-employee works!</p>
+<div class="content">
+  <button class="back" routerLink="hr-admin">< Back</button>
+
+  <div class="main">
+    <h2>Edit Employee</h2>
+
+    <form>
+
+      <div>
+        <label for="name">Name </label>
+        <input id="name" type="text" placeholder="Name">
+      </div>
+
+      <div>
+        <label for="manager">Manager </label>
+        <input id="manager" type="text" placeholder="Manager">
+      </div>
+
+      <div>
+        <label for="annual-leave">Annual Leave </label>
+        <input id="annual-leave" type="number" placeholder="Annual Leave">
+      </div>
+
+      <div>
+        <label for="role">Role </label>
+        <select id="role">
+          <option>MEMBER</option>
+          <option>MANAGER</option>
+        </select>
+      </div>
+
+      <button type="submit" class="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
