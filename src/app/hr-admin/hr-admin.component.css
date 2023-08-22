@@ -11,8 +11,12 @@
 }
 .main{
   margin-left: 160px;
-  background-color: whitesmoke;
   height: 100%;
+}
+.header{
+  padding-left: 50px;
+  display: flow;
+  justify-content: space-between;
 }
 table{
   padding-left: 20px;
