@@ -2,9 +2,13 @@
   padding-top: 10px;
   justify-content: center;
   align-content: center;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 20%;
+  margin-right: 20%;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.header, .bottom{
+  text-align: center;
 }
 
 .main{

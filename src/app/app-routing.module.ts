@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import {HrAdminComponent} from "./hr-admin/hr-admin.component";
 import {AddEmployeeComponent} from "./hr-admin/add-employee/add-employee.component";
 import {EditEmployeeComponent} from "./hr-admin/edit-employee/edit-employee.component";
+import {ManagerComponent} from "./manager/manager.component";
+import {CreateLeaveComponent} from "./shared/create-leave/create-leave.component";
 
 const routes: Routes = [
   {
@@ -10,7 +12,14 @@ const routes: Routes = [
     children:[
       {path: '', component: HrAdminComponent},
       {path: 'add-employee', component: AddEmployeeComponent},
-      {path: 'edit-employee', component: EditEmployeeComponent}
+      {path: 'edit-employee', component: EditEmployeeComponent},
+    ]
+  },
+  {
+    path: 'manager',
+    children:[
+      {path: '', component: ManagerComponent},
+      {path: 'apply', component: CreateLeaveComponent}
     ]
   },
   {path: '**', redirectTo:'hr-admin'}

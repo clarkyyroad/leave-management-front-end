@@ -16,7 +16,8 @@ select{
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: content-box;
-  font-size: 18px;
+  font-size: 15px;
+  padding: 8px 5px;
 }
 h3{
   color: #F14E6D;
@@ -35,6 +36,37 @@ hover{
   margin-left: 250px;
   font-family: Source Sans Pro, sans-serif;
 }
+
+.edit{
+  padding: 12px 20px;
+  margin: 10px 0;
+  border: 1px solid #F14E6D;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #F14E6D;
+  color: white;
+}
+
+.edit:hover{
+  background-color: white;
+  color: #F14E6D;
+}
+
+.add{
+  padding: 8px 20px;
+  margin: 10px 0;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: black;
+  color: white;
+}
+
+.add:hover{
+  background-color: white;
+  color: black;
+}
+
 .header{
   padding-left: 50px;
   display: flex;
