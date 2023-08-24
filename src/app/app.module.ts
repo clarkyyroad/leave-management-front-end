@@ -10,7 +10,7 @@ import { AddEmployeeComponent } from './hr-admin/add-employee/add-employee.compo
 import { EditEmployeeComponent } from './hr-admin/edit-employee/edit-employee.component';
 import { CreateLeaveComponent } from './shared/create-leave/create-leave.component';
 import { ViewLeavesComponent } from './shared/view-leaves/view-leaves.component';
-import { ApproveRejectLeaveComponent } from './manager/approve-reject-leave/approve-reject-leave.component';
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -21,12 +21,12 @@ import { ApproveRejectLeaveComponent } from './manager/approve-reject-leave/appr
     AddEmployeeComponent,
     EditEmployeeComponent,
     CreateLeaveComponent,
-    ViewLeavesComponent,
-    ApproveRejectLeaveComponent
+    ViewLeavesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgOptimizedImage
   ],
   providers: [],
   bootstrap: [AppComponent]

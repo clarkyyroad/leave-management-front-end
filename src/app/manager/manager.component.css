@@ -22,15 +22,12 @@ select{
 h3{
   color: white;
 }
-span{
+.nav-item{
   color: white;
   margin-top:15px;
 }
-span:hover{
+.nav-item:hover{
   color: #F14E6D;
-}
-hover{
-
 }
 .main{
   padding-top: 50px;
