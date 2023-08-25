@@ -11,6 +11,8 @@ import { EditEmployeeComponent } from './hr-admin/edit-employee/edit-employee.co
 import { CreateLeaveComponent } from './shared/create-leave/create-leave.component';
 import { ViewLeavesComponent } from './shared/view-leaves/view-leaves.component';
 import {NgOptimizedImage} from "@angular/common";
+import { SideNavigationBarComponent } from './shared/side-navigation-bar/side-navigation-bar.component';
+import { LandingPageComponent } from './landing/landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import {NgOptimizedImage} from "@angular/common";
     AddEmployeeComponent,
     EditEmployeeComponent,
     CreateLeaveComponent,
-    ViewLeavesComponent
+    ViewLeavesComponent,
+    SideNavigationBarComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

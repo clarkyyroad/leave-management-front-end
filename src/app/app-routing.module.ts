@@ -8,8 +8,10 @@ import {CreateLeaveComponent} from "./shared/create-leave/create-leave.component
 import {ViewLeavesComponent} from "./shared/view-leaves/view-leaves.component";
 import {MemberComponent} from "./member/member.component";
 import {ApproveRejectLeaveComponent} from "./hr-admin/approve-reject-leave/approve-reject-leave.component";
+import {LandingPageComponent} from "./landing/landing-page/landing-page.component";
 
 const routes: Routes = [
+  {path: 'landing', component: LandingPageComponent},
   {
     path: 'hr-admin',
     children:[
@@ -35,7 +37,7 @@ const routes: Routes = [
       {path: 'my-leaves', component: MemberComponent}
     ]
   },
-  {path: '**', redirectTo:'hr-admin'}
+  {path: '**', redirectTo:'landing'}
 ];
 
 @NgModule({

@@ -1,0 +1,47 @@
+<div class="sidenav">
+  <div class="nav-list">
+    <span class="leaves-nav">Select User</span>
+    <br>
+    <br>
+    <form >
+      <select name="users" id="users">
+        <option value="Dexter Sy (Admin)">Dexter Sy (Admin)</option>
+        <option value="Romeo (Manager)">Romeo (Manager)</option>
+        <option value="Clark (Member)">Clark (Member)</option>
+        <option value="Carli (Member)">Carli (Member)</option>
+      </select>
+    </form>
+    <br>
+    <br>
+    <div *ngIf="true">
+      <span class="leaves-nav">Employees</span>
+      <br>
+      <br>
+      <span class="nav-item">View All</span>
+      <br>
+      <span  class="nav-item">Add New</span>
+      <br>
+    </div>
+
+
+    <div *ngIf="true">
+      <br><br>
+      <span class="leaves-nav" *ngIf="true">Leaves</span>
+      <br>
+      <br>
+      <span *ngIf="true" class="nav-item">View All</span>
+      <br>
+      <span class="nav-item" routerLink="apply" *ngIf="true">Apply</span>
+      <br>
+      <span  class="nav-item" *ngIf="true">My Leaves</span>
+    </div>
+  </div>
+
+  <div class="site-title" *ngIf="true">
+    <img ngSrc="assets/logo-white.png" alt="rise-logo" height="335" width="1069">
+
+    <br>
+    <span>My Personal</span><br>
+    <span>Time Out</span><br>
+  </div>
+</div>
