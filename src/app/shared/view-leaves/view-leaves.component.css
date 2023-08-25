@@ -1,38 +1,3 @@
-.sidenav{
-  height: 100%;
-  width: 250px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: black;
-  overflow-x: hidden;
-  padding-left: 30px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: white;
-}
-select{
-  width: 90%;
-  height: 20%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: content-box;
-  font-size: 15px;
-  padding: 8px 5px;
-}
-.leaves-nav{
-  font-size: 25px;
-  font-weight: bold;
-}
-.nav-item{
-  margin-top:15px;
-  font-size: 16px;
-  font-weight: bold;
-}
-.nav-item:hover{
-  color: #F14E6D;
-}
-
 .main{
   padding-top: 10px;
   margin-left: 250px;
@@ -52,7 +17,7 @@ select{
   margin-right: 10px;
   padding: 5px 10px;
   width: 450px;
-
+  border-radius: 4px;
 }
 
 .available-leave-credits{
@@ -60,6 +25,7 @@ select{
   margin-right: 10px;
   padding: 5px 10px;
   width: 450px;
+  border-radius: 4px;
 }
 
 img {
