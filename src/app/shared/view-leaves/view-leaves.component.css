@@ -20,9 +20,14 @@ select{
   font-size: 15px;
   padding: 8px 5px;
 }
-
+.leaves-nav{
+  font-size: 25px;
+  font-weight: bold;
+}
 .nav-item{
   margin-top:15px;
+  font-size: 16px;
+  font-weight: bold;
 }
 .nav-item:hover{
   color: #F14E6D;
@@ -44,27 +49,33 @@ select{
 
 .used-leave-credits{
   background-color: black;
-  margin-right: 20px;
+  margin-right: 10px;
   padding: 5px 10px;
-  border-radius: 20px;
-  width: 150px;
-  box-shadow: 2px 2px 4px darkgray;
+  width: 450px;
+
 }
 
 .available-leave-credits{
   background-color: #F14E6D;
-  margin-right: 20px;
+  margin-right: 10px;
   padding: 5px 10px;
-  border-radius: 20px;
-  width: 150px;
-  box-shadow: 2px 2px 4px darkgray;
+  width: 450px;
+}
+
+img {
+  padding-top: 10px;
+  max-width: 50%;
+  height: auto;
 }
 .status-header{
   font-size: 15px;
+  font-style: italic;
 }
 .status-data{
   font-size: 50px;
-
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
 }
 
 .cancel{
@@ -116,4 +127,29 @@ td{
 
 .table{
   margin-left: 50px;
+}
+.site-title{
+  color: white;
+  margin-top: 80%;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.pagination{
+  text-align: center;
+}
+
+.page-button {
+  width: 90px;
+  padding: 5px 5px;
+  margin: 10px 5px;
+  border: 1px solid #616161;
+  border-radius: 20px;
+  box-sizing: border-box;
+  background-color: #616161 ;
+  color: white;
+}
+.page-button:hover{
+  border: 1px solid black;
+  background-color: black;
 }
