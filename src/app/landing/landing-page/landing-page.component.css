@@ -1,0 +1,16 @@
+.main{
+
+}
+.site-title{
+  margin-left: 50%;
+  margin-top: 15%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  color: #616161;
+}
+
+img {
+  max-width: 30%;
+  height: auto;
+}

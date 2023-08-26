@@ -8,5 +8,15 @@ import {RoleType} from "./role-type.enum";
 })
 export class SideNavigationBarComponent {
 
-  private member: RoleType = RoleType.MEMBER;
-}
+  public member: RoleType = RoleType.MEMBER
+
+  public manager: RoleType = RoleType.MANAGER
+  public admin: RoleType = RoleType.ADMIN
+
+
+  public user1 = "Dexter Sy"
+  public user2 = "Romeo"
+  public user3 = "Clark"
+  public user4 = "Carli"
+
+  }
