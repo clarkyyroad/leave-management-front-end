@@ -5,10 +5,10 @@
     <br>
     <form >
       <select name="users" id="users">
-        <option value="Dexter Sy (Admin)">Dexter Sy (Admin)</option>
-        <option value="Romeo (Manager)">Romeo (Manager)</option>
-        <option value="Clark (Member)">Clark (Member)</option>
-        <option value="Carli (Member)">Carli (Member)</option>
+        <option *ngFor="let employee of employeeList">{{ employee.name + ' (' + employee.roleType + ')' }}</option>
+<!--        <option value="Romeo (Manager)">Romeo (Manager)</option>-->
+<!--        <option value="Clark (Member)">Clark (Member)</option>-->
+<!--        <option value="Carli (Member)">Carli (Member)</option>-->
       </select>
     </form>
     <br>

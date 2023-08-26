@@ -13,6 +13,7 @@ import { ViewLeavesComponent } from './shared/view-leaves/view-leaves.component'
 import {NgOptimizedImage} from "@angular/common";
 import { SideNavigationBarComponent } from './shared/side-navigation-bar/side-navigation-bar.component';
 import { LandingPageComponent } from './landing/landing-page/landing-page.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LandingPageComponent } from './landing/landing-page/landing-page.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+      HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
