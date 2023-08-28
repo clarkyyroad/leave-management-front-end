@@ -1,4 +1,4 @@
-  .sidenav{
+.sidenav {
     height: 100%;
     width: 250px;
     position: fixed;
@@ -9,8 +9,9 @@
     overflow-x: hidden;
     padding-left: 30px;
     font-family: Arial, Helvetica, sans-serif;
-  }
-  select{
+}
+
+select {
     width: 90%;
     height: 20%;
     border: 1px solid #ccc;
@@ -18,23 +19,28 @@
     box-sizing: content-box;
     font-size: 15px;
     padding: 8px 5px;
-  }
-  h3{
+}
+
+h3 {
     color: white;
-  }
-  .nav-item{
+}
+
+.nav-item {
     color: white;
-    margin-top:15px;
-  }
-  .nav-item:hover{
+    margin-top: 15px;
+}
+
+.nav-item:hover {
     color: #F14E6D;
-  }
-  .main{
+}
+
+.main {
     padding-top: 50px;
     margin-left: 250px;
     font-family: Source Sans Pro, sans-serif;
-  }
-  .reject{
+}
+
+.reject {
     padding: 10px 20px;
     margin: 10px 0;
     border: 1px solid #F14E6D;
@@ -42,15 +48,15 @@
     box-sizing: border-box;
     background-color: white;
     color: #F14E6D;
-  }
+}
 
-  .reject:hover{
+.reject:hover {
     background-color: white;
     color: black;
     border: 1px solid black;
-  }
+}
 
-  .approve{
+.approve {
     padding: 10px 15px;
     margin: 10px 5px;
     border: 1px solid #F14E6D;
@@ -58,29 +64,30 @@
     box-sizing: border-box;
     background-color: #F14E6D;
     color: white;
-  }
+}
 
-  .approve:hover{
+.approve:hover {
     background-color: black;
     color: white;
     border: 1px solid black;
-  }
+}
 
-  .header{
+.header {
     padding-left: 50px;
     display: flex;
     justify-content: space-between;
-  }
-  table{
+}
+
+table {
     display: table;
     width: 100%;
     border-collapse: collapse;
-  }
+}
 
-  td{
+td {
     text-align: center;
-  }
+}
 
-  .table{
+.table {
     margin-left: 50px;
-  }
+}

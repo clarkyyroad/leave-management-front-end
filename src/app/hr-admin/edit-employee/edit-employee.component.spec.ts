@@ -1,21 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { EditEmployeeComponent } from './edit-employee.component';
+import {EditEmployeeComponent} from './edit-employee.component';
 
 describe('EditEmployeeComponent', () => {
-  let component: EditEmployeeComponent;
-  let fixture: ComponentFixture<EditEmployeeComponent>;
+    let component: EditEmployeeComponent;
+    let fixture: ComponentFixture<EditEmployeeComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [EditEmployeeComponent]
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            declarations: [EditEmployeeComponent]
+        });
+        fixture = TestBed.createComponent(EditEmployeeComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
     });
-    fixture = TestBed.createComponent(EditEmployeeComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

@@ -3,10 +3,10 @@ import {LeaveRepository} from "../repository/leave.repository";
 
 @Injectable({providedIn: 'root'})
 
-export class LeaveService{
+export class LeaveService {
 
-  constructor(private leaveRepository: LeaveRepository) {
+    constructor(private leaveRepository: LeaveRepository) {
 
-  }
+    }
 
 }
