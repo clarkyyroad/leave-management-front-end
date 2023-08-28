@@ -4,7 +4,7 @@ import {ILeave} from "../model/leave.model";
 
 @Injectable({providedIn: 'root'})
 
-export class LeaveService{
+export class LeaveService {
 
   constructor(private leaveRepository: LeaveRepository) {
   }

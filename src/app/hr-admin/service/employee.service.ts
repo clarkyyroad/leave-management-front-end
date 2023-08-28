@@ -14,7 +14,7 @@ export class EmployeeService {
         return this.employeeRepository.getListEmployees();
     }
 
-    public saveEmployee(requestBody: IEmployee){
-      return this.employeeRepository.createMember(requestBody)
+    public saveEmployee(requestBody: IEmployee) {
+        return this.employeeRepository.createMember(requestBody)
     }
 }

@@ -22,8 +22,8 @@ export class EmployeeRepository {
         return this.httpClient.get<IUsers[]>(getListEmployeeUrl, {headers: this.headers});
     }
 
-    public createMember(requestBody: IEmployee){
-      const createMemberUrl = this.baseUrl + '/employees/member';
-      return this.httpClient.post<any>(createMemberUrl, requestBody, {headers: this.headers})
+    public createMember(requestBody: IEmployee) {
+        const createMemberUrl = this.baseUrl + '/employees/member';
+        return this.httpClient.post<any>(createMemberUrl, requestBody, {headers: this.headers})
     }
 }

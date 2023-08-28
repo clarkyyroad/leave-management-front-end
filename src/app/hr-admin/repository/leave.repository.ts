@@ -4,16 +4,16 @@ import {Observable} from "rxjs";
 import {ILeave} from "../model/leave.model";
 
 @Injectable({providedIn: 'root'})
-export class LeaveRepository{
-  private readonly baseUrl = 'api/v1';
-  private readonly CONTENT_TYPE = 'application/json';
-  private readonly headers: HttpHeaders;
+export class LeaveRepository {
+    private readonly baseUrl = 'api/v1';
+    private readonly CONTENT_TYPE = 'application/json';
+    private readonly headers: HttpHeaders;
 
-  constructor(private httpClient: HttpClient) {
-    this.headers = new HttpHeaders({
-      'Content-Type': this.CONTENT_TYPE
-    });
-  }
+    constructor(private httpClient: HttpClient) {
+        this.headers = new HttpHeaders({
+            'Content-Type': this.CONTENT_TYPE
+        });
+    }
 
   public fetchAllLeaves(max: number, page: number): Observable<any>{
     const getAllLeavesUrls: string = 'api/v1/leave/hr? max=' + max + '&page=' + page;

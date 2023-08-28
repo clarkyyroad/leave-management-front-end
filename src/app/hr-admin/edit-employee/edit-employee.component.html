@@ -1,40 +1,40 @@
 <div class="content">
-  <button class="back" routerLink="hr-admin">< Back</button>
+    <button class="back" routerLink="hr-admin">< Back</button>
 
-  <div class="main">
-    <div class="header">
-      <h2>Edit Employee</h2>
+    <div class="main">
+        <div class="header">
+            <h2>Edit Employee</h2>
+        </div>
+
+        <form>
+
+            <div>
+                <label for="name">Name </label>
+                <input id="name" placeholder="Name" type="text">
+            </div>
+
+            <div>
+                <label for="manager">Manager </label>
+                <input id="manager" placeholder="Manager" type="text">
+            </div>
+
+            <div>
+                <label for="annual-leave">Annual Leave </label>
+                <input id="annual-leave" placeholder="Annual Leave" type="number">
+            </div>
+
+            <div>
+                <label for="role">Role </label>
+                <select id="role">
+                    <option>MEMBER</option>
+                    <option>MANAGER</option>
+                </select>
+            </div>
+
+            <div class="bottom">
+                <button class="submit" type="submit">Submit</button>
+            </div>
+        </form>
     </div>
-
-    <form>
-
-      <div>
-        <label for="name">Name </label>
-        <input id="name" type="text" placeholder="Name">
-      </div>
-
-      <div>
-        <label for="manager">Manager </label>
-        <input id="manager" type="text" placeholder="Manager">
-      </div>
-
-      <div>
-        <label for="annual-leave">Annual Leave </label>
-        <input id="annual-leave" type="number" placeholder="Annual Leave">
-      </div>
-
-      <div>
-        <label for="role">Role </label>
-        <select id="role">
-          <option>MEMBER</option>
-          <option>MANAGER</option>
-        </select>
-      </div>
-
-      <div class="bottom">
-        <button class="submit" type="submit">Submit</button>
-      </div>
-    </form>
-  </div>
 </div>
 

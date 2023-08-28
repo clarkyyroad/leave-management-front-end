@@ -1,27 +1,40 @@
 <div class="sidenav">
-  <div class="nav-list">
-    <span class="leaves-nav">Select User</span>
-    <br>
-    <br>
-    <form >
-      <select name="users" id="users">
-        <option *ngFor="let employee of employeeList" (change)="onUserSelection($event.target)">{{ employee.name + ' (' + employee.roleType + ')' }} </option>
-      </select>
-      <button type="submit" id="submit">Submit</button>
-    </form>
+    <div class="nav-list">
+        <span class="leaves-nav">Select User</span>
+        <br>
+        <br>
+        <form>
+            <select id="users" name="users">
+                <option (change)="onUserSelection($event.target)"
+                        *ngFor="let employee of employeeList">{{ employee.name + ' (' + employee.roleType + ')' }} </option>
+            </select>
+            <button id="submit" type="submit">Submit</button>
+        </form>
 
-    <br>
-    <div *ngIf="false">
-      <span class="leaves-nav">Employees</span>
-      <br>
-      <br>
-      <span class="nav-item">View All</span>
-      <br>
-      <span  class="nav-item">Add New</span>
-      <br>
+        <br>
+        <div *ngIf="false">
+            <span class="leaves-nav">Employees</span>
+            <br>
+            <br>
+            <span class="nav-item">View All</span>
+            <br>
+            <span class="nav-item">Add New</span>
+            <br>
 
-    </div>
+        </div>
 
+<<<<<<< HEAD
+        <div *ngIf="true">
+            <br><br>
+            <span *ngIf="true" class="leaves-nav">Leaves</span>
+            <br>
+            <span *ngIf="true" class="nav-item">View All</span>
+            <br>
+            <span *ngIf="true" class="nav-item" routerLink="apply">Apply</span>
+            <br>
+            <span *ngIf="true" class="nav-item">My Leaves</span>
+        </div>
+=======
     <div *ngIf="true">
       <br><br>
       <span class="leaves-nav" *ngIf="true">Leaves</span>
@@ -32,14 +45,14 @@
       <span  class="nav-item" *ngIf="true">My Leaves</span>
       <br>
       <span *ngIf="true" class="nav-item">View All</span>
+>>>>>>> origin/master
     </div>
-  </div>
 
-  <div class="site-title" *ngIf="true">
-    <img ngSrc="assets/logo-white.png" alt="rise-logo" height="335" width="1069">
+    <div *ngIf="true" class="site-title">
+        <img alt="rise-logo" height="335" ngSrc="assets/logo-white.png" width="1069">
 
-    <br>
-    <span>My Personal</span><br>
-    <span>Time Out</span><br>
-  </div>
+        <br>
+        <span>My Personal</span><br>
+        <span>Time Out</span><br>
+    </div>
 </div>
