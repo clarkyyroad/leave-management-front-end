@@ -1,8 +1,6 @@
-
-
 <div class="main">
   <div class="site-title">
-    <img ngSrc="assets/logo-black.png" alt="rise-logo" height="191" width="505">
+    <img alt="rise-logo" height="191" ngSrc="assets/logo-black.png" width="505">
     <br>
     <span>My Personal</span>
     <br>
@@ -12,17 +10,18 @@
   <br>
   <div class="log-in">
     <span>LOG IN AS</span>
-
-    <div class="admin" *ngIf="true" >
-      <span>Admin</span>
+    <div *ngIf="true" class="admin">
       <form>
-        <select name="users" class="users" [(ngModel)]="selectedUser">
-          <option *ngFor="let user of users" [value]="user.roleType">{{user.name}} ({{user.roleType}})</option>
+        <select [(ngModel)]="selectedUser" class="users" name="users">
+          <option disabled value="">Select a user</option>
+          <option *ngFor="let user of users" [value]="user.roleType">{{user.name}} ({{user.roleType}})
+          </option>
         </select>
         <br>
-        <button (click)="getUserPath()" type="submit" class="submit">Log in</button>
+        <button (click)="getUserPath()" class="submit" type="submit">Log in</button>
       </form>
     </div>
   </div>
 </div>
 
+<app-user-selection-modal (closeModalEvent)="closeModal()" *ngIf="showModal"></app-user-selection-modal>

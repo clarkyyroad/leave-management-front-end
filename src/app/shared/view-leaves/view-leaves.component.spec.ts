@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ViewLeavesComponent } from './view-leaves.component';
+import {ViewLeavesComponent} from './view-leaves.component';
 
 describe('ViewLeavesComponent', () => {
   let component: ViewLeavesComponent;

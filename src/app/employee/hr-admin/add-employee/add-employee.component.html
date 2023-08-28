@@ -1,0 +1,41 @@
+<app-side-navigation-bar></app-side-navigation-bar>
+
+<div class="content">
+
+
+  <div class="main">
+    <div class="header">
+      <h2>Create Employee</h2>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="addEmployeeForm">
+
+      <div>
+        <label for="name">Name </label>
+        <input id="name" placeholder="Name" type="text">
+      </div>
+
+      <div>
+        <label for="manager">Manager </label>
+        <input id="manager" placeholder="Manager" type="text">
+      </div>
+
+      <div>
+        <label for="annual-leave">Annual Leave </label>
+        <input id="annual-leave" placeholder="Annual Leave" type="number">
+      </div>
+
+      <div>
+        <label for="role">Role </label>
+        <select id="role">
+          <option>MEMBER</option>
+          <option>MANAGER</option>
+        </select>
+      </div>
+
+      <div class="bottom">
+        <button class="submit" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
