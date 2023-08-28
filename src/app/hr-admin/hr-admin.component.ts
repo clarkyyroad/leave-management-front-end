@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {IPageResponse} from "./model/page-response.model";
-import {RouterService} from "./service/router.service";
+import {RouterService} from "../shared/router-service/router.service";
+import {IPageResponse} from "../employee/employee-model/page-response.model";
 
 @Component({
     selector: 'app-hr-admin',
