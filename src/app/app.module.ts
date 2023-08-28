@@ -14,6 +14,7 @@ import {NgOptimizedImage} from "@angular/common";
 import { SideNavigationBarComponent } from './shared/side-navigation-bar/side-navigation-bar.component';
 import { LandingPageComponent } from './landing/landing-page/landing-page.component';
 import {HttpClientModule} from "@angular/common/http";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -28,12 +29,22 @@ import {HttpClientModule} from "@angular/common/http";
     SideNavigationBarComponent,
     LandingPageComponent
   ],
+<<<<<<< HEAD
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgOptimizedImage,
     HttpClientModule
   ],
+=======
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgOptimizedImage,
+        HttpClientModule,
+        ReactiveFormsModule
+    ],
+>>>>>>> origin/master
   providers: [],
   bootstrap: [AppComponent]
 })

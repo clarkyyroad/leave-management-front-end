@@ -10,7 +10,6 @@ import {RouterService} from "../../service/router.service";
 export class LandingPageComponent {
 
   public member: RoleType = RoleType.MEMBER
-
   public manager: RoleType = RoleType.MANAGER
   public admin: RoleType = RoleType.ADMIN
 
@@ -26,14 +25,14 @@ export class LandingPageComponent {
   }
 
   public getAdminPath(){
-    this.routerService.navigate('/hr-admin/',  {'id': 1})
+    this.routerService.navigate('/hr-admin/', {'id': 1})
   }
 
   public getManagerPath(){
-    this.routerService.navigate('/manager/',  {'id': 1})
+    this.routerService.navigate('/manager/', {'id': 1})
   }
   public getMemberPath(){
-    this.routerService.navigate('/member/',  {'id': 1})
+    this.routerService.navigate('/member/', {'id': 1})
   }
 
 

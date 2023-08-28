@@ -17,7 +17,7 @@ export class HrAdminComponent {
     content: []
   }
 
-  constructor(private empoyeeService: EmployeeService, private routerService: RouterService ) {
+  constructor(private employeeService: EmployeeService, private routerService: RouterService ) {
   }
 
   public editEmployee(id: any){
