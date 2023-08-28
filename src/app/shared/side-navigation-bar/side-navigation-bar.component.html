@@ -4,16 +4,17 @@
     <br>
     <br>
     <form >
-      <select name="users" id="users" [routerLink]="manager" >
-        <option [routerLink]="admin" >{{user1}} ({{admin}})</option>
+      <select name="users" id="users" >
+        <option >{{user1}} ({{admin}})</option>
         <option >{{user2}} ({{manager}})</option>
-        <option [routerLink]="member" >{{user3}} ({{member}})</option>
+        <option >{{user3}} ({{member}})</option>
         <option >{{user4}} ({{member}})</option>
       </select>
+      <button type="submit" id="submit">Submit</button>
     </form>
+
     <br>
-    <br>
-    <div *ngIf="false">
+    <div *ngIf="true">
       <span class="leaves-nav">Employees</span>
       <br>
       <br>
@@ -23,7 +24,7 @@
       <br>
     </div>
 
-    <div *ngIf="false">
+    <div *ngIf="true">
       <br><br>
       <span class="leaves-nav" *ngIf="true">Leaves</span>
       <br>
@@ -36,7 +37,7 @@
     </div>
   </div>
 
-  <div class="site-title" *ngIf="false">
+  <div class="site-title" *ngIf="true">
     <img ngSrc="assets/logo-white.png" alt="rise-logo" height="335" width="1069">
 
     <br>

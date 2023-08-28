@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {RoleType} from "./role-type.enum";
+import {RouterService} from "../../service/router.service";
+import {Employee} from "../../model/employee.model";
 
 @Component({
   selector: 'app-side-navigation-bar',
@@ -19,4 +21,4 @@ export class SideNavigationBarComponent {
   public user3 = "Clark"
   public user4 = "Carli"
 
-  }
+}
