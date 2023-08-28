@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {EmployeeRepository} from "../repository/employee.repository";
 import {Observable} from "rxjs";
-import {IEmployeeList} from "../model/employee-list.model";
+import {IUsers} from "../model/employee-list.model";
 import {IEmployee} from "../model/employee.model";
 
 @Injectable({providedIn: 'root'})
@@ -10,7 +10,7 @@ export class EmployeeService {
     constructor(private employeeRepository: EmployeeRepository) {
     }
 
-    public getEmployeeList(): Observable<IEmployeeList[]> {
+    public getEmployeeList(): Observable<IUsers[]> {
         return this.employeeRepository.getListEmployees();
     }
 
