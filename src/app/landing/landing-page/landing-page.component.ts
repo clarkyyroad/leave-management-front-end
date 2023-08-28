@@ -12,6 +12,7 @@ export class LandingPageComponent implements OnInit {
 
   public users: IUsers[] = [];
   public selectedUser: string = '';
+  showModal: boolean = false;
 
   constructor(private routerService: RouterService, private landingPageService: LandingPageService) {
   }
@@ -30,15 +31,23 @@ export class LandingPageComponent implements OnInit {
   }
 
   public getUserPath(): void{
-    if (this.selectedUser === 'HR_ADMIN') {
-      this.routerService.navigate('/hr-admin/').then(() => console.log('Navigation successful'))
-          .catch((error) => console.error('Navigation error: ', error));
-    } else if (this.selectedUser === 'MANAGER') {
-      this.routerService.navigate('/manager/').then(() => console.log('Navigation successful'))
-          .catch((error) => console.error('Navigation error: ', error));
-    } else if (this.selectedUser === 'MEMBER') {
-      this.routerService.navigate('/member/').then(() => console.log('Navigation successful'))
-          .catch((error) => console.error('Navigation: ', error));
+    if (!this.selectedUser) {
+      this.showModal = true;
+    } else {
+      if (this.selectedUser === 'HR_ADMIN') {
+        this.routerService.navigate('/hr-admin/').then(() => console.log('Navigation successful'))
+            .catch((error) => console.error('Navigation error: ', error));
+      } else if (this.selectedUser === 'MANAGER') {
+        this.routerService.navigate('/manager/').then(() => console.log('Navigation successful'))
+            .catch((error) => console.error('Navigation error: ', error));
+      } else if (this.selectedUser === 'MEMBER') {
+        this.routerService.navigate('/member/').then(() => console.log('Navigation successful'))
+            .catch((error) => console.error('Navigation: ', error));
+      }
     }
+  }
+
+  closeModal() {
+    this.showModal = false;
   }
 }

@@ -15,6 +15,7 @@ import { SideNavigationBarComponent } from './shared/side-navigation-bar/side-na
 import { LandingPageComponent } from './landing/landing-page/landing-page.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { UserSelectionModalComponent } from './shared/user-selection-modal/user-selection-modal.component';
 
 @NgModule({
     declarations: [
@@ -28,6 +29,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
         ViewLeavesComponent,
         SideNavigationBarComponent,
         LandingPageComponent,
+        UserSelectionModalComponent,
     ],
     imports: [
         BrowserModule,
