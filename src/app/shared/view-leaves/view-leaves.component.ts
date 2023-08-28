@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {LeaveResponse} from "../../hr-admin/model/leave-response.model";
+import {RouterService} from "../../service/router.service";
+import {LeaveService} from "../../hr-admin/service/leave.service";
 
 @Component({
   selector: 'app-view-leaves',
@@ -7,4 +10,16 @@ import { Component } from '@angular/core';
 })
 export class ViewLeavesComponent {
 
+  private page: number = 1;
+
+  public leavesInPage: LeaveResponse = {
+    content: [],
+    pageNumber: 0,
+    totalCount: 0
+  }
+
+  public readonly MAX_LIMIT: number = 5;
+
+  constructor(private leaveService: LeaveService, private routerService: RouterService) {
+  }
 }
