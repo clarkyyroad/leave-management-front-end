@@ -1,5 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {RoleType} from "../../shared/side-navigation-bar/role-type.enum";
+import {Component, OnInit} from '@angular/core';
 import {RouterService} from "../../service/router.service";
 import {IUsers} from "../../hr-admin/model/employee-list.model";
 import {LandingPageService} from "../services/landing-page.service";
