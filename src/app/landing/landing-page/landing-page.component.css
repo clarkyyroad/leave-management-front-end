@@ -8,7 +8,7 @@
 }
 
 .site-title{
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-size: 30px;
   font-weight: bold;
   color: #616161;
@@ -26,9 +26,10 @@ img {
 .log-in {
   text-align: center;
   padding: 10px;
+  font-family: 'Roboto', Source Sans Pro, sans-serif;
   font-size: 20px;
   font-weight: bold;
-  font-family: Source Sans Pro, sans-serif;
+  color: #616161;
   box-shadow: 2px 2px 4px #888;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -53,6 +54,7 @@ img {
 .submit {
   margin-top: 30px;
   padding: 8px 16px;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: bold;
   color: #fff;

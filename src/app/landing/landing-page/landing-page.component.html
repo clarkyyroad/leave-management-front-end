@@ -13,6 +13,7 @@
     <div class="admin" *ngIf="true" >
       <form>
         <select name="users" class="users" [(ngModel)]="selectedUser">
+          <option value="" disabled>Select a user</option>
           <option *ngFor="let user of users" [value]="user.roleType">{{user.name}} ({{user.roleType}})</option>
         </select>
         <br>

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {RoleType} from "../../shared/side-navigation-bar/role-type.enum";
 import {RouterService} from "../../service/router.service";
 import {IUsers} from "../../hr-admin/model/employee-list.model";
@@ -11,9 +11,6 @@ import {LandingPageService} from "../services/landing-page.service";
 })
 export class LandingPageComponent implements OnInit {
 
-  public member: RoleType = RoleType.MEMBER
-  public manager: RoleType = RoleType.MANAGER
-  public admin: RoleType = RoleType.ADMIN
   public users: IUsers[] = [];
   public selectedUser: string = '';
 

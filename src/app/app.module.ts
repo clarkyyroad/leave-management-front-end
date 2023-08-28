@@ -17,18 +17,18 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HrAdminComponent,
-    ManagerComponent,
-    MemberComponent,
-    AddEmployeeComponent,
-    EditEmployeeComponent,
-    CreateLeaveComponent,
-    ViewLeavesComponent,
-    SideNavigationBarComponent,
-    LandingPageComponent
-  ],
+    declarations: [
+        AppComponent,
+        HrAdminComponent,
+        ManagerComponent,
+        MemberComponent,
+        AddEmployeeComponent,
+        EditEmployeeComponent,
+        CreateLeaveComponent,
+        ViewLeavesComponent,
+        SideNavigationBarComponent,
+        LandingPageComponent,
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
