@@ -1,0 +1,51 @@
+<div class="sidenav">
+    <h3>Welcome Back!</h3>
+    <form>
+        <h3>{{ userName }}</h3>
+    </form>
+    <br>
+    <h3 class="employees-nav">Employees</h3>
+    <span class="nav-item" routerLink="hr-admin">View All</span>
+    <br>
+    <span class="nav-item" routerLink="add-employee">Add New</span>
+    <br>
+    <br>
+    <h3 class="leaves-nav">Leaves</h3>
+    <span class="nav-item" routerLink="leaves">View All</span>
+</div>
+
+
+<div class="main">
+    <div class="header">
+        <h2>All Employees</h2>
+        <div class="actions">
+            <button class="add" routerLink="add-employee">+ Add New Employee</button>
+        </div>
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Manager</th>
+                <th>Used Leaves</th>
+                <th>Available Leaves</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let employee of employeesInPage.content">
+                <td>{{employee.id}}</td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.manager}}</td>
+                <td>{{employee.totalLeaves}}</td>
+                <td>{{employee.currentLeaves}}</td>
+                <td>
+                    <button (click)="editEmployee(employee.id)" class="edit">Edit</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
