@@ -40,14 +40,14 @@
         </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>1</td>
-        <td>Clark Tabar</td>
-        <td>Romeo Fermano</td>
-        <td>5</td>
-        <td>10</td>
+      <tr *ngFor="let employee of employeesInPage.content">
+        <td>{{employee.id}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.manager}}</td>
+        <td>{{employee.totalLeaves}}</td>
+        <td>{{employee.currentLeaves}}</td>
         <td>
-          <button class="edit" routerLink="edit-employee">Edit</button>
+          <button class="edit" (click)="editEmployee(employee.id)">Edit</button>
         </td>
       </tr>
       </tbody>

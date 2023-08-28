@@ -4,11 +4,11 @@
     <br>
     <br>
     <form >
-      <select name="users" id="users" >
-        <option >{{user1}} ({{admin}})</option>
-        <option >{{user2}} ({{manager}})</option>
-        <option >{{user3}} ({{member}})</option>
-        <option >{{user4}} ({{member}})</option>
+      <select name="users" id="users">
+        <option *ngFor="let employee of employeeList">{{ employee.name + ' (' + employee.roleType + ')' }}</option>
+<!--        <option value="Romeo (Manager)">Romeo (Manager)</option>-->
+<!--        <option value="Clark (Member)">Clark (Member)</option>-->
+<!--        <option value="Carli (Member)">Carli (Member)</option>-->
       </select>
       <button type="submit" id="submit">Submit</button>
     </form>
