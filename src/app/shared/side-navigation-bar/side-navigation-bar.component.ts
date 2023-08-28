@@ -19,6 +19,15 @@ export class SideNavigationBarComponent implements OnInit {
     this.initializeListEmployees();
   }
 
+  onUserSelection(event: any): void {
+    const selectedValue = event.target.value;
+    const roleType = selectedValue.split(' ')[1].slice(1, -1);
+    if (roleType === 'HR_ADMIN') {
+      this.routerService.navigate(['/hr-admin']).then(() => console.log('Navigation successful'))
+          .catch((error) => console.error('Navigation error: ', error));
+    }
+  }
+
   private initializeListEmployees() {
     this.employeeService.getEmployeeList().subscribe({
       next: (data: IEmployeeList[]) => {

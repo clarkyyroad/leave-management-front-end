@@ -5,10 +5,7 @@
     <br>
     <form >
       <select name="users" id="users">
-        <option *ngFor="let employee of employeeList">{{ employee.name + ' (' + employee.roleType + ')' }}</option>
-<!--        <option value="Romeo (Manager)">Romeo (Manager)</option>-->
-<!--        <option value="Clark (Member)">Clark (Member)</option>-->
-<!--        <option value="Carli (Member)">Carli (Member)</option>-->
+        <option *ngFor="let employee of employeeList" (change)="onUserSelection($event.target)">{{ employee.name + ' (' + employee.roleType + ')' }} </option>
       </select>
     </form>
     <br>
@@ -21,6 +18,7 @@
       <br>
       <span  class="nav-item">Add New</span>
       <br>
+
     </div>
 
 
