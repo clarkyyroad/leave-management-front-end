@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
-import {IEmployeeList} from "../model/employee-list.model";
+import {IUsers} from "../model/employee-list.model";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {IEmployee} from "../model/employee.model";
 
@@ -17,9 +17,9 @@ export class EmployeeRepository {
         });
     }
 
-    public getListEmployees(): Observable<IEmployeeList[]> {
+    public getListEmployees(): Observable<IUsers[]> {
         const getListEmployeeUrl: string = this.baseUrl + '/employees/list';
-        return this.httpClient.get<IEmployeeList[]>(getListEmployeeUrl, {headers: this.headers});
+        return this.httpClient.get<IUsers[]>(getListEmployeeUrl, {headers: this.headers});
     }
 
     public createMember(requestBody: IEmployee){

@@ -14,7 +14,7 @@ import {NgOptimizedImage} from "@angular/common";
 import { SideNavigationBarComponent } from './shared/side-navigation-bar/side-navigation-bar.component';
 import { LandingPageComponent } from './landing/landing-page/landing-page.component';
 import {HttpClientModule} from "@angular/common/http";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -34,7 +34,8 @@ import {ReactiveFormsModule} from "@angular/forms";
         AppRoutingModule,
         NgOptimizedImage,
         HttpClientModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FormsModule
     ],
   providers: [],
   bootstrap: [AppComponent]
