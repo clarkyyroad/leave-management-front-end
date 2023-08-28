@@ -3,11 +3,12 @@
     <span class="leaves-nav">Select User</span>
     <br>
     <br>
-    <form >
-      <select name="users" id="users">
-        <option *ngFor="let employee of employeeList" (change)="onUserSelection($event.target)">{{ employee.name + ' (' + employee.roleType + ')' }} </option>
+    <form>
+      <select id="users" name="users">
+        <option (change)="onUserSelection($event.target)"
+                *ngFor="let employee of employeeList">{{ employee.name + ' (' + employee.roleType + ')' }} </option>
       </select>
-      <button type="submit" id="submit">Submit</button>
+      <button id="submit" type="submit">Submit</button>
     </form>
 
     <br>
@@ -17,11 +18,27 @@
       <br>
       <span class="nav-item">View All</span>
       <br>
-      <span  class="nav-item">Add New</span>
+      <span class="nav-item">Add New</span>
       <br>
 
     </div>
 
+<<<<<<< HEAD
+    <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        <div *ngIf="true">
+            <br><br>
+            <span *ngIf="true" class="leaves-nav">Leaves</span>
+            <br>
+            <span *ngIf="true" class="nav-item">View All</span>
+            <br>
+            <span *ngIf="true" class="nav-item" routerLink="apply">Apply</span>
+            <br>
+            <span *ngIf="true" class="nav-item">My Leaves</span>
+        </div>
+=======
+>>>>>>> ae811fdfa68e190376856a88f94c99aa8a9fd1db
     <div *ngIf="true">
       <br><br>
       <span class="leaves-nav" *ngIf="true">Leaves</span>
@@ -32,14 +49,29 @@
       <span  class="nav-item" *ngIf="true">My Leaves</span>
       <br>
       <span *ngIf="true" class="nav-item">View All</span>
+<<<<<<< HEAD
+      =======
+      <div *ngIf="true">
+        <br><br>
+        <span *ngIf="true" class="leaves-nav">Leaves</span>
+        <br>
+        <span *ngIf="true" class="nav-item">View All</span>
+        <br>
+        <span *ngIf="true" class="nav-item" routerLink="apply">Apply</span>
+        <br>
+        <span *ngIf="true" class="nav-item">My Leaves</span>
+      </div>
+      >>>>>>> origin/romeojr
+=======
+>>>>>>> origin/master
+>>>>>>> ae811fdfa68e190376856a88f94c99aa8a9fd1db
     </div>
-  </div>
 
-  <div class="site-title" *ngIf="true">
-    <img ngSrc="assets/logo-white.png" alt="rise-logo" height="335" width="1069">
+    <div *ngIf="true" class="site-title">
+      <img alt="rise-logo" height="335" ngSrc="assets/logo-white.png" width="1069">
 
-    <br>
-    <span>My Personal</span><br>
-    <span>Time Out</span><br>
-  </div>
+      <br>
+      <span>My Personal</span><br>
+      <span>Time Out</span><br>
+    </div>
 </div>

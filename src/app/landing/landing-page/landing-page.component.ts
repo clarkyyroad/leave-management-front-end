@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {RoleType} from "../../shared/side-navigation-bar/role-type.enum";
-import {RouterService} from "../../service/router.service";
-import {IUsers} from "../../hr-admin/model/employee-list.model";
+import {IUsers} from "../../employee/employee-model/employee-list.model";
 import {LandingPageService} from "../services/landing-page.service";
+
+import {RouterService} from "../../shared/router-service/router.service";
+
 
 @Component({
   selector: 'app-landing-page',
@@ -11,17 +12,36 @@ import {LandingPageService} from "../services/landing-page.service";
 })
 export class LandingPageComponent implements OnInit {
 
-  public member: RoleType = RoleType.MEMBER
-  public manager: RoleType = RoleType.MANAGER
-  public admin: RoleType = RoleType.ADMIN
   public users: IUsers[] = [];
   public selectedUser: string = '';
+  showModal: boolean = false;
 
   constructor(private routerService: RouterService, private landingPageService: LandingPageService) {
   }
 
   ngOnInit() {
     this.initializeUser();
+  }
+
+  public getUserPath(): void {
+    if (!this.selectedUser) {
+      this.showModal = true;
+    } else {
+      if (this.selectedUser === 'HR_ADMIN') {
+        this.routerService.navigate('/hr-admin/').then(() => console.log('Navigation successful'))
+          .catch((error) => console.error('Navigation error: ', error));
+      } else if (this.selectedUser === 'MANAGER') {
+        this.routerService.navigate('/manager/').then(() => console.log('Navigation successful'))
+          .catch((error) => console.error('Navigation error: ', error));
+      } else if (this.selectedUser === 'MEMBER') {
+        this.routerService.navigate('/member/').then(() => console.log('Navigation successful'))
+          .catch((error) => console.error('Navigation: ', error));
+      }
+    }
+  }
+
+  closeModal() {
+    this.showModal = false;
   }
 
   private initializeUser() {
@@ -31,18 +51,5 @@ export class LandingPageComponent implements OnInit {
         console.log('Response: ', data)
       }
     });
-  }
-
-  public getUserPath(): void{
-    if (this.selectedUser === 'HR_ADMIN') {
-      this.routerService.navigate('/hr-admin/').then(() => console.log('Navigation successful'))
-          .catch((error) => console.error('Navigation error: ', error));
-    } else if (this.selectedUser === 'MANAGER') {
-      this.routerService.navigate('/manager/').then(() => console.log('Navigation successful'))
-          .catch((error) => console.error('Navigation error: ', error));
-    } else if (this.selectedUser === 'MEMBER') {
-      this.routerService.navigate('/member/').then(() => console.log('Navigation successful'))
-          .catch((error) => console.error('Navigation: ', error));
-    }
   }
 }

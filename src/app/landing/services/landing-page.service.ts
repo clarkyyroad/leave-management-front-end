@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {LandingPageRepository} from "../repository/landing-page.repository";
 import {Observable} from "rxjs";
-import {IUsers} from "../../hr-admin/model/employee-list.model";
+import {IUsers} from "../../employee/employee-model/employee-list.model";
 
 @Injectable({providedIn: 'root'})
 

@@ -1,0 +1,57 @@
+<div class="sidenav">
+  <h3>Select User</h3>
+  <form>
+    <select id="users" name="users">
+      <option value="Dexter Sy (Admin)">Dexter Sy (Admin)</option>
+      <option value="Romeo (Manager)">Romeo (Manager)</option>
+      <option value="Clark (Member)">Clark (Member)</option>
+      <option value="Carli (Member)">Carli (Member)</option>
+    </select>
+  </form>
+  <br>
+  <h3 class="employees-nav">Employees</h3>
+  <span>View All</span>
+  <br>
+  <span>Add New</span>
+  <br>
+  <br>
+  <h3 class="leaves-nav">Leaves</h3>
+  <span routerLink="leaves">View All</span>
+</div>
+
+
+<div class="main">
+  <div class="header">
+    <h2>All Leaves</h2>
+    <div class="actions">
+
+    </div>
+  </div>
+  <div class="table">
+    <table>
+      <thead>
+      <tr>
+        <th>Applied By</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Days</th>
+        <th>Reason</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Clark Tabar</td>
+        <td>12/22/2023</td>
+        <td>12/27/2023</td>
+        <td>5</td>
+        <td>Vacation Leave</td>
+        <td>
+          <button class="approve">Approve</button>
+          <button class="reject">Reject</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
