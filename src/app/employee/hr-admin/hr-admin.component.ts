@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {IPageResponse} from "../employee-model/page-response.model";
 import {RouterService} from "../../shared/router-service/router.service";
-import {EmployeeService} from "../employee-service/employee.service";
 
 @Component({
   selector: 'app-hr-admin',
@@ -15,8 +14,11 @@ export class HrAdminComponent {
     pageNumber: 0,
     content: []
   }
+  userName?: string;
 
-  constructor(private employeeService: EmployeeService, private routerService: RouterService) {
+  constructor(private routerService: RouterService) {
+    const userName = this.routerService.getQueryParams();
+    this.userName = userName.name;
   }
 
   public editEmployee(id: any) {
