@@ -1,5 +1,3 @@
-
-
 <div class="main">
   <div class="site-title">
     <img ngSrc="assets/logo-black.png" alt="rise-logo" height="191" width="505">
@@ -12,9 +10,7 @@
   <br>
   <div class="log-in">
     <span>LOG IN AS</span>
-
     <div class="admin" *ngIf="true" >
-      <span>Admin</span>
       <form>
         <select name="users" class="users" [(ngModel)]="selectedUser">
           <option *ngFor="let user of users" [value]="user.roleType">{{user.name}} ({{user.roleType}})</option>
@@ -25,4 +21,3 @@
     </div>
   </div>
 </div>
-
