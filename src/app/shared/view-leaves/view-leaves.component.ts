@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {LeaveResponse} from "../../hr-admin/model/leave-list.model";
-import {Route} from "@angular/router";
+import {LeaveResponse} from "../../hr-admin/model/leave-response.model";
 import {RouterService} from "../../service/router.service";
 import {LeaveService} from "../../hr-admin/service/leave.service";
 
