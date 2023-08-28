@@ -1,1 +1,60 @@
-<app-side-navigation-bar></app-side-navigation-bar>
+
+
+<div class="main">
+  <div class="site-title">
+    <img ngSrc="assets/logo-black.png" alt="rise-logo" height="335" width="1069">
+    <br>
+    <span>My Personal</span>
+    <br>
+    <span>Time Out</span><br>
+  </div>
+  <br>
+  <br>
+  <div class="log-in">
+    <span>LOG IN AS</span>
+
+    <div class="admin" *ngIf="true">
+      <span>Admin</span>
+      <form >
+        <select name="users" class="users" >
+          <option >{{user1}} ({{admin}})</option>
+          <option >{{user2}} ({{manager}})</option>
+          <option >{{user3}} ({{member}})</option>
+          <option >{{user4}} ({{member}})</option>
+        </select>
+        <br>
+        <button (click)="getAdminPath()" type="submit" class="submit">Log in</button>
+      </form>
+    </div>
+
+    <div class="manager">
+    <span>Manager</span>
+    <form routerLink="manager">
+      <select name="users" class="users" >
+        <option >{{user1}} ({{admin}})</option>
+        <option >{{user2}} ({{manager}})</option>
+        <option >{{user3}} ({{member}})</option>
+        <option >{{user4}} ({{member}})</option>
+      </select>
+      <br>
+      <button (click)="getManagerPath()" type="submit" class="submit">Log in</button>
+    </form>
+    </div>
+
+    <div class="member">
+      <span>Member</span>
+      <form >
+        <select name="users" class="users" >
+          <option >{{user1}} ({{admin}})</option>
+          <option >{{user2}} ({{manager}})</option>
+          <option >{{user3}} ({{member}})</option>
+          <option >{{user4}} ({{member}})</option>
+        </select>
+        <br>
+        <button (click)="getMemberPath()" type="submit" class="submit">Log in</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+

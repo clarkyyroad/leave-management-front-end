@@ -7,8 +7,9 @@
       <select name="users" id="users">
         <option *ngFor="let employee of employeeList" (change)="onUserSelection($event.target)">{{ employee.name + ' (' + employee.roleType + ')' }} </option>
       </select>
+      <button type="submit" id="submit">Submit</button>
     </form>
-    <br>
+
     <br>
     <div *ngIf="true">
       <span class="leaves-nav">Employees</span>
@@ -20,7 +21,6 @@
       <br>
 
     </div>
-
 
     <div *ngIf="true">
       <br><br>

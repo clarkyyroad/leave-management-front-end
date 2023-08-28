@@ -17,19 +17,29 @@
 }
 select{
   width: 90%;
-  height: 20%;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: content-box;
   font-size: 15px;
   padding: 8px 5px;
 }
+#submit{
+  margin: 10px 0;
+  border: 1px solid white;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: white;
+}
+#submit:hover{
+  background-color: #F14E6D;
+  border: 1px solid #F14E6D;
+  color: white;
+}
 .leaves-nav{
   font-size: 25px;
   font-weight: bold;
 }
 .nav-item{
-  margin-top:15px;
   font-size: 16px;
   font-weight: bold;
 }
