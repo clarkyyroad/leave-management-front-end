@@ -43,10 +43,15 @@
           <button class="cancel">Cancel</button>
         </td>
       </tr>
+
       </tbody>
     </table>
 
+    <div class="data-info" *ngIf="dataInfo">
+      <span class="data-info">No leaves taken yet...</span>
+    </div>
   </div>
+
   <div class="pagination">
     <button class="page-button">< Previous</button>
     <button class="page-button">Next ></button>

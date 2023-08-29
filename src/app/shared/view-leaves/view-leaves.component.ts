@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {LeaveResponse} from "../../leave/leave-model/leave-response.model";
 import {LeaveService} from "../../leave/leave-service/leave.service";
 import {RouterService} from "../router-service/router.service";
+import {EmployeeService} from "../../employee/employee-service/employee.service";
 
 @Component({
   selector: 'app-view-leaves',
@@ -15,11 +16,14 @@ export class ViewLeavesComponent {
     pageNumber: 0,
     totalCount: 0
   }
+
+  public dataInfo: boolean = false;
+
   public readonly MAX_LIMIT: number = 5;
   private page: number = 1;
-  private employeeId: number = 3;
+  private employeeId: number = 2;
 
-  constructor(private leaveService: LeaveService, private routerService: RouterService) {
+  constructor(private leaveService: LeaveService, private employeeService: EmployeeService, private routerService: RouterService) {
   }
 
   ngOnInit(){
@@ -32,6 +36,12 @@ export class ViewLeavesComponent {
           console.log('Response', data);
 
           this.leavesInPage = data;
+
+          this.dataInfo = data.totalCount == 0;
           }});
     }
+
+    // private fetchUsedLeaves(){
+    //   this.employeeService.
+    // }
 }
