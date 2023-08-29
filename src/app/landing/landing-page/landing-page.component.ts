@@ -29,7 +29,8 @@ export class LandingPageComponent implements OnInit {
       this.showModal = true;
     } else {
       if (this.selectedUser === 'HR_ADMIN' && user) {
-        this.routerService.navigate('/hr-admin/', {user: user})
+        localStorage.setItem('userName', user?.name || '')
+        this.routerService.navigate('/hr-admin/')
             .then(() => console.log('Navigation successful'))
             .catch((error) => console.error('Navigation error: ', error));
       } else if (this.selectedUser === 'MANAGER') {
