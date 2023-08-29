@@ -4,7 +4,6 @@ import {IEmployee} from "../../employee-model/employee.model";
 import {FormControl, FormGroup} from "@angular/forms";
 import {IUsers} from "../../employee-model/employee-list.model";
 import {RouterService} from "../../../shared/router-service/router.service";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-employee',

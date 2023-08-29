@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {IPageResponse} from "../employee-model/page-response.model";
 import {RouterService} from "../../shared/router-service/router.service";
 import {EmployeeService} from "../employee-service/employee.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-hr-admin',
@@ -15,12 +16,12 @@ export class HrAdminComponent implements OnInit {
     pageNumber: 0,
     content: []
   }
-  private readonly MAX_LIMIT: number = 5;
+  private readonly MAX_LIMIT: number = 10;
   userName: string = '';
 
-  constructor(private routerService: RouterService, private employeeService: EmployeeService) {
-    const queryParams = this.routerService.getQueryParams();
-    this.userName = queryParams.user.name;
+  constructor(private routerService: RouterService, private employeeService: EmployeeService, private route: Router) {
+    const storedUserName = localStorage.getItem('userName');
+    this.userName = storedUserName || 'Unknown User';
   }
 
   ngOnInit() {
