@@ -1,8 +1,7 @@
 import {Injectable} from "@angular/core";
 
-import {LeaveRepository} from "../leave-repository/leave.repository";
 import {ILeave} from "../leave-model/leave.model";
-
+import {LeaveRepository} from "../leave-repository/leave.repository";
 @Injectable({providedIn: 'root'})
 
 export class LeaveService {
@@ -14,12 +13,12 @@ export class LeaveService {
     return this.leaveRepository.fetchAllLeaves(max, page);
   }
 
-  public fetchEmployeeLeaves(max: number, page: number){
-    return this.leaveRepository.fetchEmployeeLeaves(max, page);
+  public fetchEmployeeLeaves(max: number, page: number, employeeId: number){
+    return this.leaveRepository.fetchEmployeeLeaves(max, page, employeeId);
   }
 
-  public fetchLeavesUnderManager(max: number, page: number){
-    return this.leaveRepository.fetchLeavesUnderManager(max, page);
+  public fetchLeavesUnderManager(max: number, page: number, managerId: number){
+    return this.leaveRepository.fetchLeavesUnderManager(max, page, managerId);
   }
 
   public saveLeave(requestBody: ILeave){

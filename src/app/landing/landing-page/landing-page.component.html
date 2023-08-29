@@ -11,15 +11,13 @@
   <div class="log-in">
     <span>LOG IN AS</span>
     <div *ngIf="true" class="admin">
-      <form>
-        <select [(ngModel)]="selectedUser" class="users" name="users">
-          <option disabled value="">Select a user</option>
-          <option *ngFor="let user of users" [value]="user.roleType">{{user.name}} ({{user.roleType}})
-          </option>
-        </select>
-        <br>
-        <button (click)="getUserPath()" class="submit" type="submit">Log in</button>
-      </form>
+      <select [(ngModel)]="selectedUser" class="users" name="users">
+        <option disabled value="">Select a user</option>
+        <option *ngFor="let user of users" [value]="user.roleType">{{user.name}} ({{user.roleType}})
+        </option>
+      </select>
+      <br>
+      <button (click)="getUserPath()" class="submit" type="submit">Log in</button>
     </div>
   </div>
 </div>
