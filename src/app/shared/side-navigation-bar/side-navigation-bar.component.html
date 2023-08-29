@@ -1,14 +1,10 @@
 <div class="sidenav">
   <div class="nav-list">
-    <span class="leaves-nav">Select User</span>
+      <span class="leaves-nav">Welcome Back</span>
     <br>
     <br>
     <form>
-      <select id="users" name="users">
-        <option (change)="onUserSelection($event.target)"
-                *ngFor="let employee of employeeList">{{ employee.name + ' (' + employee.roleType + ')' }} </option>
-      </select>
-      <button id="submit" type="submit">Submit</button>
+        <h3>User</h3>
     </form>
 
     <br>
@@ -23,22 +19,6 @@
 
     </div>
 
-<<<<<<< HEAD
-    <<<<<<< HEAD
-=======
-<<<<<<< HEAD
-        <div *ngIf="true">
-            <br><br>
-            <span *ngIf="true" class="leaves-nav">Leaves</span>
-            <br>
-            <span *ngIf="true" class="nav-item">View All</span>
-            <br>
-            <span *ngIf="true" class="nav-item" routerLink="apply">Apply</span>
-            <br>
-            <span *ngIf="true" class="nav-item">My Leaves</span>
-        </div>
-=======
->>>>>>> ae811fdfa68e190376856a88f94c99aa8a9fd1db
     <div *ngIf="true">
       <br><br>
       <span class="leaves-nav" *ngIf="true">Leaves</span>
@@ -49,8 +29,7 @@
       <span  class="nav-item" *ngIf="true">My Leaves</span>
       <br>
       <span *ngIf="true" class="nav-item">View All</span>
-<<<<<<< HEAD
-      =======
+
       <div *ngIf="true">
         <br><br>
         <span *ngIf="true" class="leaves-nav">Leaves</span>
@@ -61,10 +40,6 @@
         <br>
         <span *ngIf="true" class="nav-item">My Leaves</span>
       </div>
-      >>>>>>> origin/romeojr
-=======
->>>>>>> origin/master
->>>>>>> ae811fdfa68e190376856a88f94c99aa8a9fd1db
     </div>
 
     <div *ngIf="true" class="site-title">
@@ -74,4 +49,5 @@
       <span>My Personal</span><br>
       <span>Time Out</span><br>
     </div>
+  </div>
 </div>
