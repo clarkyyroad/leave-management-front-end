@@ -7,4 +7,5 @@ export interface ILeave{
   endDate: Date
   days: number
   reason: string
+  leaveStatus: string
 }

@@ -17,7 +17,21 @@ export class ViewLeavesComponent {
   }
   public readonly MAX_LIMIT: number = 5;
   private page: number = 1;
+  private employeeId: number = 3;
 
   constructor(private leaveService: LeaveService, private routerService: RouterService) {
   }
+
+  ngOnInit(){
+    this.fetchMyLeaves();
+  }
+
+    private fetchMyLeaves(){
+      this.leaveService.fetchEmployeeLeaves(this.MAX_LIMIT, this.page, this.employeeId)
+        .subscribe({next: (data: any) =>{
+          console.log('Response', data);
+
+          this.leavesInPage = data;
+          }});
+    }
 }

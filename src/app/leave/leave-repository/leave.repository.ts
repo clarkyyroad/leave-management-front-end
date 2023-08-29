@@ -21,13 +21,13 @@ export class LeaveRepository {
     return this.httpClient.get<any>(getAllLeavesUrls, {headers: this.headers});
   }
 
-  public fetchEmployeeLeaves(max: number, page: number): Observable<any>{
-    const getEmployeeLeavesUrl: string = this.baseUrl + 'leave?max=' + max + '&page=' + page;
+  public fetchEmployeeLeaves(max: number, page: number, id: any): Observable<any>{
+    const getEmployeeLeavesUrl: string = this.baseUrl + '/leave?max=' + max + '&page=' + page + '&employeeId=' + id;
     return this.httpClient.get<any>(getEmployeeLeavesUrl, {headers: this.headers});
   }
 
-  public fetchLeavesUnderManager(max: number, page: number): Observable<any>{
-    const getLeavesUnderManagerUrl: string = this.baseUrl + '/leave/manager?max=' + max + '&page=' + page;
+  public fetchLeavesUnderManager(max: number, page: number, id: any): Observable<any>{
+    const getLeavesUnderManagerUrl: string = this.baseUrl + '/leave/manager?max=' + max + '&page=' + page + '&employeeId=' + id;
     return this.httpClient.get<any>(getLeavesUnderManagerUrl, {headers: this.headers});
   }
 

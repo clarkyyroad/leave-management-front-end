@@ -34,51 +34,11 @@
       </thead>
       <tbody>
       <tr *ngFor="let leave of leavesInPage.content">
-        <td>12/22/2023</td>
-        <td>12/27/2023</td>
-        <td>5</td>
-        <td>Vacation Leave</td>
-        <td>Pending</td>
-        <td>
-          <button class="cancel">Cancel</button>
-        </td>
-      </tr>
-      <tr>
-        <td>12/22/2023</td>
-        <td>12/27/2023</td>
-        <td>5</td>
-        <td>Vacation Leave</td>
-        <td>Pending</td>
-        <td>
-          <button class="cancel">Cancel</button>
-        </td>
-      </tr>
-      <tr>
-        <td>12/22/2023</td>
-        <td>12/27/2023</td>
-        <td>5</td>
-        <td>Vacation Leave</td>
-        <td>Pending</td>
-        <td>
-          <button class="cancel">Cancel</button>
-        </td>
-      </tr>
-      <tr>
-        <td>12/22/2023</td>
-        <td>12/27/2023</td>
-        <td>5</td>
-        <td>Vacation Leave</td>
-        <td>Pending</td>
-        <td>
-          <button class="cancel">Cancel</button>
-        </td>
-      </tr>
-      <tr>
-        <td>12/22/2023</td>
-        <td>12/27/2023</td>
-        <td>5</td>
-        <td>Vacation Leave</td>
-        <td>Pending</td>
+        <td>{{leave.startDate}}</td>
+        <td>{{leave.endDate}}</td>
+        <td>{{leave.days}}</td>
+        <td>{{leave.reason}}</td>
+        <td>{{leave.leaveStatus}}</td>
         <td>
           <button class="cancel">Cancel</button>
         </td>

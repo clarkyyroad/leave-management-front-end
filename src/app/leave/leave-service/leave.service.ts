@@ -14,12 +14,12 @@ export class LeaveService {
     return this.leaveRepository.fetchAllLeaves(max, page);
   }
 
-  public fetchEmployeeLeaves(max: number, page: number){
-    return this.leaveRepository.fetchEmployeeLeaves(max, page);
+  public fetchEmployeeLeaves(max: number, page: number, id: any){
+    return this.leaveRepository.fetchEmployeeLeaves(max, page, id);
   }
 
-  public fetchLeavesUnderManager(max: number, page: number){
-    return this.leaveRepository.fetchLeavesUnderManager(max, page);
+  public fetchLeavesUnderManager(max: number, page: number, id: any ){
+    return this.leaveRepository.fetchLeavesUnderManager(max, page, id);
   }
 
   public saveLeave(requestBody: ILeave){
