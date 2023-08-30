@@ -49,4 +49,9 @@ private initializeManager() {
       }
       });
   }
+
+  goBack() {
+    this.routerService.navigate('/hr-admin/').then(() => console.log('Navigate successful'))
+        .catch((error) => console.error('Navigation error:', error));
+  }
 }

@@ -46,6 +46,12 @@ input[type=text], input[type=number], select {
   box-sizing: border-box;
 }
 
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .submit {
   padding: 12px 20px;
   margin: 10px 0;
@@ -59,10 +65,11 @@ input[type=text], input[type=number], select {
 .submit:hover {
   background-color: white;
   color: #F14E6D;
+  cursor: pointer;
 }
 
 .back {
-  padding: 8px 20px;
+  padding: 12px 20px;
   margin: 10px 0;
   border: 1px solid black;
   border-radius: 5px;
@@ -74,4 +81,5 @@ input[type=text], input[type=number], select {
 .back:hover {
   background-color: white;
   color: black;
+  cursor: pointer;
 }

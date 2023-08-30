@@ -16,6 +16,7 @@ import {LandingPageComponent} from './landing/landing-page/landing-page.componen
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {UserSelectionModalComponent} from './shared/user-selection-modal/user-selection-modal.component';
+import {ApproveRejectLeaveComponent} from "./employee/hr-admin/approve-reject-leave/approve-reject-leave.component";
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {UserSelectionModalComponent} from './shared/user-selection-modal/user-se
     SideNavigationBarComponent,
     LandingPageComponent,
     UserSelectionModalComponent,
+      ApproveRejectLeaveComponent
   ],
     imports: [
         BrowserModule,

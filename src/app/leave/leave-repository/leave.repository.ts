@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ILeave} from "../leave-model/leave.model";
+import {LeavePageResponseModel} from "../leave-model/leave-page-response.model";
 
 @Injectable({providedIn: 'root'})
 export class LeaveRepository {
@@ -16,9 +17,9 @@ export class LeaveRepository {
         });
     }
 
-  public fetchAllLeaves(max: number, page: number): Observable<any>{
-    const getAllLeavesUrls: string = this.baseUrl + '/leave/hr? max=' + max + '&page=' + page;
-    return this.httpClient.get<any>(getAllLeavesUrls, {headers: this.headers});
+  public fetchAllLeaves(max: number, page: number): Observable<LeavePageResponseModel> {
+    const getAllLeavesUrls: string = this.baseUrl + `/leave/hr?max=${max}&page=${page}`;
+    return this.httpClient.get<LeavePageResponseModel>(getAllLeavesUrls, {headers: this.headers});
   }
 
   public fetchEmployeeLeaves(max: number, page: number): Observable<any>{

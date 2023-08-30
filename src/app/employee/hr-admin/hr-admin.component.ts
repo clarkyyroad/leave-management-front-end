@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {IPageResponse} from "../employee-model/page-response.model";
+import {IEmployeePageResponse} from "../employee-model/employee-page-response.model";
 import {RouterService} from "../../shared/router-service/router.service";
 import {EmployeeService} from "../employee-service/employee.service";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-hr-admin',
@@ -11,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class HrAdminComponent implements OnInit {
 
-  public employeesInPage: IPageResponse = {
+  public employeesInPage: IEmployeePageResponse = {
     totalNumber: 0,
     pageNumber: 0,
     content: []
@@ -19,7 +18,7 @@ export class HrAdminComponent implements OnInit {
   private readonly MAX_LIMIT: number = 10;
   userName: string = '';
 
-  constructor(private routerService: RouterService, private employeeService: EmployeeService, private route: Router) {
+  constructor(private routerService: RouterService, private employeeService: EmployeeService) {
     const storedUserName = localStorage.getItem('userName');
     this.userName = storedUserName || 'Unknown User';
   }
@@ -30,7 +29,7 @@ export class HrAdminComponent implements OnInit {
 
   private initializeEmployees() {
     this.employeeService.getEmployees(this.MAX_LIMIT, this.employeesInPage.pageNumber).subscribe({
-      next: (data: IPageResponse) => {
+      next: (data: IEmployeePageResponse) => {
         console.log('Response: ', data);
         this.employeesInPage.content = data.content;
         this.employeesInPage.pageNumber = data.pageNumber;
