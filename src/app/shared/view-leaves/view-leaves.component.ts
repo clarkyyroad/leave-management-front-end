@@ -48,8 +48,6 @@ export class ViewLeavesComponent {
                 next: (data) => {
                     console.log('Leave successfully cancelled: ', data);
 
-                    this.cancelButton = data.leaveStatus == "CANCELLED";
-
                 }, error: (err) => {
 
                     console.log('An error occurred while cancelling leave');
