@@ -63,4 +63,14 @@ export class ApproveRejectLeaveComponent implements OnInit {
             }
         });
     }
+
+    viewAllEmployee() {
+        this.routerService.navigate('/hr-admin/').then(() => console.log('Navigation successful'))
+            .catch((error) => console.error('Navigation error: ', error));
+    }
+
+    viewAllLeaves() {
+        this.routerService.navigate('hr-admin/leaves').then(() => console.log('Navigation successful'))
+            .catch((error) => console.error('Navigation error: ', error));
+    }
 }

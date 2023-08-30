@@ -52,4 +52,10 @@ export class HrAdminComponent implements OnInit {
             }
         });
     }
+
+    viewAllEmployee() {
+        this.routerService.navigate('/hr-admin/')
+            .then(() => console.log('Navigation successful'))
+            .catch((error) => console.log('Navigation error: ', error));
+    }
 }
