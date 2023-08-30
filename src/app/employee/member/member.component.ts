@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {RouterService} from "../../shared/router-service/router.service";
 import {EmployeeService} from "../employee-service/employee.service";
-import {LeaveResponse} from "../../leave/leave-model/leave-response.model";
 import {LeaveService} from "../../leave/leave-service/leave.service";
+import {LeavePageResponseModel} from "../../leave/leave-model/leave-page-response.model";
 
 @Component({
     selector: 'app-member',
@@ -10,7 +10,7 @@ import {LeaveService} from "../../leave/leave-service/leave.service";
     styleUrls: ['./member.component.css']
 })
 export class MemberComponent {
-    public leavesInPage: LeaveResponse = {
+    public leavesInPage: LeavePageResponseModel = {
         content: [],
         pageNumber: 0,
         totalCount: 0
@@ -18,7 +18,6 @@ export class MemberComponent {
 
 
     public dataInfo: boolean = true;
-
     public readonly MAX_LIMIT: number = 5;
     public usedLeaves: number = 0;
     public availableLeaves: number = 0;
@@ -43,7 +42,6 @@ export class MemberComponent {
             .subscribe({
                 next: (data) => {
                     console.log(data);
-
                     this.usedLeaves = data.totalLeaves;
                     this.availableLeaves = data.currentLeaves;
                 }
@@ -64,16 +62,15 @@ export class MemberComponent {
     }
 
     private fetchMyLeaves() {
-        this.leaveService.fetchEmployeeLeaves(this.MAX_LIMIT, this.page, this.userID)
-            .subscribe({
-                next: (data: any) => {
-                    console.log('Response', data);
-
-                    this.leavesInPage = data;
-                    this.dataInfo = data.content.totalCount == 0;
-                    this.cancelButton = data.content.leaveStatus == "CANCELLED";
-                }
-            });
+        this.leaveService.fetchEmployeeLeaves(this.MAX_LIMIT, this.page, this.userID).subscribe({
+            next: (data: any) => {
+                console.log('Response', data);
+                this.leavesInPage.totalCount = data.totalCount;
+                this.leavesInPage.pageNumber = data.pageNumber;
+                this.leavesInPage.content = data.content;
+                this.dataInfo = data.content.totalCount == 0;
+                this.cancelButton = data.content.leaveStatus == "CANCELLED";
+            }
+        });
     }
-
 }

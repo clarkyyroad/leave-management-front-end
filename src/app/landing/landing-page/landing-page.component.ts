@@ -28,9 +28,9 @@ export class LandingPageComponent implements OnInit {
         if (!this.selectedUser) {
             this.showModal = true;
         } else {
+            localStorage.setItem('userName', user?.name || '');
+            localStorage.setItem('userId', String(user?.id));
             if (this.selectedUser === 'HR_ADMIN' && user) {
-                localStorage.setItem('userName', user?.name || '');
-                localStorage.setItem('userId', String(user.id));
                 this.routerService.navigate('/hr-admin/')
                     .then(() => console.log('Navigation successful'))
                     .catch((error) => console.error('Navigation error: ', error));
@@ -38,8 +38,6 @@ export class LandingPageComponent implements OnInit {
                 this.routerService.navigate('/manager/').then(() => console.log('Navigation successful'))
                     .catch((error) => console.error('Navigation error: ', error));
             } else if (this.selectedUser === 'MEMBER' && user) {
-                localStorage.setItem('userName', user?.name || '');
-                localStorage.setItem('userId', String(user.id));
                 this.routerService.navigate('/member/').then(() => console.log('Navigation successful'))
                     .catch((error) => console.error('Navigation: ', error));
             }

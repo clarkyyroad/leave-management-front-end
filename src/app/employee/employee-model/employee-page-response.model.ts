@@ -1,7 +1,7 @@
 import {IEmployee} from "./employee.model";
 
 export interface IEmployeePageResponse {
-    totalNumber: number
+    totalCount: number
     pageNumber: number
     content: IEmployee[]
 }

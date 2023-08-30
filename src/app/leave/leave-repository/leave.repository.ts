@@ -32,9 +32,9 @@ export class LeaveRepository {
         return this.httpClient.put<ILeave>(rejectLeaveUrl, {headers: this.headers});
     }
 
-    public fetchEmployeeLeaves(max: number, page: number, id: any): Observable<any> {
-        const getEmployeeLeavesUrl: string = this.baseUrl + '/leave?max=' + max + '&page=' + page + '&employeeId=' + id;
-        return this.httpClient.get<any>(getEmployeeLeavesUrl, {headers: this.headers});
+    public fetchEmployeeLeaves(max: number, page: number, id: number): Observable<LeavePageResponseModel> {
+        const getEmployeeLeavesUrl: string = this.baseUrl + `/leave?max=${max}&page${page}&employeeId=${id}`;
+        return this.httpClient.get<LeavePageResponseModel>(getEmployeeLeavesUrl, {headers: this.headers});
     }
 
     public fetchLeavesUnderManager(max: number, page: number, id: any): Observable<any> {

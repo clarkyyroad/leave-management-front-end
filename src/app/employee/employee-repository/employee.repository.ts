@@ -24,7 +24,7 @@ export class EmployeeRepository {
     }
 
     public getPagedEmployees(max: number, page: number): Observable<IEmployeePageResponse> {
-        const getPageEmployeesUrl: string = this.baseUrl + `/employees?max=${max}&page${page}`;
+        const getPageEmployeesUrl: string = this.baseUrl + `/employees?max=${max}&page=${page}`;
         return this.httpClient.get<IEmployeePageResponse>(getPageEmployeesUrl, {headers: this.headers});
     }
 
