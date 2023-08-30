@@ -32,23 +32,23 @@ export class LeaveRepository {
         return this.httpClient.put<ILeave>(rejectLeaveUrl, {headers: this.headers});
     }
 
-  public fetchEmployeeLeaves(max: number, page: number, id: any): Observable<any>{
-    const getEmployeeLeavesUrl: string = this.baseUrl + '/leave?max=' + max + '&page=' + page + '&employeeId=' + id;
-    return this.httpClient.get<any>(getEmployeeLeavesUrl, {headers: this.headers});
-  }
+    public fetchEmployeeLeaves(max: number, page: number, id: any): Observable<any> {
+        const getEmployeeLeavesUrl: string = this.baseUrl + '/leave?max=' + max + '&page=' + page + '&employeeId=' + id;
+        return this.httpClient.get<any>(getEmployeeLeavesUrl, {headers: this.headers});
+    }
 
-  public fetchLeavesUnderManager(max: number, page: number, id: any): Observable<any>{
-    const getLeavesUnderManagerUrl: string = this.baseUrl + '/leave/manager?max=' + max + '&page=' + page + '&employeeId=' + id;
-    return this.httpClient.get<any>(getLeavesUnderManagerUrl, {headers: this.headers});
-  }
+    public fetchLeavesUnderManager(max: number, page: number, id: any): Observable<any> {
+        const getLeavesUnderManagerUrl: string = this.baseUrl + '/leave/manager?max=' + max + '&page=' + page + '&employeeId=' + id;
+        return this.httpClient.get<any>(getLeavesUnderManagerUrl, {headers: this.headers});
+    }
 
-  public createLeave(requestBody: ILeave){
-    const createLeaveUrl: string = this.baseUrl + '/leave';
-    return this.httpClient.post<any>(createLeaveUrl, requestBody, {headers: this.headers});
-  }
+    public createLeave(requestBody: ILeave) {
+        const createLeaveUrl: string = this.baseUrl + '/leave';
+        return this.httpClient.post<any>(createLeaveUrl, requestBody, {headers: this.headers});
+    }
 
-  public cancelLeave(id: number){
-    const cancelLeaveUrl: string = this.baseUrl + '/leave/' + id;
-    return this.httpClient.delete<any>(cancelLeaveUrl,{headers: this.headers});
-  }
+    public cancelLeave(id: number) {
+        const cancelLeaveUrl: string = this.baseUrl + '/leave/' + id;
+        return this.httpClient.delete<any>(cancelLeaveUrl, {headers: this.headers});
+    }
 }

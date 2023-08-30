@@ -28,9 +28,9 @@ export class EmployeeRepository {
         return this.httpClient.get<IEmployeePageResponse>(getPageEmployeesUrl, {headers: this.headers});
     }
 
-    public getEmployeeById(id: number){
-      const getEmployeeByIdUrl: string = this.baseUrl + '/employees/' + id;
-      return this.httpClient.get<any>(getEmployeeByIdUrl, {headers: this.headers});
+    public getEmployeeById(id: number) {
+        const getEmployeeByIdUrl: string = this.baseUrl + '/employees/' + id;
+        return this.httpClient.get<any>(getEmployeeByIdUrl, {headers: this.headers});
     }
 
     public createMemberEmployee(requestParam: number, requestBody: IEmployee): Observable<IEmployee> {

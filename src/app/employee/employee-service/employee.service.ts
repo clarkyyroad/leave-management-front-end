@@ -20,11 +20,12 @@ export class EmployeeService {
     }
 
 
-    public getEmployee(id: number): Observable<IEmployee>{
-      return this.employeeRepository.getEmployeeById(id);
+    public getEmployee(id: number): Observable<IEmployee> {
+        return this.employeeRepository.getEmployeeById(id);
 
     }
-  public createMember(requestParam: number, requestBody: IEmployee) {
-    return this.employeeRepository.createMemberEmployee(requestParam, requestBody)
+
+    public createMember(requestParam: number, requestBody: IEmployee) {
+        return this.employeeRepository.createMemberEmployee(requestParam, requestBody)
     }
 }
