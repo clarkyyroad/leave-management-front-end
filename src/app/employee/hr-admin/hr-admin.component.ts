@@ -42,6 +42,12 @@ export class HrAdminComponent implements OnInit {
             .catch((error) => console.error('Navigation error: ', error))
     }
 
+    viewAllEmployee() {
+        this.routerService.navigate('/hr-admin/')
+            .then(() => console.log('Navigation successful'))
+            .catch((error) => console.log('Navigation error: ', error));
+    }
+
     private initializeEmployees() {
         this.employeeService.getEmployees(this.MAX_LIMIT, this.employeesInPage.pageNumber).subscribe({
             next: (data: IEmployeePageResponse) => {
@@ -51,11 +57,5 @@ export class HrAdminComponent implements OnInit {
                 this.employeesInPage.totalNumber = data.totalNumber;
             }
         });
-    }
-
-    viewAllEmployee() {
-        this.routerService.navigate('/hr-admin/')
-            .then(() => console.log('Navigation successful'))
-            .catch((error) => console.log('Navigation error: ', error));
     }
 }
