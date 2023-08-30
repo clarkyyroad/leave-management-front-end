@@ -1,18 +1,16 @@
 <div class="main">
-
-    <div class="credit-status">
-        <div class="used-leave-credits">
-            <span class="status-header">Used Credits:</span>
-            <br>
-            <span class="status-data">5</span>
-        </div>
-        <div class="available-leave-credits">
-            <span class="status-header">Available Credits:</span>
-            <br>
-            <span class="status-data">10</span>
-        </div>
+  <div class="credit-status">
+    <div class="used-leave-credits">
+      <span class="status-header">Used Credits:</span>
+      <br>
+      <span class="status-data">{{usedLeaves}}</span>
     </div>
-
+    <div class="available-leave-credits">
+      <span class="status-header">Available Credits:</span>
+      <br>
+      <span class="status-data">{{availableLeaves}}</span>
+    </div>
+  </div>
 
     <div class="header">
         <h2>My Leaves</h2>
@@ -20,75 +18,40 @@
         </div>
     </div>
 
-    <div class="table">
-        <table>
-            <thead>
-            <tr>
-                <th>Start</th>
-                <th>End</th>
-                <th>Days</th>
-                <th>Reason</th>
-                <th>Status</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let leave of leavesInPage.content">
-                <td>12/22/2023</td>
-                <td>12/27/2023</td>
-                <td>5</td>
-                <td>Vacation Leave</td>
-                <td>Pending</td>
-                <td>
-                    <button class="cancel">Cancel</button>
-                </td>
-            </tr>
-            <tr>
-                <td>12/22/2023</td>
-                <td>12/27/2023</td>
-                <td>5</td>
-                <td>Vacation Leave</td>
-                <td>Pending</td>
-                <td>
-                    <button class="cancel">Cancel</button>
-                </td>
-            </tr>
-            <tr>
-                <td>12/22/2023</td>
-                <td>12/27/2023</td>
-                <td>5</td>
-                <td>Vacation Leave</td>
-                <td>Pending</td>
-                <td>
-                    <button class="cancel">Cancel</button>
-                </td>
-            </tr>
-            <tr>
-                <td>12/22/2023</td>
-                <td>12/27/2023</td>
-                <td>5</td>
-                <td>Vacation Leave</td>
-                <td>Pending</td>
-                <td>
-                    <button class="cancel">Cancel</button>
-                </td>
-            </tr>
-            <tr>
-                <td>12/22/2023</td>
-                <td>12/27/2023</td>
-                <td>5</td>
-                <td>Vacation Leave</td>
-                <td>Pending</td>
-                <td>
-                    <button class="cancel">Cancel</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+  <div class="table">
+    <table>
+      <thead>
+      <tr>
+        <th>Start</th>
+        <th>End</th>
+        <th>Days</th>
+        <th>Reason</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let leave of leavesInPage.content">
+        <td>{{leave.startDate}}</td>
+        <td>{{leave.endDate}}</td>
+        <td>{{leave.days}}</td>
+        <td>{{leave.reason}}</td>
+        <td>{{leave.leaveStatus}}</td>
+        <td>
+          <button class="cancel" *ngIf="cancelButton" (click)="cancelLeave(leave.id)">Cancel</button>
+        </td>
+      </tr>
 
+      </tbody>
+    </table>
+
+    <div class="data-info" *ngIf="dataInfo">
+      <span class="data-info">No leaves taken yet...</span>
     </div>
-    <div class="pagination">
-        <button class="page-button">< Previous</button>
-        <button class="page-button">Next ></button>
-    </div>
+  </div>
+
+  <div class="pagination">
+    <button class="page-button">< Previous</button>
+    <button class="page-button">Next ></button>
+  </div>
 </div>

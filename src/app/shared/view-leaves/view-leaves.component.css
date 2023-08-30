@@ -95,7 +95,8 @@ td {
 }
 
 .table {
-    margin-left: 50px;
+  margin-left: 50px;
+  height: 320px;
 }
 
 .site-title {
@@ -131,4 +132,13 @@ td {
         width: 100%;
         margin-right: 0;
     }
+}
+
+.data-info{
+  color: darkgray;
+  font-style: italic;
+  justify-content: center;
+  padding: 30px 30px;
+  display: flex;
+  align-content: center;
 }
