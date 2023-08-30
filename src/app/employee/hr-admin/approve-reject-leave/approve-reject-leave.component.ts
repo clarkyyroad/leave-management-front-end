@@ -36,7 +36,7 @@ export class ApproveRejectLeaveComponent implements OnInit {
             .catch((error) => console.error('Navigation error: ', error))
     }
 
-    approveLeave(leaveId: number) {
+    approveLeave(leaveId: any) {
         this.leaveService.approveLeave(leaveId).subscribe({
             next: (data: ILeave) => {
                 console.log('Response ', data);
