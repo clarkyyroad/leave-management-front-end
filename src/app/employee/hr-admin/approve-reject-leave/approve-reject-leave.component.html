@@ -17,7 +17,6 @@
     <button (click)="logout()" class="logout">Logout</button>
 </div>
 
-
 <div class="main">
     <div class="header">
         <h2>All Leaves</h2>
@@ -25,8 +24,8 @@
 
         </div>
     </div>
-    <div class="table">
-        <table>
+    <div class="table-container">
+        <table class="table">
             <thead>
             <tr>
                 <th>Id</th>
@@ -36,22 +35,23 @@
                 <th>Days</th>
                 <th>Reason</th>
                 <th>Status</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let leaves of leavesInPage.content">
-                <td>{{leaves.leaveId}}</td>
-                <td>{{leaves.employee.name}}</td>
+                <td>{{leaves.id}}</td>
+                <td>{{leaves.employeeName}}</td>
                 <td>{{leaves.startDate}}</td>
                 <td>{{leaves.endDate}}</td>
                 <td>{{leaves.days}}</td>
                 <td>{{leaves.reason}}</td>
                 <td>{{leaves.leaveStatus}}</td>
                 <td>
-                    <button (click)="approveLeave(leaves.leaveId)" *ngIf="leaves.leaveStatus !== 'APPROVED'" class="approve">
+                    <button (click)="approveLeave(leaves.id)" *ngIf="leaves.leaveStatus === 'PENDING'" class="approve">
                         Approve
                     </button>
-                    <button (click)="rejectLeave(leaves.leaveId)" *ngIf="leaves.leaveStatus !== 'REJECTED'" class="reject">
+                    <button (click)="rejectLeave(leaves.id)" *ngIf="leaves.leaveStatus === 'PENDING'" class="reject">
                         Reject
                     </button>
                 </td>

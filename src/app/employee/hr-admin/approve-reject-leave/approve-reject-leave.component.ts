@@ -13,12 +13,13 @@ import {ILeave} from "../../../leave/leave-model/leave.model";
 export class ApproveRejectLeaveComponent implements OnInit {
 
     public leavesInPage: LeavePageResponseModel = {
-        totalNumber: 0,
+        totalCount: 0,
         pageNumber: 0,
         content: []
     }
     userName: string = '';
-    private readonly MAX_LIMIT: number = 10;
+    showModal: boolean = false;
+    private readonly MAX_LIMIT: number = 15;
 
     constructor(private routerService: RouterService, private leaveService: LeaveService) {
         const storedUserName = localStorage.getItem('userName');
@@ -69,7 +70,7 @@ export class ApproveRejectLeaveComponent implements OnInit {
                 console.log('Response: ', data);
                 this.leavesInPage.content = data.content;
                 this.leavesInPage.pageNumber = data.pageNumber;
-                this.leavesInPage.totalNumber = data.totalNumber;
+                this.leavesInPage.totalCount = data.totalCount;
             }
         });
     }

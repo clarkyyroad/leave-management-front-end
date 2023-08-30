@@ -12,43 +12,37 @@ import {EmployeeService} from "../../employee/employee-service/employee.service"
 })
 export class LandingPageComponent implements OnInit {
 
-  public users: IUsers[] = [];
-  public selectedUser: string = '';
-  showModal: boolean = false;
+    public users: IUsers[] = [];
+    public selectedUser: string = '';
+    showModal: boolean = false;
 
-  constructor(private routerService: RouterService, private employeeService: EmployeeService) {
-  }
-
-  ngOnInit() {
-    this.initializeUser();
-  }
-
-  public getUserPath(): void {
-    const user = this.users.find(u => u.roleType === this.selectedUser);
-    if (!this.selectedUser) {
-      this.showModal = true;
-    } else {
-      if (this.selectedUser === 'HR_ADMIN' && user) {
-        localStorage.setItem('userName', user?.name || '')
-        localStorage.setItem('userId', String(user.id))
-        this.routerService.navigate('/hr-admin/')
-          .then(() => console.log('Navigation successful'))
-          .catch((error) => console.error('Navigation error: ', error));
-      } else if (this.selectedUser === 'MANAGER') {
-        this.routerService.navigate('/manager/')
-          .then(() => console.log('Navigation successful'))
-          .catch((error) => console.error('Navigation error: ', error));
-      } else if (this.selectedUser === 'MEMBER' && user) {
-        localStorage.setItem('userName', user?.name || '')
-        localStorage.setItem('userId', String(user?.id))
-        this.routerService.navigate('/member/')
-          .then(() => console.log('Navigation successful'))
-          .catch((error) => console.error('Navigation: ', error));
-      }
-
-
+    constructor(private routerService: RouterService, private employeeService: EmployeeService) {
     }
-  }
+
+    ngOnInit() {
+        this.initializeUser();
+    }
+
+    public getUserPath(): void {
+        const user = this.users.find(u => u.roleType === this.selectedUser);
+        if (!this.selectedUser) {
+            this.showModal = true;
+        } else {
+            localStorage.setItem('userName', user?.name || '');
+            localStorage.setItem('userId', String(user?.id));
+            if (this.selectedUser === 'HR_ADMIN' && user) {
+                this.routerService.navigate('/hr-admin/')
+                    .then(() => console.log('Navigation successful'))
+                    .catch((error) => console.error('Navigation error: ', error));
+            } else if (this.selectedUser === 'MANAGER') {
+                this.routerService.navigate('/manager/').then(() => console.log('Navigation successful'))
+                    .catch((error) => console.error('Navigation error: ', error));
+            } else if (this.selectedUser === 'MEMBER' && user) {
+                this.routerService.navigate('/member/').then(() => console.log('Navigation successful'))
+                    .catch((error) => console.error('Navigation: ', error));
+            }
+        }
+    }
 
     closeModal() {
         this.showModal = false;

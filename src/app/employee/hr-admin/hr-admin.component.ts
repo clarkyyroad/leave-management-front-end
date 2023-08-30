@@ -11,12 +11,14 @@ import {EmployeeService} from "../employee-service/employee.service";
 export class HrAdminComponent implements OnInit {
 
     public employeesInPage: IEmployeePageResponse = {
-        totalNumber: 0,
+        totalCount: 0,
         pageNumber: 0,
         content: []
     }
     userName: string = '';
-    private readonly MAX_LIMIT: number = 10;
+    readonly MAX_LIMIT: number = 5;
+    currentPage: number = 1;
+    public totalPages: any;
 
     constructor(private routerService: RouterService, private employeeService: EmployeeService) {
         const storedUserName = localStorage.getItem('userName');
@@ -33,10 +35,6 @@ export class HrAdminComponent implements OnInit {
             .catch((error) => console.error('Navigation error: ', error));
     }
 
-    public editEmployee(id: any) {
-        this.routerService.navigate('hr-admin/edit', {'id': id})
-    }
-
     logout() {
         sessionStorage.clear()
         this.routerService.navigate('/landing/').then(() => console.log('Navigation successful'))
@@ -49,13 +47,21 @@ export class HrAdminComponent implements OnInit {
             .catch((error) => console.log('Navigation error: ', error));
     }
 
+    goToPage(page: number) {
+        if (page >= 1 && page <= this.totalPages) {
+            this.currentPage = page;
+            this.initializeEmployees();
+        }
+    }
+
     private initializeEmployees() {
-        this.employeeService.getEmployees(this.MAX_LIMIT, this.employeesInPage.pageNumber).subscribe({
+        this.employeeService.getEmployees(this.MAX_LIMIT, this.currentPage).subscribe({
             next: (data: IEmployeePageResponse) => {
                 console.log('Response: ', data);
-                this.employeesInPage.content = data.content;
+                this.employeesInPage.totalCount = data.totalCount;
                 this.employeesInPage.pageNumber = data.pageNumber;
-                this.employeesInPage.totalNumber = data.totalNumber;
+                this.employeesInPage.content = data.content;
+                this.totalPages = Math.ceil(data.totalCount / this.MAX_LIMIT);
             }
         });
     }
