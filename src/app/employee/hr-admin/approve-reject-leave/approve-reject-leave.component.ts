@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {RouterService} from "../../../shared/router-service/router.service";
 import {LeaveService} from "../../../leave/leave-service/leave.service";
 import {LeavePageResponseModel} from "../../../leave/leave-model/leave-page-response.model";
+import {ILeave} from "../../../leave/leave-model/leave.model";
 
 @Component({
     selector: 'app-approve-reject-leave',
@@ -41,6 +42,24 @@ export class ApproveRejectLeaveComponent implements OnInit {
                 this.leavesInPage.content = data.content;
                 this.leavesInPage.pageNumber = data.pageNumber;
                 this.leavesInPage.totalNumber = data.totalNumber;
+            }
+        });
+    }
+
+    approveLeave(leaveId: number) {
+        this.leaveService.approveLeave(leaveId).subscribe({
+            next: (data: ILeave) => {
+                console.log('Response ', data);
+                this.initializeLeaves();
+            }
+        });
+    }
+
+    rejectLeave(leaveID: number) {
+        this.leaveService.rejectLeave(leaveID).subscribe({
+            next: (data: ILeave) => {
+                console.log('Response ', data);
+                this.initializeLeaves();
             }
         });
     }

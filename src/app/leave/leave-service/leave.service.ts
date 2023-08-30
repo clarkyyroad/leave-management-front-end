@@ -26,12 +26,12 @@ export class LeaveService {
         return this.leaveRepository.createLeave(requestBody);
     }
 
-    public approveLeave(requestBody: ILeave) {
-        return this.leaveRepository.approveLeave(requestBody);
+    public approveLeave(employeeId: number) {
+        return this.leaveRepository.approveLeave(employeeId);
     }
 
-    public rejectLeave(requestBody: ILeave) {
-        return this.leaveRepository.rejectLeave(requestBody);
+    public rejectLeave(leaveID: number) {
+        return this.leaveRepository.rejectLeave(leaveID);
     }
 
     public cancelLeave(requestBody: ILeave) {

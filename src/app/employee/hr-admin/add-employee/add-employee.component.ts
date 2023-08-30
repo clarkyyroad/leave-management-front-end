@@ -25,7 +25,8 @@ export class AddEmployeeComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.initializeManager();
+        const initialRoleType = this.addEmployeeForm.get('roleType')?.value;
+        this.initializeManager(initialRoleType);
     }
 
     public onSubmit() {
@@ -47,8 +48,13 @@ export class AddEmployeeComponent implements OnInit {
             .catch((error) => console.error('Navigation error:', error));
     }
 
-    private initializeManager() {
-        this.employeeService.getUsers().subscribe({
+    onRoleTypeChange() {
+        const roleType = this.addEmployeeForm.get('roleType')?.value;
+        this.initializeManager(roleType)
+    }
+
+    private initializeManager(roleType: string) {
+        this.employeeService.getUsers(roleType).subscribe({
             next: (data: IUsers[]) => {
                 this.managers = data;
             }

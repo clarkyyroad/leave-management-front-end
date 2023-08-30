@@ -37,14 +37,14 @@ export class LeaveRepository {
         return this.httpClient.post<any>(createLeaveUrl, requestBody, {headers: this.headers});
     }
 
-    public approveLeave(requestBody: ILeave) {
-        const approveLeaveUrl: string = this.baseUrl + '/leave/approve/' + requestBody.id;
-        return this.httpClient.put<any>(approveLeaveUrl, requestBody, {headers: this.headers});
+    public approveLeave(leaveId: number): Observable<ILeave> {
+        const approveLeaveUrl: string = this.baseUrl + `/leave/approve/${leaveId}`;
+        return this.httpClient.put<ILeave>(approveLeaveUrl, {headers: this.headers});
     }
 
-    public rejectLeave(requestBody: ILeave) {
-        const rejectLeaveUrl: string = this.baseUrl + '/leave/reject/' + requestBody.id;
-        return this.httpClient.put<any>(rejectLeaveUrl, requestBody, {headers: this.headers});
+    public rejectLeave(leaveId: number): Observable<ILeave> {
+        const rejectLeaveUrl: string = this.baseUrl + `/leave/reject/${leaveId}`;
+        return this.httpClient.put<ILeave>(rejectLeaveUrl, {headers: this.headers});
     }
 
     public cancelLeave(requestBody: ILeave) {

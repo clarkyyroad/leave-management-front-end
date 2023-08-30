@@ -15,7 +15,7 @@
 
             <div>
                 <label for="role">Role </label>
-                <select formControlName="roleType" id="role">
+                <select (change)="onRoleTypeChange()" formControlName="roleType" id="role">
                     <option>MEMBER</option>
                     <option>MANAGER</option>
                 </select>

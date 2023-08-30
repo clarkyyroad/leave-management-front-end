@@ -48,8 +48,12 @@
                 <td>{{leaves.reason}}</td>
                 <td>{{leaves.leaveStatus}}</td>
                 <td>
-                    <button class="approve">Approve</button>
-                    <button class="reject">Reject</button>
+                    <button (click)="approveLeave(leaves.id)" *ngIf="leaves.leaveStatus !== 'APPROVED'" class="approve">
+                        Approve
+                    </button>
+                    <button (click)="rejectLeave(leaves.id)" *ngIf="leaves.leaveStatus !== 'REJECTED'" class="reject">
+                        Reject
+                    </button>
                 </td>
             </tr>
             </tbody>

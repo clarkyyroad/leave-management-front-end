@@ -48,7 +48,7 @@ export class LandingPageComponent implements OnInit {
     }
 
     private initializeUser() {
-        this.employeeService.getUsers().subscribe({
+        this.employeeService.getUsers('').subscribe({
             next: (data: IUsers[]): void => {
                 this.users = data;
                 console.log('Response: ', data)
