@@ -30,6 +30,7 @@ export class LandingPageComponent implements OnInit {
         } else {
             if (this.selectedUser === 'HR_ADMIN' && user) {
                 localStorage.setItem('userName', user?.name || '')
+                localStorage.setItem('userId', String(user.id))
                 this.routerService.navigate('/hr-admin/')
                     .then(() => console.log('Navigation successful'))
                     .catch((error) => console.error('Navigation error: ', error));

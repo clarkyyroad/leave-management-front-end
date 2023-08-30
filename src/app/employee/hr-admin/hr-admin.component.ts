@@ -49,7 +49,7 @@ export class HrAdminComponent implements OnInit {
     }
 
     private initializeEmployees() {
-        this.employeeService.getEmployees(this.MAX_LIMIT, this.employeesInPage.pageNumber).subscribe({
+        this.employeeService.getEmployees(this.MAX_LIMIT, 1).subscribe({
             next: (data: IEmployeePageResponse) => {
                 console.log('Response: ', data);
                 this.employeesInPage.content = data.content;

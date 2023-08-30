@@ -19,6 +19,7 @@ export class ApproveRejectLeaveComponent implements OnInit {
     }
     userName: string = '';
     private readonly MAX_LIMIT: number = 10;
+    showModal: boolean = false;
 
     constructor(private routerService: RouterService, private leaveService: LeaveService) {
         const storedUserName = localStorage.getItem('userName');

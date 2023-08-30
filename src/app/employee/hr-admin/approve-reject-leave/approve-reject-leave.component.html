@@ -25,8 +25,8 @@
 
         </div>
     </div>
-    <div class="table">
-        <table>
+    <div class="table-container">
+        <table class="table">
             <thead>
             <tr>
                 <th>Id</th>
@@ -36,6 +36,7 @@
                 <th>Days</th>
                 <th>Reason</th>
                 <th>Status</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -48,10 +49,10 @@
                 <td>{{leaves.reason}}</td>
                 <td>{{leaves.leaveStatus}}</td>
                 <td>
-                    <button (click)="approveLeave(leaves.id)" *ngIf="leaves.leaveStatus !== 'APPROVED'" class="approve">
+                    <button (click)="approveLeave(leaves.id)" *ngIf="leaves.leaveStatus === 'PENDING'" class="approve">
                         Approve
                     </button>
-                    <button (click)="rejectLeave(leaves.id)" *ngIf="leaves.leaveStatus !== 'REJECTED'" class="reject">
+                    <button (click)="rejectLeave(leaves.id)" *ngIf="leaves.leaveStatus === 'PENDING'" class="reject">
                         Reject
                     </button>
                 </td>

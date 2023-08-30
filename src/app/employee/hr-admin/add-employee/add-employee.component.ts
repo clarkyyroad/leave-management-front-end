@@ -14,8 +14,11 @@ export class AddEmployeeComponent implements OnInit {
 
     public addEmployeeForm: FormGroup;
     public managers: IUsers[] = [];
+    public userId: number;
 
     constructor(private employeeService: EmployeeService, private routerService: RouterService) {
+        const storedUserId = localStorage.getItem('userId')
+        this.userId = storedUserId ? parseInt(storedUserId) : 0;
         this.addEmployeeForm = new FormGroup({
             name: new FormControl(''),
             managerId: new FormControl(),
@@ -32,7 +35,7 @@ export class AddEmployeeComponent implements OnInit {
     public onSubmit() {
         console.warn(this.addEmployeeForm.getRawValue());
         const formValue = this.addEmployeeForm.getRawValue();
-        this.employeeService.createMember(1, formValue).subscribe({
+        this.employeeService.createMember(this.userId, formValue).subscribe({
             next: (data: IEmployee) => {
                 console.log('Successfully Created', data);
                 this.routerService.navigate('/hr-admin/').then(() => console.log('Navigated successful'))
