@@ -1,5 +1,5 @@
-export interface ILeave{
-  id: number
+export interface ILeave {
+    id: number
     employeeName: string,
     managerName: string,
     startDate: Date,

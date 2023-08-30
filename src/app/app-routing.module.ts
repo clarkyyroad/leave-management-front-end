@@ -11,38 +11,38 @@ import {ApproveRejectLeaveComponent} from "./employee/hr-admin/approve-reject-le
 import {LandingPageComponent} from "./landing/landing-page/landing-page.component";
 
 const routes: Routes = [
-  {path: 'landing', component: LandingPageComponent},
-  {
-    path: 'hr-admin',
-    children: [
-      {path: '', component: HrAdminComponent},
-      {path: 'add-employee', component: AddEmployeeComponent},
-      {path: 'edit-employee', component: EditEmployeeComponent},
-      {path: 'leaves', component: ApproveRejectLeaveComponent},
-    ]
-  },
-  {
-    path: 'manager',
-    children: [
-      {path: '', component: ManagerComponent},
-      {path: 'apply', component: CreateLeaveComponent},
-      {path: 'my-leaves', component: ViewLeavesComponent}
-    ]
-  },
-  {
-    path: 'member',
-    children: [
-      {path: '', component: MemberComponent},
-      {path: 'apply', component: CreateLeaveComponent},
-      {path: 'my-leaves', component: MemberComponent}
-    ]
-  },
-  {path: '**', redirectTo: 'landing'}
+    {path: 'landing', component: LandingPageComponent},
+    {
+        path: 'hr-admin',
+        children: [
+            {path: '', component: HrAdminComponent},
+            {path: 'add-employee', component: AddEmployeeComponent},
+            {path: 'edit-employee', component: EditEmployeeComponent},
+            {path: 'leaves', component: ApproveRejectLeaveComponent},
+        ]
+    },
+    {
+        path: 'manager',
+        children: [
+            {path: '', component: ManagerComponent},
+            {path: 'apply', component: CreateLeaveComponent},
+            {path: 'my-leaves', component: ViewLeavesComponent}
+        ]
+    },
+    {
+        path: 'member',
+        children: [
+            {path: '', component: MemberComponent},
+            {path: 'apply', component: CreateLeaveComponent},
+            {path: 'my-leaves', component: MemberComponent}
+        ]
+    },
+    {path: '**', redirectTo: 'landing'}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule {
 }

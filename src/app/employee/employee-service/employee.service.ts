@@ -19,7 +19,7 @@ export class EmployeeService {
         return this.employeeRepository.getPagedEmployees(max, page);
     }
 
-  public createMember(requestParam: number, requestBody: IEmployee) {
-    return this.employeeRepository.createMemberEmployee(requestParam, requestBody)
+    public createMember(requestParam: number, requestBody: IEmployee) {
+        return this.employeeRepository.createMemberEmployee(requestParam, requestBody)
     }
 }

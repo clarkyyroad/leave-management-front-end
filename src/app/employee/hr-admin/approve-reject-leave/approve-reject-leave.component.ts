@@ -4,9 +4,9 @@ import {LeaveService} from "../../../leave/leave-service/leave.service";
 import {LeavePageResponseModel} from "../../../leave/leave-model/leave-page-response.model";
 
 @Component({
-  selector: 'app-approve-reject-leave',
-  templateUrl: './approve-reject-leave.component.html',
-  styleUrls: ['./approve-reject-leave.component.css']
+    selector: 'app-approve-reject-leave',
+    templateUrl: './approve-reject-leave.component.html',
+    styleUrls: ['./approve-reject-leave.component.css']
 })
 
 export class ApproveRejectLeaveComponent implements OnInit {
@@ -28,6 +28,12 @@ export class ApproveRejectLeaveComponent implements OnInit {
         this.initializeLeaves();
     }
 
+    logout() {
+        sessionStorage.clear()
+        this.routerService.navigate('/landing/').then(() => console.log('Navigation successful'))
+            .catch((error) => console.error('Navigation error: ', error))
+    }
+
     private initializeLeaves() {
         this.leaveService.fetchAllLeaves(this.MAX_LIMIT, 1).subscribe({
             next: (data: LeavePageResponseModel) => {
@@ -37,11 +43,5 @@ export class ApproveRejectLeaveComponent implements OnInit {
                 this.leavesInPage.totalNumber = data.totalNumber;
             }
         });
-    }
-
-    logout() {
-        sessionStorage.clear()
-        this.routerService.navigate('/landing/').then(() => console.log('Navigation successful'))
-            .catch((error) => console.error('Navigation error: ', error))
     }
 }

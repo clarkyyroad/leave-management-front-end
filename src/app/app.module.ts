@@ -19,20 +19,20 @@ import {UserSelectionModalComponent} from './shared/user-selection-modal/user-se
 import {ApproveRejectLeaveComponent} from "./employee/hr-admin/approve-reject-leave/approve-reject-leave.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HrAdminComponent,
-    ManagerComponent,
-    MemberComponent,
-    AddEmployeeComponent,
-    EditEmployeeComponent,
-    CreateLeaveComponent,
-    ViewLeavesComponent,
-    SideNavigationBarComponent,
-    LandingPageComponent,
-    UserSelectionModalComponent,
-      ApproveRejectLeaveComponent
-  ],
+    declarations: [
+        AppComponent,
+        HrAdminComponent,
+        ManagerComponent,
+        MemberComponent,
+        AddEmployeeComponent,
+        EditEmployeeComponent,
+        CreateLeaveComponent,
+        ViewLeavesComponent,
+        SideNavigationBarComponent,
+        LandingPageComponent,
+        UserSelectionModalComponent,
+        ApproveRejectLeaveComponent
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -41,8 +41,8 @@ import {ApproveRejectLeaveComponent} from "./employee/hr-admin/approve-reject-le
         ReactiveFormsModule,
         FormsModule
     ],
-  providers: [],
-  bootstrap: [AppComponent]
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
