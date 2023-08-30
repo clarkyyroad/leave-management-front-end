@@ -16,18 +16,22 @@ export class HrAdminComponent implements OnInit {
         content: []
     }
     userName: string = '';
+    userId: number;
     readonly MAX_LIMIT: number = 5;
     currentPage: number = 1;
-    public totalPages: any;
+    totalPages!: number;
 
     constructor(private routerService: RouterService, private employeeService: EmployeeService) {
         const storedUserName = localStorage.getItem('userName');
+        const storedUserId = localStorage.getItem('userId');
         this.userName = storedUserName || 'Unknown User';
+        this.userId = storedUserId ? parseInt(storedUserId) : 0;
     }
 
     ngOnInit() {
         this.initializeEmployees();
-        console.log(localStorage.getItem('userId'))
+        console.log(localStorage.getItem('userName'))
+        console.log(this.userId)
     }
 
     public addEmployee(): void {
@@ -36,7 +40,7 @@ export class HrAdminComponent implements OnInit {
     }
 
     logout() {
-        sessionStorage.clear()
+        localStorage.clear()
         this.routerService.navigate('/landing/').then(() => console.log('Navigation successful'))
             .catch((error) => console.error('Navigation error: ', error))
     }

@@ -12,6 +12,20 @@
     color: white;
 }
 
+.sidenav .logout {
+    padding: 8px 20px;
+    margin-top: 500px;
+    border: none;
+    border-radius: 5px;
+    background-color: #F14E6D;
+    color: white;
+    cursor: pointer;
+}
+
+.sidenav .logout:hover {
+    background-color: #D43C5A;
+}
+
 .nav-list {
     padding-top: 10px;
     height: 55%;

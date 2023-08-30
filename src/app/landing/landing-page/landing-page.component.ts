@@ -13,7 +13,7 @@ import {EmployeeService} from "../../employee/employee-service/employee.service"
 export class LandingPageComponent implements OnInit {
 
     public users: IUsers[] = [];
-    public selectedUser: string = '';
+    public selectedUser: any;
     showModal: boolean = false;
 
     constructor(private routerService: RouterService, private employeeService: EmployeeService) {
@@ -24,20 +24,20 @@ export class LandingPageComponent implements OnInit {
     }
 
     public getUserPath(): void {
-        const user = this.users.find(u => u.roleType === this.selectedUser);
         if (!this.selectedUser) {
             this.showModal = true;
         } else {
-            localStorage.setItem('userName', user?.name || '');
-            localStorage.setItem('userId', String(user?.id));
-            if (this.selectedUser === 'HR_ADMIN' && user) {
+            const {id, name, roleType} = this.selectedUser;
+            localStorage.setItem('userName', name);
+            localStorage.setItem('userId', id);
+            if (roleType === 'HR_ADMIN') {
                 this.routerService.navigate('/hr-admin/')
                     .then(() => console.log('Navigation successful'))
                     .catch((error) => console.error('Navigation error: ', error));
-            } else if (this.selectedUser === 'MANAGER') {
+            } else if (roleType === 'MANAGER') {
                 this.routerService.navigate('/manager/').then(() => console.log('Navigation successful'))
                     .catch((error) => console.error('Navigation error: ', error));
-            } else if (this.selectedUser === 'MEMBER' && user) {
+            } else if (roleType === 'MEMBER') {
                 this.routerService.navigate('/member/').then(() => console.log('Navigation successful'))
                     .catch((error) => console.error('Navigation: ', error));
             }

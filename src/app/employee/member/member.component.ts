@@ -22,7 +22,7 @@ export class MemberComponent {
     public usedLeaves: number = 0;
     public availableLeaves: number = 0;
     public userName: string = '';
-    public userID: number;
+    public userId: number;
     public cancelButton: boolean = false;
     private page: number = 1;
 
@@ -30,7 +30,7 @@ export class MemberComponent {
         const storedUserName = localStorage.getItem('userName');
         const storedUserId = localStorage.getItem('userId');
         this.userName = storedUserName || 'Unknown User';
-        this.userID = storedUserId ? parseInt(storedUserId) : 0;
+        this.userId = storedUserId ? parseInt(storedUserId) : 0;
     }
 
     ngOnInit() {
@@ -38,7 +38,7 @@ export class MemberComponent {
     }
 
     public getEmployeeInfo() {
-        this.employeeService.getEmployee(this.userID)
+        this.employeeService.getEmployee(this.userId)
             .subscribe({
                 next: (data) => {
                     console.log(data);
@@ -61,8 +61,15 @@ export class MemberComponent {
             });
     }
 
+    logout() {
+        localStorage.clear()
+        this.routerService.navigate('/landing/').then(() => console.log('Navigation successful'))
+            .catch((error) => console.error('Navigation error: ', error))
+    }
+
     private fetchMyLeaves() {
-        this.leaveService.fetchEmployeeLeaves(this.MAX_LIMIT, this.page, this.userID).subscribe({
+        console.log(this.userId);
+        this.leaveService.fetchEmployeeLeaves(this.MAX_LIMIT, this.page, this.userId).subscribe({
             next: (data: any) => {
                 console.log('Response', data);
                 this.leavesInPage.totalCount = data.totalCount;
