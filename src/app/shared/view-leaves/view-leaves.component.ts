@@ -5,9 +5,9 @@ import {RouterService} from "../router-service/router.service";
 import {EmployeeService} from "../../employee/employee-service/employee.service";
 
 @Component({
-  selector: 'app-view-leaves',
-  templateUrl: './view-leaves.component.html',
-  styleUrls: ['./view-leaves.component.css']
+    selector: 'app-view-leaves',
+    templateUrl: './view-leaves.component.html',
+    styleUrls: ['./view-leaves.component.css']
 })
 export class ViewLeavesComponent {
 

@@ -5,11 +5,12 @@ import {LeaveResponse} from "../../leave/leave-model/leave-response.model";
 import {LeaveService} from "../../leave/leave-service/leave.service";
 import {ILeave} from "../../leave/leave-model/leave.model";
 import {IEmployee} from "../employee-model/employee.model";
+import {IUsers} from "../employee-model/employee-list.model";
 
 @Component({
-  selector: 'app-member',
-  templateUrl: './member.component.html',
-  styleUrls: ['./member.component.css']
+    selector: 'app-member',
+    templateUrl: './member.component.html',
+    styleUrls: ['./member.component.css']
 })
 export class MemberComponent {
   public leavesInPage: LeaveResponse = {
@@ -31,8 +32,10 @@ export class MemberComponent {
   public cancelButton: boolean = false;
 
   constructor(private leaveService: LeaveService, private employeeService: EmployeeService, private routerService: RouterService) {
-    this.userName = this.routerService.getQueryParams().user.name;
-    this.userID = this.routerService.getQueryParams().user.id;
+    const storedUserName = localStorage.getItem('userName');
+    const storedUserId = localStorage.getItem('userId');
+    this.userName = storedUserName || 'Unknown User';
+    this.userID = storedUserId ? parseInt(storedUserId) : 0;
   }
 
   ngOnInit(){
@@ -46,8 +49,8 @@ export class MemberComponent {
           console.log('Response', data);
 
           this.leavesInPage = data;
-          this.dataInfo = data.totalCount == 0;
-          this.cancelButton = data.leaveStatus == "CANCELLED";
+          this.dataInfo = data.content.totalCount == 0;
+          this.cancelButton = data.content.leaveStatus == "CANCELLED";
         }});
   }
 

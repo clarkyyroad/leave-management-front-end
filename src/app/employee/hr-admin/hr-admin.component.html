@@ -1,52 +1,55 @@
 <div class="sidenav">
-  <h3>Welcome Back!</h3>
-  <form>
-    <h3>{{ userName }}</h3>
-  </form>
-  <br>
-  <h3 class="employees-nav">Employees</h3>
-  <span class="nav-item" routerLink="hr-admin">View All</span>
-  <br>
-  <span class="nav-item" routerLink="add-employee">Add New</span>
-  <br>
-  <br>
-  <h3 class="leaves-nav">Leaves</h3>
-  <span class="nav-item" routerLink="leaves">View All</span>
+    <h3>Welcome Back!</h3>
+    <form>
+        <h3>{{ userName }}</h3>
+    </form>
+    <br>
+    <h3 class="employees-nav">Employees</h3>
+    <span (click)="viewAllEmployee()" class="nav-item">View All</span>
+    <br>
+    <span class="nav-item" routerLink="add-employee">Add New</span>
+    <br>
+    <br>
+    <h3 class="leaves-nav">Leaves</h3>
+    <span class="nav-item" routerLink="leaves">View All</span>
+    <br>
+    <br>
+    <button (click)="logout()" class="logout">Logout</button>
 </div>
 
 
 <div class="main">
-  <div class="header">
-    <h2>All Employees</h2>
-    <div class="actions">
-      <button class="add" (click)="addEmployee()">+ Add New Employee</button>
+    <div class="header">
+        <h2>All Employees</h2>
+        <div class="actions">
+            <button (click)="addEmployee()" class="add">+ Add New Employee</button>
+        </div>
     </div>
-  </div>
-  <div class="table">
-    <table>
-      <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Manager</th>
-        <th>Used Leaves</th>
-        <th>Available Leaves</th>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let employee of employeesInPage.content">
-        <td>{{employee.id}}</td>
-        <td>{{employee.name}}</td>
-        <td>{{employee.manager}}</td>
-        <td>{{employee.totalLeaves}}</td>
-        <td>{{employee.currentLeaves}}</td>
-        <td>
-          <button (click)="editEmployee(employee.id)" class="edit">Edit</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+    <div class="table">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Manager</th>
+                <th>Used Leaves</th>
+                <th>Available Leaves</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let employee of employeesInPage.content">
+                <td>{{employee.id}}</td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.manager}}</td>
+                <td>{{employee.totalLeaves}}</td>
+                <td>{{employee.currentLeaves}}</td>
+                <td>
+                    <button (click)="editEmployee(employee.id)" class="edit">Edit</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 

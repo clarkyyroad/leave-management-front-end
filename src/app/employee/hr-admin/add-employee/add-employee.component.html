@@ -1,41 +1,42 @@
 <div class="content">
 
 
-  <div class="main">
-    <div class="header">
-      <h2>Create Employee</h2>
+    <div class="main">
+        <div class="header">
+            <h2>Create Employee</h2>
+        </div>
+
+        <form (ngSubmit)="onSubmit()" [formGroup]="addEmployeeForm">
+
+            <div>
+                <label for="name">Name </label>
+                <input formControlName="name" id="name" placeholder="Name" type="text">
+            </div>
+
+            <div>
+                <label for="role">Role </label>
+                <select (change)="onRoleTypeChange()" formControlName="roleType" id="role">
+                    <option>MEMBER</option>
+                    <option>MANAGER</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="annual-leave">Annual Leave </label>
+                <input formControlName="totalLeaves" id="annual-leave" placeholder="Annual Leave" type="number">
+            </div>
+
+            <div>
+                <label for="manager">Manager </label>
+                <select formControlName="managerId" id="manager">
+                    <option *ngFor="let manager of managers" [value]="manager.id">{{manager.name}}</option>
+                </select>
+            </div>
+
+            <div class="bottom">
+                <button class="submit" type="submit">Submit</button>
+                <button (click)="goBack()" class="back">Back</button>
+            </div>
+        </form>
     </div>
-
-    <form (ngSubmit)="onSubmit()" [formGroup]="addEmployeeForm">
-
-      <div>
-        <label for="name">Name </label>
-        <input id="name" placeholder="Name" type="text" formControlName="name">
-      </div>
-
-      <div>
-        <label for="role">Role </label>
-        <select id="role" formControlName="roleType">
-          <option>MEMBER</option>
-          <option>MANAGER</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="annual-leave">Annual Leave </label>
-        <input id="annual-leave" placeholder="Annual Leave" type="number" formControlName="totalLeaves">
-      </div>
-
-      <div>
-        <label for="manager">Manager </label>
-        <select id="manager" formControlName="managerId">
-          <option *ngFor="let manager of managers" [value]="manager.id">{{manager.name}}</option>
-        </select>
-      </div>
-
-      <div class="bottom">
-        <button class="submit" type="submit">Submit</button>
-      </div>
-    </form>
-  </div>
 </div>

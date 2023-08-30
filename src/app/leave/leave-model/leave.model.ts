@@ -8,4 +8,5 @@ export interface ILeave{
   days: number
   reason: string
   leaveStatus: string
+
 }

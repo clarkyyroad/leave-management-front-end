@@ -16,21 +16,23 @@ import {LandingPageComponent} from './landing/landing-page/landing-page.componen
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {UserSelectionModalComponent} from './shared/user-selection-modal/user-selection-modal.component';
+import {ApproveRejectLeaveComponent} from "./employee/hr-admin/approve-reject-leave/approve-reject-leave.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HrAdminComponent,
-    ManagerComponent,
-    MemberComponent,
-    AddEmployeeComponent,
-    EditEmployeeComponent,
-    CreateLeaveComponent,
-    ViewLeavesComponent,
-    SideNavigationBarComponent,
-    LandingPageComponent,
-    UserSelectionModalComponent,
-  ],
+    declarations: [
+        AppComponent,
+        HrAdminComponent,
+        ManagerComponent,
+        MemberComponent,
+        AddEmployeeComponent,
+        EditEmployeeComponent,
+        CreateLeaveComponent,
+        ViewLeavesComponent,
+        SideNavigationBarComponent,
+        LandingPageComponent,
+        UserSelectionModalComponent,
+        ApproveRejectLeaveComponent
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -39,8 +41,8 @@ import {UserSelectionModalComponent} from './shared/user-selection-modal/user-se
         ReactiveFormsModule,
         FormsModule
     ],
-  providers: [],
-  bootstrap: [AppComponent]
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

@@ -2,13 +2,14 @@ import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ILeave} from "../leave-model/leave.model";
+import {LeavePageResponseModel} from "../leave-model/leave-page-response.model";
 
 @Injectable({providedIn: 'root'})
 export class LeaveRepository {
 
-  private readonly baseUrl = 'api/v1';
-  private readonly CONTENT_TYPE = 'application/json';
-  private readonly headers: HttpHeaders;
+    private readonly baseUrl = 'api/v1';
+    private readonly CONTENT_TYPE = 'application/json';
+    private readonly headers: HttpHeaders;
 
     constructor(private httpClient: HttpClient) {
         this.headers = new HttpHeaders({
@@ -21,9 +22,9 @@ export class LeaveRepository {
     return this.httpClient.get<any>(getAllLeavesUrls, {headers: this.headers});
   }
 
-  public fetchEmployeeLeaves(max: number, page: number, id: any): Observable<any>{
+  public fetchEmployeeLeaves(max: number, page: number, id: number): Observable<LeavePageResponseModel>{
     const getEmployeeLeavesUrl: string = this.baseUrl + '/leave?max=' + max + '&page=' + page + '&employeeId=' + id;
-    return this.httpClient.get<any>(getEmployeeLeavesUrl, {headers: this.headers});
+    return this.httpClient.get<LeavePageResponseModel>(getEmployeeLeavesUrl, {headers: this.headers});
   }
 
   public fetchLeavesUnderManager(max: number, page: number, id: any): Observable<any>{
@@ -36,14 +37,14 @@ export class LeaveRepository {
     return this.httpClient.post<any>(createLeaveUrl, requestBody, {headers: this.headers});
   }
 
-  public approveLeave(requestBody: ILeave){
-    const approveLeaveUrl: string = this.baseUrl + '/leave/approve/' + requestBody.leaveId;
-    return this.httpClient.put<any>(approveLeaveUrl, requestBody, {headers: this.headers});
+  public approveLeave(leaveId: number){
+    const approveLeaveUrl: string = this.baseUrl + '/leave/approve/' + leaveId;
+    return this.httpClient.put<any>(approveLeaveUrl, {headers: this.headers});
   }
 
-  public rejectLeave(requestBody: ILeave){
-    const rejectLeaveUrl: string = this.baseUrl + '/leave/reject/' + requestBody.leaveId;
-    return this.httpClient.put<any>(rejectLeaveUrl, requestBody, {headers: this.headers});
+  public rejectLeave(leaveId: number){
+    const rejectLeaveUrl: string = this.baseUrl + '/leave/reject/' + leaveId;
+    return this.httpClient.put<any>(rejectLeaveUrl, {headers: this.headers});
   }
 
   public cancelLeave(id: number){
