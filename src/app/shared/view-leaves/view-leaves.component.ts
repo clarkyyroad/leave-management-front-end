@@ -20,20 +20,26 @@ export class ViewLeavesComponent {
     }
     public dataInfo: boolean = false;
 
+    userName ='';
     public readonly MAX_LIMIT: number = 5;
-    public usedLeaves: number = 0;
-    public availableLeaves: number = 0;
-    public cancelButton: boolean = true;
+    public currentLeaves: number = 0;
+    public totalLeaves: number = 0;
     private page: number = 1;
     private employeeId: number = 0;
 
+
+    public cancelButton: boolean = true;
+    private leaveStatus: string = '';
+
     constructor(private leaveService: LeaveService, private employeeService: EmployeeService, private routerService: RouterService) {
-        this.usedLeaves = this.routerService.getQueryParams().user.totalLeaves;
-        this.availableLeaves = this.routerService.getQueryParams().user.currentLeaves;
-        this.employeeId = this.routerService.getQueryParams().user.id;
+       const storedUserId = localStorage.getItem('userId');
+       this.employeeId = storedUserId ? parseInt(storedUserId) : 0;
+       const storedUserName = localStorage.getItem('userName');
+       this.userName = storedUserName || 'Null';
     }
     ngOnInit() {
         this.fetchMyLeaves();
+        this.fetchEmployee();
     }
 
     public cancelLeave(id: number) {
@@ -56,13 +62,39 @@ export class ViewLeavesComponent {
             .subscribe({
                 next: (data: any) => {
                     console.log('Response', data);
-
                     this.leavesInPage = data;
-
                     this.dataInfo = data.totalCount == 0;
+                    if (Array.isArray(data.content) && data.content.length > 0) {
+                        for (const item of data.content) {
+                            console.log('Leave Status:', item.leaveStatus);
+                            if(item.leaveStatus === "PENDING"){
+                                this.cancelButton = true;
+                            }
+                        }
+                    } else {
+                        console.log('Content is empty or not an array.');
+                    }
                 }
             });
     }
+
+    private  fetchEmployee(){
+        this.employeeService.getEmployee(this.employeeId)
+            .subscribe({
+                next: (data: any) => {
+                    this.currentLeaves = data.currentLeaves;
+                    this.totalLeaves = data.totalLeaves;
+                }
+            })
+    }
+
+    logout() {
+        localStorage.clear();
+        this.routerService.navigate('/landing/').then(() => console.log('Navigation successful'))
+            .catch((error) => console.error('Navigation error: ', error))
+    }
+
+
 
     // private fetchUsedLeaves(){
     //   this.employeeService.

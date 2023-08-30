@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {LeaveService} from "../../leave/leave-service/leave.service";
-import {IEmployeePageResponse} from "../employee-model/employee-page-response.model";
 import {LeavePageResponseModel} from "../../leave/leave-model/leave-page-response.model";
 import {RouterService} from "../../shared/router-service/router.service";
 import {ILeave} from "../../leave/leave-model/leave.model";
@@ -13,7 +12,7 @@ import {ILeave} from "../../leave/leave-model/leave.model";
 })
 export class ManagerComponent {
     public leavesInPage: LeavePageResponseModel = {
-        totalNumber: 0,
+        totalCount: 0,
         pageNumber: 0,
         content: []
     }
@@ -23,21 +22,15 @@ export class ManagerComponent {
     private readonly MAX_LIMIT: number = 10;
 
     constructor(private routerService: RouterService, private leaveService: LeaveService) {
-        const employee : any = this.routerService.getQueryParams().user;
-        this.userId = employee.id;
-        this.userName = employee.name;
+        const storedUserName = localStorage.getItem('userName');
+        const storedUserId = localStorage.getItem('userId');
+        this.userId = storedUserId ? parseInt(storedUserId) : 0;
+        this.userName = storedUserName || 'Null';
     }
 
     ngOnInit() {
         this.initializeLeaves();
     }
-
-    logout() {
-        sessionStorage.clear()
-        this.routerService.navigate('/landing/').then(() => console.log('Navigation successful'))
-            .catch((error) => console.error('Navigation error: ', error))
-    }
-
     approveLeave(leaveId: number) {
         this.leaveService.approveLeave(leaveId).subscribe({
             next: (data: ILeave) => {
@@ -57,12 +50,13 @@ export class ManagerComponent {
     }
 
     private initializeLeaves() {
+        console.log(this.userId);
         this.leaveService.fetchLeavesUnderManager(this.MAX_LIMIT, 1, this.userId).subscribe({
             next: (data: LeavePageResponseModel) => {
                 console.log('Response: ', data);
                 this.leavesInPage.content = data.content;
                 this.leavesInPage.pageNumber = data.pageNumber;
-                this.leavesInPage.totalNumber = data.totalNumber;
+                this.leavesInPage.totalCount = data.totalCount;
             }
         });
     }

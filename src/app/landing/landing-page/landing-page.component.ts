@@ -33,6 +33,7 @@ export class LandingPageComponent implements OnInit {
         } else {
             localStorage.setItem('userName', name);
             localStorage.setItem('userId', id);
+            localStorage.setItem('userRole', roleType);
             if (roleType === 'HR_ADMIN') {
                 this.routerService.navigate('/hr-admin/')
                     .then(() => console.log('Navigation successful'))

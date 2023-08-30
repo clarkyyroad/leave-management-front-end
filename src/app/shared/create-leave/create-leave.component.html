@@ -1,5 +1,5 @@
 <div class="content">
-<button class="back" routerLink="manager">< Back</button>
+<button class="back" (click)="back()">< Back</button>
 
 <div class="main">
     <div class="header">
@@ -19,7 +19,7 @@
           <input id="end-date" type="date" formControlName="endDate">
         </div>
 
-        <div>
+          <div>
           <label for="reason">Reason </label>
           <input id="reason" placeholder="Reason" type="text" formControlName="reason">
         </div>
