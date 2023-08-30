@@ -13,7 +13,7 @@ import {ILeave} from "../../../leave/leave-model/leave.model";
 export class ApproveRejectLeaveComponent implements OnInit {
 
     public leavesInPage: LeavePageResponseModel = {
-        totalCount: 0,
+        totalNumber: 0,
         pageNumber: 0,
         content: []
     }
@@ -70,7 +70,7 @@ export class ApproveRejectLeaveComponent implements OnInit {
                 console.log('Response: ', data);
                 this.leavesInPage.content = data.content;
                 this.leavesInPage.pageNumber = data.pageNumber;
-                this.leavesInPage.totalCount = data.totalCount;
+                this.leavesInPage.totalNumber = data.totalNumber;
             }
         });
     }
