@@ -7,9 +7,9 @@ import {RouterService} from "../router-service/router.service";
 import {IEmployee} from "../../employee/employee-model/employee.model";
 
 @Component({
-  selector: 'app-create-leave',
-  templateUrl: './create-leave.component.html',
-  styleUrls: ['./create-leave.component.css']
+    selector: 'app-create-leave',
+    templateUrl: './create-leave.component.html',
+    styleUrls: ['./create-leave.component.css']
 })
 export class CreateLeaveComponent {
   public addLeaveForm: FormGroup;

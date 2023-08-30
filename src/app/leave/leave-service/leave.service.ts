@@ -6,12 +6,12 @@ import {LeaveRepository} from "../leave-repository/leave.repository";
 
 export class LeaveService {
 
-  constructor(private leaveRepository: LeaveRepository) {
-  }
+    constructor(private leaveRepository: LeaveRepository) {
+    }
 
-  public fetchAllLeaves(max: number, page: number){
-    return this.leaveRepository.fetchAllLeaves(max, page);
-  }
+    public fetchAllLeaves(max: number, page: number) {
+        return this.leaveRepository.fetchAllLeaves(max, page);
+    }
 
   public fetchEmployeeLeaves(max: number, page: number, employeeId: number){
     return this.leaveRepository.fetchEmployeeLeaves(max, page, employeeId);
@@ -21,19 +21,19 @@ export class LeaveService {
     return this.leaveRepository.fetchLeavesUnderManager(max, page, managerId);
   }
 
-  public saveLeave(requestBody: ILeave){
-    return this.leaveRepository.createLeave(requestBody);
-  }
+    public saveLeave(requestBody: ILeave) {
+        return this.leaveRepository.createLeave(requestBody);
+    }
 
-  public approveLeave(requestBody: ILeave){
-    return this.leaveRepository.approveLeave(requestBody);
-  }
+    public approveLeave(requestBody: ILeave) {
+        return this.leaveRepository.approveLeave(requestBody);
+    }
 
-  public rejectLeave(requestBody: ILeave){
-    return this.leaveRepository.rejectLeave(requestBody);
-  }
+    public rejectLeave(requestBody: ILeave) {
+        return this.leaveRepository.rejectLeave(requestBody);
+    }
 
-  public cancelLeave(requestBody: ILeave){
-    return this.leaveRepository.cancelLeave(requestBody);
-  }
+    public cancelLeave(requestBody: ILeave) {
+        return this.leaveRepository.cancelLeave(requestBody);
+    }
 }

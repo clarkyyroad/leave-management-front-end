@@ -2,20 +2,20 @@ import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ILeave} from "../leave-model/leave.model";
+import {LeavePageResponseModel} from "../leave-model/leave-page-response.model";
 
 @Injectable({providedIn: 'root'})
 export class LeaveRepository {
 
-  private readonly baseUrl = 'api/v1';
-  private readonly CONTENT_TYPE = 'application/json';
-  private readonly headers: HttpHeaders;
+    private readonly baseUrl = 'api/v1';
+    private readonly CONTENT_TYPE = 'application/json';
+    private readonly headers: HttpHeaders;
 
     constructor(private httpClient: HttpClient) {
         this.headers = new HttpHeaders({
             'Content-Type': this.CONTENT_TYPE
         });
     }
-
   public fetchAllLeaves(max: number, page: number): Observable<any>{
     const getAllLeavesUrls: string = this.baseUrl + '/leave/hr? max=' + max + '&page=' + page;
     return this.httpClient.get<any>(getAllLeavesUrls, {headers: this.headers});

@@ -1,6 +1,6 @@
 import {IEmployee} from "./employee.model";
 
-export interface IPageResponse {
+export interface IEmployeePageResponse {
     totalNumber: number
     pageNumber: number
     content: IEmployee[]

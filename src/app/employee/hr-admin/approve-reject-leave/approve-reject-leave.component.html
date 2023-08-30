@@ -1,57 +1,58 @@
 <div class="sidenav">
-  <h3>Select User</h3>
-  <form>
-    <select id="users" name="users">
-      <option value="Dexter Sy (Admin)">Dexter Sy (Admin)</option>
-      <option value="Romeo (Manager)">Romeo (Manager)</option>
-      <option value="Clark (Member)">Clark (Member)</option>
-      <option value="Carli (Member)">Carli (Member)</option>
-    </select>
-  </form>
-  <br>
-  <h3 class="employees-nav">Employees</h3>
-  <span>View All</span>
-  <br>
-  <span>Add New</span>
-  <br>
-  <br>
-  <h3 class="leaves-nav">Leaves</h3>
-  <span routerLink="leaves">View All</span>
+    <h3>Welcome Back</h3>
+    <form>
+        <h3>{{ userName }}</h3>
+    </form>
+    <br>
+    <h3 class="employees-nav">Employees</h3>
+    <span class="nav-item" routerLink="hr-admin">View All</span>
+    <br>
+    <span class="nav-item" routerLink="add-employee">Add New</span>
+    <br>
+    <br>
+    <h3 class="leaves-nav">Leaves</h3>
+    <span routerLink="leaves">View All</span>
+    <br>
+    <br>
+    <button (click)="logout()" class="logout">Logout</button>
 </div>
 
 
 <div class="main">
-  <div class="header">
-    <h2>All Leaves</h2>
-    <div class="actions">
+    <div class="header">
+        <h2>All Leaves</h2>
+        <div class="actions">
 
+        </div>
     </div>
-  </div>
-  <div class="table">
-    <table>
-      <thead>
-      <tr>
-        <th>Applied By</th>
-        <th>Start</th>
-        <th>End</th>
-        <th>Days</th>
-        <th>Reason</th>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>Clark Tabar</td>
-        <td>12/22/2023</td>
-        <td>12/27/2023</td>
-        <td>5</td>
-        <td>Vacation Leave</td>
-        <td>
-          <button class="approve">Approve</button>
-          <button class="reject">Reject</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+    <div class="table">
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Applied By</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Days</th>
+                <th>Reason</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let leaves of leavesInPage.content">
+                <td>{{leaves.id}}</td>
+                <td>{{leaves.employeeName}}</td>
+                <td>{{leaves.startDate}}</td>
+                <td>{{leaves.endDate}}</td>
+                <td>{{leaves.days}}</td>
+                <td>{{leaves.reason}}</td>
+                <td>{{leaves.leaveStatus}}</td>
+                <td>
+                    <button class="approve">Approve</button>
+                    <button class="reject">Reject</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

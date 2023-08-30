@@ -3,7 +3,7 @@ import {EmployeeRepository} from "../employee-repository/employee.repository";
 import {Observable} from "rxjs";
 import {IUsers} from "../employee-model/employee-list.model";
 import {IEmployee} from "../employee-model/employee.model";
-import {IPageResponse} from "../employee-model/page-response.model";
+import {IEmployeePageResponse} from "../employee-model/employee-page-response.model";
 
 @Injectable({providedIn: 'root'})
 
@@ -15,11 +15,11 @@ export class EmployeeService {
         return this.employeeRepository.getListEmployees();
     }
 
-    public getEmployees(max: number, page: number): Observable<IPageResponse> {
+    public getEmployees(max: number, page: number): Observable<IEmployeePageResponse> {
         return this.employeeRepository.getPagedEmployees(max, page);
     }
 
-  public createMember(requestParam: number, requestBody: IEmployee) {
-    return this.employeeRepository.createMemberEmployee(requestParam, requestBody)
+    public createMember(requestParam: number, requestBody: IEmployee) {
+        return this.employeeRepository.createMemberEmployee(requestParam, requestBody)
     }
 }
