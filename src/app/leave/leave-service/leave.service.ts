@@ -14,13 +14,13 @@ export class LeaveService {
         return this.leaveRepository.fetchAllLeaves(max, page);
     }
 
-  public fetchEmployeeLeaves(max: number, page: number, id: number){
-    return this.leaveRepository.fetchEmployeeLeaves(max, page, id);
-  }
+    public fetchEmployeeLeaves(max: number, page: number, id: number) {
+        return this.leaveRepository.fetchEmployeeLeaves(max, page, id);
+    }
 
-  public fetchLeavesUnderManager(max: number, page: number, id: any ){
-    return this.leaveRepository.fetchLeavesUnderManager(max, page, id);
-  }
+    public fetchLeavesUnderManager(max: number, page: number, id: any) {
+        return this.leaveRepository.fetchLeavesUnderManager(max, page, id);
+    }
 
     public saveLeave(requestBody: ILeave) {
         return this.leaveRepository.createLeave(requestBody);
@@ -34,8 +34,8 @@ export class LeaveService {
         return this.leaveRepository.rejectLeave(leaveID);
     }
 
-  public cancelLeave(leaveId: number){
-    return this.leaveRepository.cancelLeave(leaveId);
-  }
+    public cancelLeave(leaveId: number) {
+        return this.leaveRepository.cancelLeave(leaveId);
+    }
 
 }
