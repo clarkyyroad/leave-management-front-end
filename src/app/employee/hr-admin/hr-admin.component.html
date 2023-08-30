@@ -49,7 +49,7 @@
         <div class="pagination pagination-container">
             <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
             <span>{{ currentPage }}</span>
-            <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === employeesInPage.totalCount">Next
+            <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Next
             </button>
         </div>
     </div>

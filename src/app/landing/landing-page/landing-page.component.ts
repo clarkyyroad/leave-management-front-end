@@ -24,13 +24,10 @@ export class LandingPageComponent implements OnInit {
     }
 
     public getUserPath(): void {
-        const {id, name, roleType} = this.selectedUser;
-        console.log('Selected User ID:', id);
-        console.log('Selected User Name:', name);
-        console.log('Selected User Role Type:', roleType);
         if (!this.selectedUser) {
             this.showModal = true;
         } else {
+            const {id, name, roleType} = this.selectedUser;
             localStorage.setItem('userName', name);
             localStorage.setItem('userId', id);
             if (roleType === 'HR_ADMIN') {

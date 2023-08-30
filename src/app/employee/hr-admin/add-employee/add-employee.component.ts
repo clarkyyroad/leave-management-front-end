@@ -15,6 +15,7 @@ export class AddEmployeeComponent implements OnInit {
     public addEmployeeForm: FormGroup;
     public managers: IUsers[] = [];
     public userId: number;
+    public errorMessage?: string;
 
     constructor(private employeeService: EmployeeService, private routerService: RouterService) {
         const storedUserId = localStorage.getItem('userId');
@@ -42,6 +43,8 @@ export class AddEmployeeComponent implements OnInit {
                     .catch((error) => console.error('Navigation error: ', error));
             }, error: (error) => {
                 console.error('Error Creating Employee', error);
+                this.errorMessage = error.errorMessage;
+                console.log(this.errorMessage);
             }
         });
     }

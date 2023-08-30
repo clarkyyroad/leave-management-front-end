@@ -19,7 +19,7 @@ export class HrAdminComponent implements OnInit {
     userId: number;
     readonly MAX_LIMIT: number = 5;
     currentPage: number = 1;
-    public totalPages: any;
+    totalPages!: number;
 
     constructor(private routerService: RouterService, private employeeService: EmployeeService) {
         const storedUserName = localStorage.getItem('userName');
@@ -40,7 +40,7 @@ export class HrAdminComponent implements OnInit {
     }
 
     logout() {
-        sessionStorage.clear()
+        localStorage.clear()
         this.routerService.navigate('/landing/').then(() => console.log('Navigation successful'))
             .catch((error) => console.error('Navigation error: ', error))
     }
