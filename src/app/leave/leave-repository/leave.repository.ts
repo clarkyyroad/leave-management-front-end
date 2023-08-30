@@ -37,17 +37,17 @@ export class LeaveRepository {
   }
 
   public approveLeave(requestBody: ILeave){
-    const approveLeaveUrl: string = this.baseUrl + '/leave/approve/' + requestBody.id;
+    const approveLeaveUrl: string = this.baseUrl + '/leave/approve/' + requestBody.leaveId;
     return this.httpClient.put<any>(approveLeaveUrl, requestBody, {headers: this.headers});
   }
 
   public rejectLeave(requestBody: ILeave){
-    const rejectLeaveUrl: string = this.baseUrl + '/leave/reject/' + requestBody.id;
+    const rejectLeaveUrl: string = this.baseUrl + '/leave/reject/' + requestBody.leaveId;
     return this.httpClient.put<any>(rejectLeaveUrl, requestBody, {headers: this.headers});
   }
 
-  public cancelLeave(requestBody: ILeave){
-    const cancelLeaveUrl: string = this.baseUrl + '/leave/' + requestBody.id;
-    return this.httpClient.put<any>(cancelLeaveUrl, requestBody, {headers: this.headers});
+  public cancelLeave(id: number){
+    const cancelLeaveUrl: string = this.baseUrl + '/leave/' + id;
+    return this.httpClient.delete<any>(cancelLeaveUrl,{headers: this.headers});
   }
 }

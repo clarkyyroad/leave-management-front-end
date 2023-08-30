@@ -1,14 +1,10 @@
 <div class="sidenav">
   <div class="nav-list">
-    <span class="leaves-nav">Select User</span>
+      <span class="leaves-nav">Welcome Back</span>
     <br>
     <br>
     <form>
-      <select id="users" name="users">
-        <option (change)="onUserSelection($event.target)"
-                *ngFor="let employee of employeeList">{{ employee.name + ' (' + employee.roleType + ')' }} </option>
-      </select>
-      <button id="submit" type="submit">Submit</button>
+        <h3>User</h3>
     </form>
 
     <br>
@@ -33,7 +29,6 @@
             <br>
             <span *ngIf="true" class="nav-item">My Leaves</span>
         </div>
-    </div>
 
     <div *ngIf="true" class="site-title">
       <img alt="rise-logo" height="335" ngSrc="assets/logo-white.png" width="1069">
@@ -42,4 +37,5 @@
       <span>My Personal</span><br>
       <span>Time Out</span><br>
     </div>
+  </div>
 </div>

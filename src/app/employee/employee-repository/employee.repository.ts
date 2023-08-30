@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {IUsers} from "../employee-model/employee-list.model";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {IEmployee} from "../employee-model/employee.model";
+import {IPageResponse} from "../employee-model/page-response.model";
 
 @Injectable({providedIn: 'root'})
 export class EmployeeRepository {
@@ -17,13 +18,23 @@ export class EmployeeRepository {
         });
     }
 
-    public getListEmployees(): Observable<IUsers[]> {
+    public getListEmployees(): Observable<IEmployee[]> {
         const getListEmployeeUrl: string = this.baseUrl + '/employees/list';
-        return this.httpClient.get<IUsers[]>(getListEmployeeUrl, {headers: this.headers});
+        return this.httpClient.get<IEmployee[]>(getListEmployeeUrl, {headers: this.headers});
     }
 
-  public createMember(requestBody: IEmployee) {
-    const createMemberUrl = this.baseUrl + '/employees/member';
-    return this.httpClient.post<any>(createMemberUrl, requestBody, {headers: this.headers})
+    public getPagedEmployees(max: number, page: number): Observable<IPageResponse> {
+        const getPageEmployeesUrl: string = this.baseUrl + `/employees?max=${max}&page${page}`;
+        return this.httpClient.get<IPageResponse>(getPageEmployeesUrl, {headers: this.headers});
+    }
+
+    public getEmployeeById(id: number){
+      const getEmployeeByIdUrl: string = this.baseUrl + '/employees/' + id;
+      return this.httpClient.get<any>(getEmployeeByIdUrl, {headers: this.headers});
+    }
+
+    public createMemberEmployee(requestParam: number, requestBody: IEmployee): Observable<IEmployee> {
+        const createMemberUrl: string = this.baseUrl + `/employees/member?adminId=${requestParam}`;
+        return this.httpClient.post<IEmployee>(createMemberUrl, requestBody, {headers: this.headers});
     }
 }

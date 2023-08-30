@@ -4,12 +4,12 @@
     <div class="used-leave-credits">
       <span class="status-header">Used Credits:</span>
       <br>
-      <span class="status-data">5</span>
+      <span class="status-data">{{usedLeaves}}</span>
     </div>
     <div class="available-leave-credits">
       <span class="status-header">Available Credits:</span>
       <br>
-      <span class="status-data">10</span>
+      <span class="status-data">{{availableLeaves}}</span>
     </div>
   </div>
 
@@ -40,7 +40,7 @@
         <td>{{leave.reason}}</td>
         <td>{{leave.leaveStatus}}</td>
         <td>
-          <button class="cancel">Cancel</button>
+          <button class="cancel" *ngIf="cancelButton" (click)="cancelLeave(leave.leaveId)">Cancel</button>
         </td>
       </tr>
 

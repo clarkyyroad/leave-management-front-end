@@ -34,7 +34,7 @@ export class LeaveService {
     return this.leaveRepository.rejectLeave(requestBody);
   }
 
-  public cancelLeave(requestBody: ILeave){
-    return this.leaveRepository.cancelLeave(requestBody);
+  public cancelLeave(leaveId: number){
+    return this.leaveRepository.cancelLeave(leaveId);
   }
 }

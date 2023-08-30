@@ -17,13 +17,21 @@ export class ViewLeavesComponent {
     totalCount: 0
   }
 
+
   public dataInfo: boolean = false;
 
   public readonly MAX_LIMIT: number = 5;
   private page: number = 1;
-  private employeeId: number = 2;
+  private employeeId: number = 0;
+  public usedLeaves: number = 0;
+  public availableLeaves: number = 0 ;
+
+  public cancelButton: boolean = true;
 
   constructor(private leaveService: LeaveService, private employeeService: EmployeeService, private routerService: RouterService) {
+      this.usedLeaves = this.routerService.getQueryParams().user.totalLeaves;
+      this.availableLeaves = this.routerService.getQueryParams().user.currentLeaves;
+      this.employeeId = this.routerService.getQueryParams().user.id;
   }
 
   ngOnInit(){
@@ -38,6 +46,19 @@ export class ViewLeavesComponent {
           this.leavesInPage = data;
 
           this.dataInfo = data.totalCount == 0;
+          }});
+    }
+
+    public cancelLeave(id: number){
+      this.leaveService.cancelLeave(id)
+        .subscribe({next: (data) => {
+            console.log('Leave successfully cancelled: ', data);
+
+            this.cancelButton = data.leaveStatus == "CANCELLED";
+
+          }, error: (err) =>{
+
+            console.log('An error occurred while cancelling leave');
           }});
     }
 

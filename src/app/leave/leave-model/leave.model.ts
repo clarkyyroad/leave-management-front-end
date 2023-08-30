@@ -1,7 +1,7 @@
 import {IEmployee} from "../../employee/employee-model/employee.model";
 
 export interface ILeave{
-  id: number
+  leaveId: number
   employee: IEmployee
   startDate:Date
   endDate: Date
