@@ -35,17 +35,6 @@ export class ApproveRejectLeaveComponent implements OnInit {
             .catch((error) => console.error('Navigation error: ', error))
     }
 
-    private initializeLeaves() {
-        this.leaveService.fetchAllLeaves(this.MAX_LIMIT, 1).subscribe({
-            next: (data: LeavePageResponseModel) => {
-                console.log('Response: ', data);
-                this.leavesInPage.content = data.content;
-                this.leavesInPage.pageNumber = data.pageNumber;
-                this.leavesInPage.totalNumber = data.totalNumber;
-            }
-        });
-    }
-
     approveLeave(leaveId: number) {
         this.leaveService.approveLeave(leaveId).subscribe({
             next: (data: ILeave) => {
@@ -60,6 +49,17 @@ export class ApproveRejectLeaveComponent implements OnInit {
             next: (data: ILeave) => {
                 console.log('Response ', data);
                 this.initializeLeaves();
+            }
+        });
+    }
+
+    private initializeLeaves() {
+        this.leaveService.fetchAllLeaves(this.MAX_LIMIT, 1).subscribe({
+            next: (data: LeavePageResponseModel) => {
+                console.log('Response: ', data);
+                this.leavesInPage.content = data.content;
+                this.leavesInPage.pageNumber = data.pageNumber;
+                this.leavesInPage.totalNumber = data.totalNumber;
             }
         });
     }
