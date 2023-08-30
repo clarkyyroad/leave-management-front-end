@@ -5,7 +5,7 @@
     </form>
     <br>
     <h3 class="employees-nav">Employees</h3>
-    <span class="nav-item" routerLink="hr-admin">View All</span>
+    <span (click)="viewAllEmployee()" class="nav-item">View All</span>
     <br>
     <span class="nav-item" routerLink="add-employee">Add New</span>
     <br>
@@ -34,7 +34,6 @@
                 <th>Manager</th>
                 <th>Used Leaves</th>
                 <th>Available Leaves</th>
-                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -44,12 +43,15 @@
                 <td>{{employee.manager}}</td>
                 <td>{{employee.totalLeaves}}</td>
                 <td>{{employee.currentLeaves}}</td>
-                <td>
-                    <button (click)="editEmployee(employee.id)" class="edit">Edit</button>
-                </td>
             </tr>
             </tbody>
         </table>
+        <div class="pagination pagination-container">
+            <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+            <span>{{ currentPage }}</span>
+            <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === employeesInPage.totalCount">Next
+            </button>
+        </div>
     </div>
 </div>
 

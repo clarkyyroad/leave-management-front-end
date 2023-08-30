@@ -1,7 +1,11 @@
 import {Injectable} from "@angular/core";
 
 import {ILeave} from "../leave-model/leave.model";
+import {Observable} from "rxjs";
+import {LeavePageResponseModel} from "../leave-model/leave-page-response.model";
 import {LeaveRepository} from "../leave-repository/leave.repository";
+
+
 @Injectable({providedIn: 'root'})
 
 export class LeaveService {
@@ -13,13 +17,13 @@ export class LeaveService {
         return this.leaveRepository.fetchAllLeaves(max, page);
     }
 
-  public fetchEmployeeLeaves(max: number, page: number, employeeId: number){
-    return this.leaveRepository.fetchEmployeeLeaves(max, page, employeeId);
-  }
+    public fetchEmployeeLeaves(max: number, page: number, id: number): Observable<LeavePageResponseModel> {
+        return this.leaveRepository.fetchEmployeeLeaves(max, page, id);
+    }
 
-  public fetchLeavesUnderManager(max: number, page: number, managerId: number){
-    return this.leaveRepository.fetchLeavesUnderManager(max, page, managerId);
-  }
+    public fetchLeavesUnderManager(max: number, page: number, id: number) {
+        return this.leaveRepository.fetchLeavesUnderManager(max, page, id);
+    }
 
     public saveLeave(requestBody: ILeave) {
         return this.leaveRepository.createLeave(requestBody);
@@ -33,7 +37,8 @@ export class LeaveService {
         return this.leaveRepository.rejectLeave(leaveID);
     }
 
-    public cancelLeave(requestBody: ILeave) {
-        return this.leaveRepository.cancelLeave(requestBody);
+    public cancelLeave(leaveId: number) {
+        return this.leaveRepository.cancelLeave(leaveId);
     }
+
 }

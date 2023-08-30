@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {LeaveResponse} from "../../leave/leave-model/leave-response.model";
 import {LeaveService} from "../../leave/leave-service/leave.service";
 import {RouterService} from "../router-service/router.service";
+
+import {EmployeeService} from "../../employee/employee-service/employee.service";
 import {LeavePageResponseModel} from "../../leave/leave-model/leave-page-response.model";
 
 @Component({
@@ -12,32 +14,57 @@ import {LeavePageResponseModel} from "../../leave/leave-model/leave-page-respons
 export class ViewLeavesComponent {
 
     public leavesInPage: LeavePageResponseModel = {
-        totalNumber: 0,
+        totalCount: 0,
         pageNumber: 0,
         content: []
     }
+    public dataInfo: boolean = false;
 
     public readonly MAX_LIMIT: number = 5;
+    public usedLeaves: number = 0;
+    public availableLeaves: number = 0;
+    public cancelButton: boolean = true;
     private page: number = 1;
+    private employeeId: number = 0;
 
-    userId: number = 0;
-
-    constructor(private leaveService: LeaveService, private routerService: RouterService) {
-        const employee : any = this.routerService.getQueryParams().user;
-        this.userId = employee.id;
+    constructor(private leaveService: LeaveService, private employeeService: EmployeeService, private routerService: RouterService) {
+        this.usedLeaves = this.routerService.getQueryParams().user.totalLeaves;
+        this.availableLeaves = this.routerService.getQueryParams().user.currentLeaves;
+        this.employeeId = this.routerService.getQueryParams().user.id;
     }
     ngOnInit() {
-        this.initializeLeaves();
+        this.fetchMyLeaves();
     }
 
-    private initializeLeaves() {
-        this.leaveService.fetchEmployeeLeaves(this.MAX_LIMIT, 1, this.userId).subscribe({
-            next: (data: LeavePageResponseModel) => {
-                console.log('Response: ', data);
-                this.leavesInPage.content = data.content;
-                this.leavesInPage.pageNumber = data.pageNumber;
-                this.leavesInPage.totalNumber = data.totalNumber;
-            }
-        });
+    public cancelLeave(id: number) {
+        this.leaveService.cancelLeave(id)
+            .subscribe({
+                next: (data) => {
+                    console.log('Leave successfully cancelled: ', data);
+
+                    this.cancelButton = data.leaveStatus == "CANCELLED";
+
+                }, error: (err) => {
+
+                    console.log('An error occurred while cancelling leave');
+                }
+            });
     }
+
+    private fetchMyLeaves() {
+        this.leaveService.fetchEmployeeLeaves(this.MAX_LIMIT, this.page, this.employeeId)
+            .subscribe({
+                next: (data: any) => {
+                    console.log('Response', data);
+
+                    this.leavesInPage = data;
+
+                    this.dataInfo = data.totalCount == 0;
+                }
+            });
+    }
+
+    // private fetchUsedLeaves(){
+    //   this.employeeService.
+    // }
 }

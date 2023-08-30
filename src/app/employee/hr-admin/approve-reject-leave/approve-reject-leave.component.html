@@ -5,18 +5,17 @@
     </form>
     <br>
     <h3 class="employees-nav">Employees</h3>
-    <span class="nav-item" routerLink="hr-admin">View All</span>
+    <span (click)="viewAllEmployee()" class="nav-item">View All</span>
     <br>
     <span class="nav-item" routerLink="add-employee">Add New</span>
     <br>
     <br>
     <h3 class="leaves-nav">Leaves</h3>
-    <span routerLink="leaves">View All</span>
+    <span (click)="viewAllLeaves()" class="nav-item">View All</span>
     <br>
     <br>
     <button (click)="logout()" class="logout">Logout</button>
 </div>
-
 
 <div class="main">
     <div class="header">
@@ -25,8 +24,8 @@
 
         </div>
     </div>
-    <div class="table">
-        <table>
+    <div class="table-container">
+        <table class="table">
             <thead>
             <tr>
                 <th>Id</th>
@@ -36,6 +35,7 @@
                 <th>Days</th>
                 <th>Reason</th>
                 <th>Status</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -48,8 +48,12 @@
                 <td>{{leaves.reason}}</td>
                 <td>{{leaves.leaveStatus}}</td>
                 <td>
-                    <button class="approve">Approve</button>
-                    <button class="reject">Reject</button>
+                    <button (click)="approveLeave(leaves.id)" *ngIf="leaves.leaveStatus === 'PENDING'" class="approve">
+                        Approve
+                    </button>
+                    <button (click)="rejectLeave(leaves.id)" *ngIf="leaves.leaveStatus === 'PENDING'" class="reject">
+                        Reject
+                    </button>
                 </td>
             </tr>
             </tbody>

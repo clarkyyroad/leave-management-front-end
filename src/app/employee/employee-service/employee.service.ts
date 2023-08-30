@@ -19,7 +19,12 @@ export class EmployeeService {
         return this.employeeRepository.getPagedEmployees(max, page);
     }
 
+    public getEmployee(id: number): Observable<IEmployee> {
+        return this.employeeRepository.getEmployeeById(id);
+
+    }
+
     public createMember(requestParam: number, requestBody: IEmployee) {
-        return this.employeeRepository.createMemberEmployee(requestParam, requestBody)
+        return this.employeeRepository.createMemberEmployee(requestParam, requestBody);
     }
 }

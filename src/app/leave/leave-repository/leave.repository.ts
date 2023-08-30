@@ -17,6 +17,7 @@ export class LeaveRepository {
         });
     }
 
+<<<<<<< HEAD
   public fetchAllLeaves(max: number, page: number): Observable<any>{
     const getAllLeavesUrls: string = this.baseUrl + '/leave/hr? max=' + max + '&page=' + page;
     return this.httpClient.get<any>(getAllLeavesUrls, {headers: this.headers});
@@ -36,6 +37,12 @@ export class LeaveRepository {
     const createLeaveUrl: string = this.baseUrl + '/leave';
     return this.httpClient.post<any>(createLeaveUrl, requestBody, {headers: this.headers});
   }
+=======
+    public fetchAllLeaves(max: number, page: number): Observable<LeavePageResponseModel> {
+        const getAllLeavesUrls: string = this.baseUrl + `/leave/hr?max=${max}&page=${page}`;
+        return this.httpClient.get<LeavePageResponseModel>(getAllLeavesUrls, {headers: this.headers});
+    }
+>>>>>>> origin/romeojr
 
     public approveLeave(leaveId: number): Observable<ILeave> {
         const approveLeaveUrl: string = this.baseUrl + `/leave/approve/${leaveId}`;
@@ -47,9 +54,31 @@ export class LeaveRepository {
         return this.httpClient.put<ILeave>(rejectLeaveUrl, {headers: this.headers});
     }
 
+<<<<<<< HEAD
 
     public cancelLeave(requestBody: ILeave){
     const cancelLeaveUrl: string = this.baseUrl + '/leave/' + requestBody.id;
     return this.httpClient.put<any>(cancelLeaveUrl, requestBody, {headers: this.headers});
   }
+=======
+    public fetchEmployeeLeaves(max: number, page: number, id: number): Observable<LeavePageResponseModel> {
+        const getEmployeeLeavesUrl: string = this.baseUrl + `/leave?max=${max}&page=${page}&employeeId=${id}`;
+        return this.httpClient.get<LeavePageResponseModel>(getEmployeeLeavesUrl, {headers: this.headers});
+    }
+
+    public fetchLeavesUnderManager(max: number, page: number, id: any): Observable<any> {
+        const getLeavesUnderManagerUrl: string = this.baseUrl + '/leave/manager?max=' + max + '&page=' + page + '&employeeId=' + id;
+        return this.httpClient.get<any>(getLeavesUnderManagerUrl, {headers: this.headers});
+    }
+
+    public createLeave(requestBody: ILeave) {
+        const createLeaveUrl: string = this.baseUrl + '/leave';
+        return this.httpClient.post<any>(createLeaveUrl, requestBody, {headers: this.headers});
+    }
+
+    public cancelLeave(id: number) {
+        const cancelLeaveUrl: string = this.baseUrl + '/leave/' + id;
+        return this.httpClient.delete<any>(cancelLeaveUrl, {headers: this.headers});
+    }
+>>>>>>> origin/romeojr
 }
