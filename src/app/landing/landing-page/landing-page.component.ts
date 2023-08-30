@@ -34,7 +34,7 @@ export class LandingPageComponent implements OnInit {
             .then(() => console.log('Navigation successful'))
             .catch((error) => console.error('Navigation error: ', error));
       } else if (this.selectedUser === 'MANAGER') {
-        this.routerService.navigate('/manager/').then(() => console.log('Navigation successful'))
+        this.routerService.navigate('/manager/', {'user': user}).then(() => console.log('Navigation successful'))
           .catch((error) => console.error('Navigation error: ', error));
       } else if (this.selectedUser === 'MEMBER') {
         this.routerService.navigate('/member/').then(() => console.log('Navigation successful'))
