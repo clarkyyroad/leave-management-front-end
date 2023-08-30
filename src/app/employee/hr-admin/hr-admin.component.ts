@@ -46,4 +46,10 @@ export class HrAdminComponent implements OnInit {
   public editEmployee(id: any) {
     this.routerService.navigate('hr-admin/edit', {'id': id})
   }
+
+  logout() {
+    sessionStorage.clear()
+    this.routerService.navigate('/landing/').then(() => console.log('Navigation successful'))
+        .catch((error) => console.error('Navigation error: ', error))
+  }
 }

@@ -5,10 +5,43 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: black;
+  background-color: #333;
   overflow-x: hidden;
   padding-left: 30px;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.sidenav h3 {
+  color: white;
+  margin-top: 20px;
+}
+
+.sidenav form {
+  margin-bottom: 20px;
+}
+
+.sidenav .nav-item {
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.sidenav .nav-item:hover {
+  color: #F14E6D;
+}
+
+.sidenav .logout {
+  padding: 8px 20px;
+  margin-top: 500px;
+  border: none;
+  border-radius: 5px;
+  background-color: #F14E6D;
+  color: white;
+  cursor: pointer;
+}
+
+.sidenav .logout:hover {
+  background-color: #D43C5A;
 }
 
 select {

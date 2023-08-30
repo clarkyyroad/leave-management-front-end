@@ -38,4 +38,10 @@ export class ApproveRejectLeaveComponent implements OnInit {
             }
         });
     }
+
+    logout() {
+        sessionStorage.clear()
+        this.routerService.navigate('/landing/').then(() => console.log('Navigation successful'))
+            .catch((error) => console.error('Navigation error: ', error))
+    }
 }

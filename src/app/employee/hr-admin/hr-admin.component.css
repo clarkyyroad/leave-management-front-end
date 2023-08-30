@@ -5,36 +5,43 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: black;
+  background-color: #333;
   overflow-x: hidden;
   padding-left: 30px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-select {
-  width: 90%;
-  height: 20%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: content-box;
-  font-size: 15px;
-  padding: 8px 5px;
-}
-
-h3 {
+.sidenav h3 {
   color: white;
+  margin-top: 20px;
 }
 
-span {
+.sidenav form {
+  margin-bottom: 20px;
+}
+
+.sidenav .nav-item {
   color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
-span:hover {
+.sidenav .nav-item:hover {
   color: #F14E6D;
 }
 
-hover {
+.sidenav .logout {
+  padding: 8px 20px;
+  margin-top: 500px;
+  border: none;
+  border-radius: 5px;
+  background-color: #F14E6D;
+  color: white;
+  cursor: pointer;
+}
 
+.sidenav .logout:hover {
+  background-color: #D43C5A;
 }
 
 .main {
@@ -43,19 +50,10 @@ hover {
   font-family: Source Sans Pro, sans-serif;
 }
 
-.edit {
-  padding: 12px 20px;
-  margin: 10px 0;
-  border: 1px solid #F14E6D;
-  border-radius: 5px;
-  box-sizing: border-box;
-  background-color: #F14E6D;
-  color: white;
-}
-
-.edit:hover {
-  background-color: white;
-  color: #F14E6D;
+.header {
+  padding-left: 50px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .add {
@@ -66,6 +64,7 @@ hover {
   box-sizing: border-box;
   background-color: black;
   color: white;
+  cursor: pointer;
 }
 
 .add:hover {
@@ -73,10 +72,8 @@ hover {
   color: black;
 }
 
-.header {
-  padding-left: 50px;
-  display: flex;
-  justify-content: space-between;
+.table {
+  margin-left: 50px;
 }
 
 table {
@@ -89,6 +86,18 @@ td {
   text-align: center;
 }
 
-.table {
-  margin-left: 50px;
+.edit {
+  padding: 12px 20px;
+  margin: 10px 0;
+  border: 1px solid #F14E6D;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #F14E6D;
+  color: white;
+  cursor: pointer;
+}
+
+.edit:hover {
+  background-color: white;
+  color: #F14E6D;
 }
