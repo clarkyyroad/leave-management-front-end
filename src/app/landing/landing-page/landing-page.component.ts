@@ -12,36 +12,6 @@ import {EmployeeService} from "../../employee/employee-service/employee.service"
 })
 export class LandingPageComponent implements OnInit {
 
-// <<<<<<< HEAD
-//   public users: IUsers[] = [];
-//   public selectedUser: string = '';
-//   showModal: boolean = false;
-//
-//   constructor(private routerService: RouterService, private employeeService: EmployeeService) {
-//   }
-//
-//   ngOnInit() {
-//     this.initializeUser();
-//   }
-//
-//   public getUserPath(): void {
-//     const user = this.users.find(u => u.roleType === this.selectedUser);
-//     if (!this.selectedUser) {
-//       this.showModal = true;
-//     } else {
-//       if (this.selectedUser === 'HR_ADMIN' && user) {
-//         localStorage.setItem('userName', user?.name || '')
-//         this.routerService.navigate('/hr-admin/')
-//             .then(() => console.log('Navigation successful'))
-//             .catch((error) => console.error('Navigation error: ', error));
-//       } else if (this.selectedUser === 'MANAGER') {
-//         this.routerService.navigate('/manager/', {'user': user}).then(() => console.log('Navigation successful'))
-//           .catch((error) => console.error('Navigation error: ', error));
-//       } else if (this.selectedUser === 'MEMBER') {
-//         this.routerService.navigate('/member/').then(() => console.log('Navigation successful'))
-//           .catch((error) => console.error('Navigation: ', error));
-//       }
-// =======
     public users: IUsers[] = [];
     public selectedUser: string = '';
     showModal: boolean = false;
@@ -64,7 +34,7 @@ export class LandingPageComponent implements OnInit {
                     .then(() => console.log('Navigation successful'))
                     .catch((error) => console.error('Navigation error: ', error));
             } else if (this.selectedUser === 'MANAGER') {
-                this.routerService.navigate('/manager/').then(() => console.log('Navigation successful'))
+                this.routerService.navigate('/manager/', {'user': user}).then(() => console.log('Navigation successful'))
                     .catch((error) => console.error('Navigation error: ', error));
             } else if (this.selectedUser === 'MEMBER') {
                 this.routerService.navigate('/member/').then(() => console.log('Navigation successful'))
@@ -78,7 +48,7 @@ export class LandingPageComponent implements OnInit {
     }
 
     private initializeUser() {
-        this.employeeService.getUsers().subscribe({
+        this.employeeService.getUsers('').subscribe({
             next: (data: IUsers[]): void => {
                 this.users = data;
                 console.log('Response: ', data)

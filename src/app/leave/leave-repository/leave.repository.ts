@@ -16,6 +16,7 @@ export class LeaveRepository {
             'Content-Type': this.CONTENT_TYPE
         });
     }
+
   public fetchAllLeaves(max: number, page: number): Observable<any>{
     const getAllLeavesUrls: string = this.baseUrl + '/leave/hr? max=' + max + '&page=' + page;
     return this.httpClient.get<any>(getAllLeavesUrls, {headers: this.headers});
@@ -36,17 +37,18 @@ export class LeaveRepository {
     return this.httpClient.post<any>(createLeaveUrl, requestBody, {headers: this.headers});
   }
 
-  public approveLeave(requestBody: ILeave){
-    const approveLeaveUrl: string = this.baseUrl + '/leave/approve/' + requestBody.id;
-    return this.httpClient.put<any>(approveLeaveUrl, requestBody, {headers: this.headers});
-  }
+    public approveLeave(leaveId: number): Observable<ILeave> {
+        const approveLeaveUrl: string = this.baseUrl + `/leave/approve/${leaveId}`;
+        return this.httpClient.put<ILeave>(approveLeaveUrl, {headers: this.headers});
+    }
 
-  public rejectLeave(requestBody: ILeave){
-    const rejectLeaveUrl: string = this.baseUrl + '/leave/reject/' + requestBody.id;
-    return this.httpClient.put<any>(rejectLeaveUrl, requestBody, {headers: this.headers});
-  }
+    public rejectLeave(leaveId: number): Observable<ILeave> {
+        const rejectLeaveUrl: string = this.baseUrl + `/leave/reject/${leaveId}`;
+        return this.httpClient.put<ILeave>(rejectLeaveUrl, {headers: this.headers});
+    }
 
-  public cancelLeave(requestBody: ILeave){
+
+    public cancelLeave(requestBody: ILeave){
     const cancelLeaveUrl: string = this.baseUrl + '/leave/' + requestBody.id;
     return this.httpClient.put<any>(cancelLeaveUrl, requestBody, {headers: this.headers});
   }

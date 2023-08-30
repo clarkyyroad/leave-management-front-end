@@ -11,8 +11,8 @@ export class EmployeeService {
     constructor(private employeeRepository: EmployeeRepository) {
     }
 
-    public getUsers(): Observable<IUsers[]> {
-        return this.employeeRepository.getListEmployees();
+    public getUsers(roleType: string): Observable<IUsers[]> {
+        return this.employeeRepository.getListEmployees(roleType);
     }
 
     public getEmployees(max: number, page: number): Observable<IEmployeePageResponse> {

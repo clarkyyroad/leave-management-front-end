@@ -1,1 +1,61 @@
-<app-side-navigation-bar></app-side-navigation-bar>
+<div class="sidenav">
+    <h3>Welcome Back!</h3>
+    <form>
+        <h3>{{ userName }}</h3>
+    </form>
+    <br>
+    <h3 class="employees-nav">Employees</h3>
+    <span class="nav-item" routerLink="/manager">View All</span>
+    <br>
+    <br>
+    <h3 class="leaves-nav">Leaves</h3>
+    <span class="nav-item" routerLink="apply">Apply</span>
+    <br>
+    <span class="nav-item" routerLink="my-leaves">View All</span>
+    <br>
+    <br>
+    <button (click)="logout()" class="logout">Logout</button>
+</div>
+
+<div class="main">
+    <div class="header">
+        <h2>All Leaves</h2>
+        <div class="actions">
+
+        </div>
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Applied By</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Days</th>
+                <th>Reason</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let leaves of leavesInPage.content">
+                <td>{{leaves.id}}</td>
+                <td>{{leaves.employeeName}}</td>
+                <td>{{leaves.startDate}}</td>
+                <td>{{leaves.endDate}}</td>
+                <td>{{leaves.days}}</td>
+                <td>{{leaves.reason}}</td>
+                <td>{{leaves.leaveStatus}}</td>
+                <td>
+                    <button (click)="approveLeave(leaves.id)" *ngIf="leaves.leaveStatus !== 'APPROVED'" class="approve">
+                        Approve
+                    </button>
+                    <button (click)="rejectLeave(leaves.id)" *ngIf="leaves.leaveStatus !== 'REJECTED'" class="reject">
+                        Reject
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

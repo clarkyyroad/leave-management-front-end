@@ -4,11 +4,11 @@ import {HrAdminComponent} from "./employee/hr-admin/hr-admin.component";
 import {AddEmployeeComponent} from "./employee/hr-admin/add-employee/add-employee.component";
 import {EditEmployeeComponent} from "./employee/hr-admin/edit-employee/edit-employee.component";
 import {ManagerComponent} from "./employee/manager/manager.component";
-import {CreateLeaveComponent} from "./shared/create-leave/create-leave.component";
-import {ViewLeavesComponent} from "./shared/view-leaves/view-leaves.component";
 import {MemberComponent} from "./employee/member/member.component";
 import {ApproveRejectLeaveComponent} from "./employee/hr-admin/approve-reject-leave/approve-reject-leave.component";
 import {LandingPageComponent} from "./landing/landing-page/landing-page.component";
+import {CreateLeaveComponent} from "./shared/create-leave/create-leave.component";
+import {ViewLeavesComponent} from "./shared/view-leaves/view-leaves.component";
 
 const routes: Routes = [
     {path: 'landing', component: LandingPageComponent},
