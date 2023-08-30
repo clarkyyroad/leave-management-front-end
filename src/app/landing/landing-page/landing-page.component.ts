@@ -35,14 +35,18 @@ export class LandingPageComponent implements OnInit {
           .then(() => console.log('Navigation successful'))
           .catch((error) => console.error('Navigation error: ', error));
       } else if (this.selectedUser === 'MANAGER') {
-        this.routerService.navigate('/manager/').then(() => console.log('Navigation successful'))
+        this.routerService.navigate('/manager/')
+          .then(() => console.log('Navigation successful'))
           .catch((error) => console.error('Navigation error: ', error));
       } else if (this.selectedUser === 'MEMBER' && user) {
         localStorage.setItem('userName', user?.name || '')
-        localStorage.setItem('userId', String(user.id))
-        this.routerService.navigate('/member/').then(() => console.log('Navigation successful'))
+        localStorage.setItem('userId', String(user?.id))
+        this.routerService.navigate('/member/')
+          .then(() => console.log('Navigation successful'))
           .catch((error) => console.error('Navigation: ', error));
       }
+
+
     }
   }
 

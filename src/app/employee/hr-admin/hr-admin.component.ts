@@ -25,6 +25,7 @@ export class HrAdminComponent implements OnInit {
 
     ngOnInit() {
         this.initializeEmployees();
+        console.log(localStorage.getItem('userId'))
     }
 
     public addEmployee(): void {

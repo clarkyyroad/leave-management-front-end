@@ -27,7 +27,7 @@ export class MemberComponent {
   public usedLeaves: number = 0 ;
   public availableLeaves: number = 0;
   public userName: string = '';
-  public userID: number = 0;
+  public userID: number;
 
   public cancelButton: boolean = false;
 
@@ -38,9 +38,11 @@ export class MemberComponent {
     this.userID = storedUserId ? parseInt(storedUserId) : 0;
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.fetchMyLeaves();
     this.getEmployeeInfo();
+    console.log( localStorage.getItem('userId'));
+    console.log(localStorage.getItem('userName'));
   }
 
   private fetchMyLeaves(){

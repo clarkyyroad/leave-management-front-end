@@ -29,7 +29,7 @@ export class EmployeeRepository {
         return this.httpClient.get<IEmployeePageResponse>(getPageEmployeesUrl, {headers: this.headers});
     }
 
-    public getEmployeeById(id: number){
+    public getEmployeeById(id: number): Observable<IEmployee>{
       const getEmployeeByIdUrl: string = this.baseUrl + '/employees/' + id;
       return this.httpClient.get<IEmployee>(getEmployeeByIdUrl, {headers: this.headers});
     }

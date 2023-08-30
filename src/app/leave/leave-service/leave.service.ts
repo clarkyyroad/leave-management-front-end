@@ -14,7 +14,7 @@ export class LeaveService {
         return this.leaveRepository.fetchAllLeaves(max, page);
     }
 
-  public fetchEmployeeLeaves(max: number, page: number, id: number){
+  public fetchEmployeeLeaves(max: number, page: number, id: any){
     return this.leaveRepository.fetchEmployeeLeaves(max, page, id);
   }
 
