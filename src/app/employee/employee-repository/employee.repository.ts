@@ -18,23 +18,24 @@ export class EmployeeRepository {
         });
     }
 
+
     public getListEmployees(roleType: string): Observable<IUsers[]> {
         const getListEmployeeUrl: string = this.baseUrl + `/employees/list?roleType=${roleType}`;
         return this.httpClient.get<IUsers[]>(getListEmployeeUrl, {headers: this.headers});
     }
 
     public getPagedEmployees(max: number, page: number): Observable<IEmployeePageResponse> {
-        const getPageEmployeesUrl: string = this.baseUrl + `/employees?max=${max}&page=${page}`;
+        const getPageEmployeesUrl: string = this.baseUrl + `/employees?max=${max}&page${page}`;
         return this.httpClient.get<IEmployeePageResponse>(getPageEmployeesUrl, {headers: this.headers});
     }
 
     public getEmployeeById(id: number) {
         const getEmployeeByIdUrl: string = this.baseUrl + '/employees/' + id;
-        return this.httpClient.get<any>(getEmployeeByIdUrl, {headers: this.headers});
+        return this.httpClient.get<IEmployee>(getEmployeeByIdUrl, {headers: this.headers});
     }
 
     public createMemberEmployee(requestParam: number, requestBody: IEmployee): Observable<IEmployee> {
-        const createMemberUrl: string = this.baseUrl + `/employees?adminId=${requestParam}`;
-        return this.httpClient.post<IEmployee>(createMemberUrl, requestBody, {headers: this.headers})
+        const createMemberUrl: string = this.baseUrl + `/employees/member?adminId=${requestParam}`;
+        return this.httpClient.post<IEmployee>(createMemberUrl, requestBody, {headers: this.headers});
     }
 }

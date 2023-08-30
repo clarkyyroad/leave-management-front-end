@@ -13,7 +13,7 @@
         <div *ngIf="true" class="admin">
             <select [(ngModel)]="selectedUser" class="users" name="users">
                 <option disabled value="">Select a user</option>
-                <option *ngFor="let user of users" [value]="user.roleType">{{user.name}} ({{user.roleType}})
+                <option *ngFor="let user of users" [ngValue]="user">{{user.name}} ({{user.roleType}})
                 </option>
             </select>
             <br>

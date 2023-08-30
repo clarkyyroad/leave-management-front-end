@@ -33,7 +33,7 @@ export class LeaveRepository {
     }
 
     public fetchEmployeeLeaves(max: number, page: number, id: number): Observable<LeavePageResponseModel> {
-        const getEmployeeLeavesUrl: string = this.baseUrl + `/leave?max=${max}&page${page}&employeeId=${id}`;
+        const getEmployeeLeavesUrl: string = this.baseUrl + `/leave?max=${max}&page=${page}&employeeId=${id}`;
         return this.httpClient.get<LeavePageResponseModel>(getEmployeeLeavesUrl, {headers: this.headers});
     }
 
