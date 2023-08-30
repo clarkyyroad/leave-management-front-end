@@ -17,7 +17,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {UserSelectionModalComponent} from './shared/user-selection-modal/user-selection-modal.component';
 import {ApproveRejectLeaveComponent} from "./employee/hr-admin/approve-reject-leave/approve-reject-leave.component";
-import { ConfirmationModalComponent } from './shared/confirmation-modal/confirmation-modal.component';
+import {ConfirmationModalComponent} from './shared/confirmation-modal/confirmation-modal.component';
 
 @NgModule({
     declarations: [
