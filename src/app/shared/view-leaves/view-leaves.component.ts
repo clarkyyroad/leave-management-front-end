@@ -28,7 +28,7 @@ export class ViewLeavesComponent {
     private employeeId: number = 0;
 
 
-    public cancelButton: boolean = true;
+    public cancelButton: boolean = false;
     private leaveStatus: string = '';
 
     constructor(private leaveService: LeaveService, private employeeService: EmployeeService, private routerService: RouterService) {
@@ -62,16 +62,6 @@ export class ViewLeavesComponent {
                     console.log('Response', data);
                     this.leavesInPage = data;
                     this.dataInfo = data.totalCount == 0;
-                    if (Array.isArray(data.content) && data.content.length > 0) {
-                        for (const item of data.content) {
-                            console.log('Leave Status:', item.leaveStatus);
-                            if(item.leaveStatus === "PENDING"){
-                                this.cancelButton = true;
-                            }
-                        }
-                    } else {
-                        console.log('Content is empty or not an array.');
-                    }
                 }
             });
     }
@@ -91,10 +81,4 @@ export class ViewLeavesComponent {
         this.routerService.navigate('/landing/').then(() => console.log('Navigation successful'))
             .catch((error) => console.error('Navigation error: ', error))
     }
-
-
-
-    // private fetchUsedLeaves(){
-    //   this.employeeService.
-    // }
 }

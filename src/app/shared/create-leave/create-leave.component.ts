@@ -2,9 +2,7 @@ import {Component} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {LeaveService} from "../../leave/leave-service/leave.service";
 import {Router} from "@angular/router";
-import {ILeave} from "../../leave/leave-model/leave.model";
 import {RouterService} from "../router-service/router.service";
-import {IEmployee} from "../../employee/employee-model/employee.model";
 
 @Component({
     selector: 'app-create-leave',
@@ -23,7 +21,7 @@ export class CreateLeaveComponent {
     this.userRole = storedUserRole || 'Null';
 
     this.addLeaveForm = new FormGroup<any>({
-      id: new FormControl(this.userId),
+      employee_id: new FormControl(2),
       startDate: new FormControl  (''),
       endDate: new FormControl (''),
       reason: new FormControl ('')
@@ -42,15 +40,13 @@ export class CreateLeaveComponent {
     }
 
     public addLeave(){
-        const formValue = this.addLeaveForm.getRawValue();
-        this.leaveService.saveLeave(formValue)
-            .subscribe({next: (data: any) => {
-              this.routerService.navigate(['/manager/my-leaves/'])
-                  .then(() => console.log(data))
-                  .catch((error) => console.error('Navigation error: ', error));
-              }, error: (error) => {
-                    console.error('Error Creating Leave', error);
-                }
-            });
+        const formValue: any = this.addLeaveForm.getRawValue();
+        console.warn(formValue);
+        this.leaveService.saveLeave(formValue).subscribe({
+            next: (data: any) => {
+              this.routerService.navigate('/manager/my-leaves').then(() => console.log('Navigation Successful')).catch((error) => console.error('Navigation error:', error))
+            }, error: (error) => {
+                console.error('Error creating', error);
+            }});
     }
 }

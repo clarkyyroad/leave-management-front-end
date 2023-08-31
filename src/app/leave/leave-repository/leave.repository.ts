@@ -42,9 +42,9 @@ export class LeaveRepository {
         return this.httpClient.get<any>(getLeavesUnderManagerUrl, {headers: this.headers});
     }
 
-    public createLeave(requestBody: ILeave) {
+    public createLeave(requestBody: ILeave): Observable<ILeave> {
         const createLeaveUrl: string = this.baseUrl + '/leave';
-        return this.httpClient.post<any>(createLeaveUrl, requestBody, {headers: this.headers});
+        return this.httpClient.post<ILeave>(createLeaveUrl, requestBody, {headers: this.headers});
     }
 
     public cancelLeave(id: number) {

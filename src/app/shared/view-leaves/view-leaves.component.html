@@ -31,6 +31,7 @@
                 <th></th>
             </tr>
             </thead>
+            <br>
             <tbody>
             <tr *ngFor="let leave of leavesInPage.content">
                 <td>{{leave.startDate}}</td>
@@ -38,7 +39,7 @@
                 <td>{{leave.days}}</td>
                 <td>{{leave.reason}}</td>
                 <td>{{leave.leaveStatus}}</td>
-                <td *ngIf="cancelButton" >
+                <td *ngIf="leave.leaveStatus === 'PENDING'" >
                     <button (click)="cancelLeave(leave.id)" class="cancel">Cancel</button>
                 </td>
             </tr>
