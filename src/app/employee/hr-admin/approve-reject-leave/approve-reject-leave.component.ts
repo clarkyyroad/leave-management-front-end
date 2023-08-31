@@ -18,8 +18,9 @@ export class ApproveRejectLeaveComponent implements OnInit {
         content: []
     }
     userName: string = '';
-    showModal: boolean = false;
-    private readonly MAX_LIMIT: number = 15;
+    currentPage: number = 1;
+    totalPages!: number;
+    private readonly MAX_LIMIT: number = 5;
 
     constructor(private routerService: RouterService, private leaveService: LeaveService) {
         const storedUserName = localStorage.getItem('userName');
@@ -64,13 +65,22 @@ export class ApproveRejectLeaveComponent implements OnInit {
             .catch((error) => console.error('Navigation error: ', error));
     }
 
+    goToPage(page: number) {
+        if (page >= 1 && page <= this.totalPages) {
+            this.currentPage = page;
+            this.initializeLeaves();
+            console.log(this.currentPage);
+        }
+    }
+
     private initializeLeaves() {
-        this.leaveService.fetchAllLeaves(this.MAX_LIMIT, 1).subscribe({
+        this.leaveService.fetchAllLeaves(this.MAX_LIMIT, this.currentPage).subscribe({
             next: (data: LeavePageResponseModel) => {
                 console.log('Response: ', data);
                 this.leavesInPage.content = data.content;
                 this.leavesInPage.pageNumber = data.pageNumber;
                 this.leavesInPage.totalCount = data.totalCount;
+                this.totalPages = Math.ceil(data.totalCount / this.MAX_LIMIT);
             }
         });
     }
