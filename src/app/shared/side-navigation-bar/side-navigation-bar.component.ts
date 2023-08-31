@@ -32,7 +32,7 @@ export class SideNavigationBarComponent {
         }
     }
 
-     toSentenceCase(inputString: string): string {
+    toSentenceCase(inputString: string): string {
         const words = inputString.split(/\s+/);
         const sentenceCaseWords = words.map((word) =>
             word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()

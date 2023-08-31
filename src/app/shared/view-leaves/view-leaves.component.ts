@@ -20,14 +20,13 @@ export class ViewLeavesComponent {
     public dataInfo: boolean = false;
 
     userName = '';
-    private employeeId: number = 0;
     public readonly MAX_LIMIT: number = 5;
     public currentLeaves: number = 0;
     public totalLeaves: number = 0;
     public cancelButton: boolean = false;
     public page: number = 1;
     totalPages!: number;
-
+    private employeeId: number = 0;
 
     constructor(private leaveService: LeaveService, private employeeService: EmployeeService, private routerService: RouterService) {
         const storedUserId = localStorage.getItem('userId');
@@ -41,16 +40,15 @@ export class ViewLeavesComponent {
         this.fetchEmployee();
     }
 
-    next(){
+    next() {
         this.page += 1;
         this.ngOnInit();
     }
 
-    back(){
+    back() {
         this.page -= 1;
         this.ngOnInit();
     }
-
 
 
     public cancelLeave(id: number) {

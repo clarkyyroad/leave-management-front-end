@@ -52,12 +52,12 @@ export class ManagerComponent {
         });
     }
 
-    next(){
+    next() {
         this.page += 1;
         this.ngOnInit();
     }
 
-    back(){
+    back() {
         this.page -= 1;
         this.ngOnInit();
     }
