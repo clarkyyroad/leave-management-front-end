@@ -31,6 +31,7 @@ export class ManagerComponent {
     ngOnInit() {
         this.initializeLeaves();
     }
+
     approveLeave(leaveId: number) {
         this.leaveService.approveLeave(leaveId).subscribe({
             next: (data: ILeave) => {

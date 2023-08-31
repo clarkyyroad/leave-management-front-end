@@ -15,16 +15,17 @@ export class SideNavigationBarComponent {
 
     roleType: string = '';
     userName: string = '';
-    constructor(private leaveService: LeaveService,private employeeService: EmployeeService, private routerService: RouterService) {
+
+    constructor(private leaveService: LeaveService, private employeeService: EmployeeService, private routerService: RouterService) {
         const storedUserRole = localStorage.getItem("userRole");
         const storedUserName = localStorage.getItem("userName");
         this.userName = storedUserName || 'Null';
         this.roleType = storedUserRole || 'Null';
-        if(this.roleType == "MANAGER"){
+        if (this.roleType == "MANAGER") {
             this.manager = true;
-        }else if(this.roleType == "MEMBER"){
+        } else if (this.roleType == "MEMBER") {
             this.member = true;
-        }else if(this.roleType == "HR_ADMIN"){
+        } else if (this.roleType == "HR_ADMIN") {
             this.hradmin = true;
         }
     }
@@ -35,13 +36,13 @@ export class SideNavigationBarComponent {
             .catch((error) => console.log('Navigation error: ', error));
     }
 
-    createLeave():void{
+    createLeave(): void {
         this.routerService.navigate('/manager/apply')
             .then(() => console.log('Navigation successful'))
             .catch((error) => console.log('Navigation error: ', error));
     }
 
-    viewMyLeaves(){
+    viewMyLeaves() {
         this.routerService.navigate('/manager/my-leaves/')
             .then(() => console.log('Navigation successful'))
             .catch((error) => console.log('Navigation error: ', error));
@@ -64,8 +65,6 @@ export class SideNavigationBarComponent {
         this.routerService.navigate('/landing/').then(() => console.log('Navigation successful'))
             .catch((error) => console.error('Navigation error: ', error))
     }
-
-
 
 
 }

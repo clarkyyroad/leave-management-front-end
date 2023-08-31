@@ -9,7 +9,7 @@
         <h3>· Employees ·</h3>
         <span (click)="viewAllEmployee()" class="nav-item">View All</span>
         <br>
-        <span class="nav-item" (click)="addEmployee()">Add New</span>
+        <span (click)="addEmployee()" class="nav-item">Add New</span>
         <br>
         <br>
         <h3 class="leaves-nav">Leaves</h3>
@@ -20,14 +20,14 @@
 
     <div *ngIf="manager">
         <h3>· Employees ·</h3>
-        <span class="nav-item" (click) = "viewAllEmployeeUnderManager()">View All</span>
+        <span (click)="viewAllEmployeeUnderManager()" class="nav-item">View All</span>
         <br>
         <br>
         <h3>· Leaves ·</h3>
-        <span class="nav-item" (click) = "createLeave()">Apply</span>
+        <span (click)="createLeave()" class="nav-item">Apply</span>
         <br>
         <br>
-        <span class="nav-item" (click) = "viewMyLeaves()">View My Leaves</span>
+        <span (click)="viewMyLeaves()" class="nav-item">View My Leaves</span>
 
     </div>
 
@@ -35,7 +35,7 @@
         <br><br>
         <span *ngIf="true" class="leaves-nav">Leaves</span>
         <br>
-        <span *ngIf="true" class="nav-item" (click) = "createLeave()">Apply</span>
+        <span (click)="createLeave()" *ngIf="true" class="nav-item">Apply</span>
         <br>
         <span *ngIf="true" class="nav-item">My Leaves</span>
     </div>

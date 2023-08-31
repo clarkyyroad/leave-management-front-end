@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {LeaveResponse} from "../../leave/leave-model/leave-response.model";
 import {LeaveService} from "../../leave/leave-service/leave.service";
 import {RouterService} from "../router-service/router.service";
 
@@ -20,23 +19,22 @@ export class ViewLeavesComponent {
     }
     public dataInfo: boolean = false;
 
-    userName ='';
+    userName = '';
     public readonly MAX_LIMIT: number = 5;
     public currentLeaves: number = 0;
     public totalLeaves: number = 0;
+    public cancelButton: boolean = false;
     private page: number = 1;
     private employeeId: number = 0;
-
-
-    public cancelButton: boolean = false;
     private leaveStatus: string = '';
 
     constructor(private leaveService: LeaveService, private employeeService: EmployeeService, private routerService: RouterService) {
-       const storedUserId = localStorage.getItem('userId');
-       this.employeeId = storedUserId ? parseInt(storedUserId) : 0;
-       const storedUserName = localStorage.getItem('userName');
-       this.userName = storedUserName || 'Null';
+        const storedUserId = localStorage.getItem('userId');
+        this.employeeId = storedUserId ? parseInt(storedUserId) : 0;
+        const storedUserName = localStorage.getItem('userName');
+        this.userName = storedUserName || 'Null';
     }
+
     ngOnInit() {
         this.fetchMyLeaves();
         this.fetchEmployee();
@@ -55,6 +53,12 @@ export class ViewLeavesComponent {
             });
     }
 
+    logout() {
+        localStorage.clear();
+        this.routerService.navigate('/landing/').then(() => console.log('Navigation successful'))
+            .catch((error) => console.error('Navigation error: ', error))
+    }
+
     private fetchMyLeaves() {
         this.leaveService.fetchEmployeeLeaves(this.MAX_LIMIT, this.page, this.employeeId)
             .subscribe({
@@ -66,7 +70,7 @@ export class ViewLeavesComponent {
             });
     }
 
-    private  fetchEmployee(){
+    private fetchEmployee() {
         this.employeeService.getEmployee(this.employeeId)
             .subscribe({
                 next: (data: any) => {
@@ -74,11 +78,5 @@ export class ViewLeavesComponent {
                     this.totalLeaves = data.totalLeaves;
                 }
             })
-    }
-
-    logout() {
-        localStorage.clear();
-        this.routerService.navigate('/landing/').then(() => console.log('Navigation successful'))
-            .catch((error) => console.error('Navigation error: ', error))
     }
 }

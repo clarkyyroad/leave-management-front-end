@@ -39,7 +39,7 @@
                 <td>{{leave.days}}</td>
                 <td>{{leave.reason}}</td>
                 <td>{{leave.leaveStatus}}</td>
-                <td *ngIf="leave.leaveStatus === 'PENDING'" >
+                <td *ngIf="leave.leaveStatus === 'PENDING'">
                     <button (click)="cancelLeave(leave.id)" class="cancel">Cancel</button>
                 </td>
             </tr>

@@ -22,6 +22,7 @@ export class LeaveRepository {
         const getAllLeavesUrls: string = this.baseUrl + `/leave/hr?max=${max}&page=${page}`;
         return this.httpClient.get<LeavePageResponseModel>(getAllLeavesUrls, {headers: this.headers});
     }
+
     public approveLeave(leaveId: number): Observable<ILeave> {
         const approveLeaveUrl: string = this.baseUrl + `/leave/approve/${leaveId}`;
         return this.httpClient.put<ILeave>(approveLeaveUrl, {headers: this.headers});
