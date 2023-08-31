@@ -15,7 +15,9 @@ export class AddEmployeeComponent implements OnInit {
     public addEmployeeForm: FormGroup;
     public managers: IUsers[] = [];
     public userId: number;
-    public errorMessage?: string;
+    public errorMessage: string = '';
+    public errorCode: string = '';
+    public showModal: boolean = false;
 
     constructor(private employeeService: EmployeeService, private routerService: RouterService) {
         const storedUserId = localStorage.getItem('userId');
@@ -41,9 +43,12 @@ export class AddEmployeeComponent implements OnInit {
                 console.log('Successfully Created', data);
                 this.routerService.navigate('/hr-admin/').then(() => console.log('Navigated successful'))
                     .catch((error) => console.error('Navigation error: ', error));
-            }, error: (error) => {
+            },
+            error: (error) => {
                 console.error('Error Creating Employee', error);
-                this.errorMessage = error.errorMessage;
+                this.errorCode = error.error.errorCode;
+                this.errorMessage = error.error.errorMessage;
+                this.showModal = true;
                 console.log(this.errorMessage);
             }
         });
@@ -57,6 +62,10 @@ export class AddEmployeeComponent implements OnInit {
     onRoleTypeChange() {
         const roleType = this.addEmployeeForm.get('roleType')?.value;
         this.initializeManager(roleType)
+    }
+
+    onCloseModal() {
+        this.showModal = false;
     }
 
     private initializeManager(roleType: string) {

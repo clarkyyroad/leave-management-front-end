@@ -18,6 +18,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {UserSelectionModalComponent} from './shared/user-selection-modal/user-selection-modal.component';
 import {ApproveRejectLeaveComponent} from "./employee/hr-admin/approve-reject-leave/approve-reject-leave.component";
 import {ConfirmationModalComponent} from './shared/confirmation-modal/confirmation-modal.component';
+import {ErrorModalComponent} from './shared/error-modal/error-modal.component';
 
 @NgModule({
     declarations: [
@@ -33,7 +34,8 @@ import {ConfirmationModalComponent} from './shared/confirmation-modal/confirmati
         LandingPageComponent,
         UserSelectionModalComponent,
         ApproveRejectLeaveComponent,
-        ConfirmationModalComponent
+        ConfirmationModalComponent,
+        ErrorModalComponent
     ],
     imports: [
         BrowserModule,
