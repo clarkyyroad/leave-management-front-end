@@ -33,7 +33,6 @@
 
 .sidenav .logout {
     padding: 8px 20px;
-    margin-top: 500px;
     border: none;
     border-radius: 5px;
     background-color: #F14E6D;
@@ -67,7 +66,7 @@ h3 {
 
 .reject {
     padding: 10px 20px;
-    margin: 10px 5px;
+    margin-left: 5px;
     border: 1px solid #F14E6D;
     border-radius: 5px;
     box-sizing: border-box;
@@ -83,7 +82,6 @@ h3 {
 
 .approve {
     padding: 10px 15px;
-    margin: 10px 5px;
     border: 1px solid #F14E6D;
     border-radius: 5px;
     box-sizing: border-box;
@@ -110,13 +108,13 @@ table {
 }
 
 .table-container {
-    margin-left: 50px;
-    min-width: 800px;
+   min-width: 800px;
+  margin-left: 30px;
 }
 
 .main .table th,
 .main .table td {
-    padding: 8px;
+    padding: 10px 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
     animation: fadeIn 0.5s ease-in-out;
@@ -126,9 +124,6 @@ td {
     text-align: center;
 }
 
-.table {
-    margin-left: 50px;
-}
 
 .main .table th {
     background-color: #f2f2f2;
@@ -136,6 +131,17 @@ td {
 
 .main .table tr:hover {
     background-color: #f5f5f5;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination-container button {
+  padding: 5px 10px;
 }
 
 .pagination-container {

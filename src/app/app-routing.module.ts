@@ -34,7 +34,7 @@ const routes: Routes = [
         children: [
             {path: '', component: MemberComponent},
             {path: 'apply', component: CreateLeaveComponent},
-            {path: 'my-leaves', component: MemberComponent}
+            {path: 'my-leaves', component: ViewLeavesComponent}
         ]
     },
     {path: '**', redirectTo: 'landing'}

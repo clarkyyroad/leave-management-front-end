@@ -47,9 +47,16 @@ export class SideNavigationBarComponent {
     }
 
     createLeave(): void {
+      if(this.roleType == "MANAGER"){
         this.routerService.navigate('/manager/apply')
-            .then(() => console.log('Navigation successful'))
-            .catch((error) => console.log('Navigation error: ', error));
+          .then(() => console.log('Navigation successful'))
+          .catch((error) => console.log('Navigation error: ', error));
+      }else {
+        this.routerService.navigate('/member/apply')
+          .then(() => console.log('Navigation successful'))
+          .catch((error) => console.log('Navigation error: ', error));
+      }
+
     }
 
     viewMyLeaves() {

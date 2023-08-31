@@ -35,7 +35,7 @@ export class CreateLeaveComponent {
                 .then(() => console.log('Navigation successful'))
                 .catch((error) => console.log('Navigation error: ', error));
         } else if (this.userRole === "MEMBER") {
-            this.routerService.navigate('/member/')
+            this.routerService.navigate('/member')
                 .then(() => console.log('Navigation successful'))
                 .catch((error) => console.log('Navigation error: ', error));
         }
@@ -46,7 +46,13 @@ export class CreateLeaveComponent {
         console.warn(formValue);
         this.leaveService.saveLeave(formValue).subscribe({
             next: (data: any) => {
+
+              if (this.userRole == 'MANAGER'){
                 this.routerService.navigate('/manager/my-leaves').then(() => console.log('Navigation Successful')).catch((error) => console.error('Navigation error:', error))
+              }else{
+                this.routerService.navigate('/member/my-leaves').then(() => console.log('Navigation Successful')).catch((error) => console.error('Navigation error:', error))
+              }
+
             }, error: (error) => {
                 console.error('Error creating', error);
             }
