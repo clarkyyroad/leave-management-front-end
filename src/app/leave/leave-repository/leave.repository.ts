@@ -17,6 +17,7 @@ export class LeaveRepository {
         });
     }
 
+
     public fetchAllLeaves(max: number, page: number): Observable<LeavePageResponseModel> {
         const getAllLeavesUrls: string = this.baseUrl + `/leave/hr?max=${max}&page=${page}`;
         return this.httpClient.get<LeavePageResponseModel>(getAllLeavesUrls, {headers: this.headers});
@@ -38,13 +39,13 @@ export class LeaveRepository {
     }
 
     public fetchLeavesUnderManager(max: number, page: number, id: any): Observable<any> {
-        const getLeavesUnderManagerUrl: string = this.baseUrl + '/leave/manager?max=' + max + '&page=' + page + '&employeeId=' + id;
+        const getLeavesUnderManagerUrl: string = this.baseUrl + '/leave/manager?max=' + max + '&page=' + page + '&managerId=' + id;
         return this.httpClient.get<any>(getLeavesUnderManagerUrl, {headers: this.headers});
     }
 
-    public createLeave(requestBody: ILeave) {
+    public createLeave(requestBody: ILeave): Observable<ILeave> {
         const createLeaveUrl: string = this.baseUrl + '/leave';
-        return this.httpClient.post<any>(createLeaveUrl, requestBody, {headers: this.headers});
+        return this.httpClient.post<ILeave>(createLeaveUrl, requestBody, {headers: this.headers});
     }
 
     public cancelLeave(id: number) {

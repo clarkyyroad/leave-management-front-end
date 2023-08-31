@@ -1,31 +1,27 @@
 <div class="content">
-    <button class="back" routerLink="manager">< Back</button>
+    <button (click)="back()" class="back">< Back</button>
 
     <div class="main">
         <div class="header">
             <h2>Apply for Leave</h2>
         </div>
-
-        <form>
+    </div>
+    <div class="body">
+        <form (ngSubmit)="addLeave()" [formGroup]="addLeaveForm" class="">
 
             <div>
                 <label for="start-date">Start Date </label>
-                <input id="start-date" type="date">
+                <input formControlName="startDate" id="start-date" type="date">
             </div>
 
             <div>
                 <label for="end-date">End Date </label>
-                <input id="end-date" type="date">
-            </div>
-
-            <div>
-                <label for="total-days">Total Days </label>
-                <input id="total-days" placeholder="Total Days" type="number">
+                <input formControlName="endDate" id="end-date" type="date">
             </div>
 
             <div>
                 <label for="reason">Reason </label>
-                <input id="reason" placeholder="Reason" type="text">
+                <input formControlName="reason" id="reason" placeholder="Reason" type="text">
             </div>
 
             <div class="bottom">
@@ -34,4 +30,3 @@
         </form>
     </div>
 </div>
-
