@@ -47,12 +47,12 @@
         </table>
         <div *ngIf="leavesInPage.content.length === 0" class="no-data-message">
             <span class="data-info">No leaves taken yet...</span>
-    </div>
+        </div>
 
-    <div *ngIf="leavesInPage.content.length > 0" class="pagination">
-        <button (click)="back()" [disabled]="page === 1" class="page-button">Previous</button>
-        <span>{{ page }}</span>
-        <button (click)="next()" [disabled]="page === totalPages" class="page-button">Next
-        </button>
+        <div *ngIf="leavesInPage.content.length > 0" class="pagination">
+            <button (click)="back()" [disabled]="page === 1" class="page-button">Previous</button>
+            <span>{{ page }}</span>
+            <button (click)="next()" [disabled]="page === totalPages" class="page-button">Next
+            </button>
+        </div>
     </div>
-</div>

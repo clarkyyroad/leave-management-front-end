@@ -3,7 +3,6 @@ import {RouterService} from "../../shared/router-service/router.service";
 import {EmployeeService} from "../employee-service/employee.service";
 import {LeaveService} from "../../leave/leave-service/leave.service";
 import {LeavePageResponseModel} from "../../leave/leave-model/leave-page-response.model";
-import {IEmployeePageResponse} from "../employee-model/employee-page-response.model";
 
 @Component({
     selector: 'app-member',
@@ -25,9 +24,9 @@ export class MemberComponent {
     public userName: string = '';
     public userId: number;
     public cancelButton: boolean = false;
-    private page: number = 1;
     currentPage: number = 1;
     totalPages!: number;
+    private page: number = 1;
 
     constructor(private leaveService: LeaveService, private employeeService: EmployeeService, private routerService: RouterService) {
         const storedUserName = localStorage.getItem('userName');
@@ -70,6 +69,18 @@ export class MemberComponent {
             .catch((error) => console.error('Navigation error: ', error))
     }
 
+    public createLeave() {
+        this.routerService.navigate('/member/apply/').then(() => console.log('Navigation successful'))
+            .catch((error) => console.error('Navigation error: ', error));
+    }
+
+    goToPage(page: number) {
+        if (page >= 1 && page <= this.totalPages) {
+            this.currentPage = page;
+            this.fetchMyLeaves();
+        }
+    }
+
     private fetchMyLeaves() {
         console.log(this.userId);
         this.leaveService.fetchEmployeeLeaves(this.MAX_LIMIT, this.page, this.userId).subscribe({
@@ -83,16 +94,4 @@ export class MemberComponent {
             }
         });
     }
-
-    public createLeave(){
-      this.routerService.navigate('/member/apply/').then(() => console.log('Navigation successful'))
-        .catch((error) => console.error('Navigation error: ', error));
-    }
-
-    goToPage(page: number) {
-      if (page >= 1 && page <= this.totalPages) {
-        this.currentPage = page;
-        this.fetchMyLeaves();
-      }
-  }
 }
