@@ -50,7 +50,7 @@
         </div>
     </div>
 
-    <div class="pagination" *ngIf="leavesInPage.content.length > 0">
+    <div *ngIf="leavesInPage.content.length > 0" class="pagination">
         <button (click)="back()" [disabled]="page === 1" class="page-button">Previous</button>
         <span>{{ page }}</span>
         <button (click)="next()" [disabled]="page === totalPages" class="page-button">Next
