@@ -22,7 +22,7 @@ export class CreateLeaveComponent {
         this.userRole = storedUserRole || 'Null';
 
         this.addLeaveForm = new FormGroup<any>({
-            employee_id: new FormControl(2),
+            employee_id: new FormControl(this.userId),
             startDate: new FormControl(''),
             endDate: new FormControl(''),
             reason: new FormControl('')

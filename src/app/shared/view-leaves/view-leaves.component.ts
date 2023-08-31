@@ -51,8 +51,6 @@ export class ViewLeavesComponent {
         this.ngOnInit();
     }
 
-
-
     public cancelLeave(id: number) {
         this.leaveService.cancelLeave(id)
             .subscribe({
