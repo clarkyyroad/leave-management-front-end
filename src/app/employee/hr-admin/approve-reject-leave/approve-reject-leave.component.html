@@ -61,7 +61,7 @@
             </tbody>
         </table>
         <div *ngIf="leavesInPage.content.length === 0" class="no-data-message">
-            No data available
+            <span class="data-info">No leaves taken yet...</span>
         </div>
         <div class="pagination pagination-container" *ngIf="leavesInPage.content.length > 0">
             <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>

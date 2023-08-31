@@ -47,7 +47,7 @@
             </tbody>
         </table>
         <div *ngIf="employeesInPage.content.length === 0" class="no-data-message">
-            No data available
+            <span class="data-info">No data available yet...</span>
         </div>
         <div *ngIf="employeesInPage.content.length > 0" class="pagination pagination-container">
             <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
