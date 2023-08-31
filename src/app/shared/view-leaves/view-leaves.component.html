@@ -43,19 +43,20 @@
                     <button (click)="cancelLeave(leave.id)" class="cancel">Cancel</button>
                 </td>
             </tr>
-
             </tbody>
         </table>
-
+        <div *ngIf="leavesInPage.content.length === 0" class="no-data-message">
+            No data available
+        </div>
         <div *ngIf="dataInfo" class="data-info">
             <span class="data-info">No filed leaves yet...</span>
         </div>
     </div>
 
     <div class="pagination">
-        <button  class="page-button" (click)="back()" [disabled]="page === 1">Previous</button>
+        <button (click)="back()" [disabled]="page === 1" class="page-button">Previous</button>
         <span>{{ page }}</span>
-        <button  class="page-button" (click)="next()" [disabled]="page === totalPages">Next
+        <button (click)="next()" [disabled]="page === totalPages" class="page-button">Next
         </button>
     </div>
 </div>

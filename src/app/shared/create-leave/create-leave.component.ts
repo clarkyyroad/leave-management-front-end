@@ -15,6 +15,7 @@ export class CreateLeaveComponent {
     userRole: string = '';
 
     today = new Date().toISOString().split('T')[0];
+
     constructor(private leaveService: LeaveService, private routerService: RouterService, private router: Router) {
         const storedUserId = localStorage.getItem('userId');
         this.userId = storedUserId ? parseInt(storedUserId) : 0;
@@ -35,7 +36,7 @@ export class CreateLeaveComponent {
                 .then(() => console.log('Navigation successful'))
                 .catch((error) => console.log('Navigation error: ', error));
         } else if (this.userRole === "MEMBER") {
-            this.routerService.navigate('/member')
+            this.routerService.navigate('/member/')
                 .then(() => console.log('Navigation successful'))
                 .catch((error) => console.log('Navigation error: ', error));
         }
@@ -46,13 +47,11 @@ export class CreateLeaveComponent {
         console.warn(formValue);
         this.leaveService.saveLeave(formValue).subscribe({
             next: (data: any) => {
-
-              if (this.userRole == 'MANAGER'){
-                this.routerService.navigate('/manager/my-leaves').then(() => console.log('Navigation Successful')).catch((error) => console.error('Navigation error:', error))
-              }else{
-                this.routerService.navigate('/member/my-leaves').then(() => console.log('Navigation Successful')).catch((error) => console.error('Navigation error:', error))
-              }
-
+               if(this.userRole === "MANAGER"){
+                   this.routerService.navigate('/manager/my-leaves').then(() => console.log('Navigation Successful')).catch((error) => console.error('Navigation error:', error))
+               }else if(this.userRole === "MEMBER"){
+                   this.routerService.navigate('/member/my-leaves').then(() => console.log('Navigation Successful')).catch((error) => console.error('Navigation error:', error))
+               }
             }, error: (error) => {
                 console.error('Error creating', error);
             }
