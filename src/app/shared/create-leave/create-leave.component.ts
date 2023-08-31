@@ -14,6 +14,7 @@ export class CreateLeaveComponent {
     userId: number = 0;
     userRole: string = '';
 
+    today = new Date().toISOString().split('T')[0];
     constructor(private leaveService: LeaveService, private routerService: RouterService, private router: Router) {
         const storedUserId = localStorage.getItem('userId');
         this.userId = storedUserId ? parseInt(storedUserId) : 0;
@@ -21,7 +22,7 @@ export class CreateLeaveComponent {
         this.userRole = storedUserRole || 'Null';
 
         this.addLeaveForm = new FormGroup<any>({
-            employee_id: new FormControl(2),
+            employee_id: new FormControl(this.userId),
             startDate: new FormControl(''),
             endDate: new FormControl(''),
             reason: new FormControl('')

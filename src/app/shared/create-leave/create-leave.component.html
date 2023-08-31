@@ -11,12 +11,12 @@
 
             <div>
                 <label for="start-date">Start Date </label>
-                <input formControlName="startDate" id="start-date" type="date">
+                <input formControlName="startDate" id="start-date" type="date" [min]="today">
             </div>
 
             <div>
                 <label for="end-date">End Date </label>
-                <input formControlName="endDate" id="end-date" type="date">
+                <input formControlName="endDate" id="end-date" type="date" [min]="today">
             </div>
 
             <div>
@@ -29,4 +29,7 @@
             </div>
         </form>
     </div>
+<!--    <app-error-modal (closeModal)="onCloseModal()" *ngIf="showModal" [errorCode]="errorCode"-->
+<!--                     [errorMessage]="errorMessage"></app-error-modal>-->
+
 </div>

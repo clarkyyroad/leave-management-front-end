@@ -16,6 +16,8 @@ export class ManagerComponent {
         pageNumber: 0,
         content: []
     }
+    page: number = 1;
+    totalPages!: number;
 
     userName: string = '';
     userId: number = 0;
@@ -50,14 +52,26 @@ export class ManagerComponent {
         });
     }
 
+    next(){
+        this.page += 1;
+        this.ngOnInit();
+    }
+
+    back(){
+        this.page -= 1;
+        this.ngOnInit();
+    }
+
+
     private initializeLeaves() {
         console.log(this.userId);
-        this.leaveService.fetchLeavesUnderManager(this.MAX_LIMIT, 1, this.userId).subscribe({
+        this.leaveService.fetchLeavesUnderManager(this.MAX_LIMIT, this.page, this.userId).subscribe({
             next: (data: LeavePageResponseModel) => {
                 console.log('Response: ', data);
                 this.leavesInPage.content = data.content;
                 this.leavesInPage.pageNumber = data.pageNumber;
                 this.leavesInPage.totalCount = data.totalCount;
+                this.totalPages = Math.ceil(data.totalCount / this.MAX_LIMIT);
             }
         });
     }
