@@ -34,7 +34,7 @@ export class EmployeeRepository {
         return this.httpClient.get<IEmployee>(getEmployeeByIdUrl, {headers: this.headers});
     }
 
-    public createMemberEmployee(requestParam: number, requestBody: IEmployee): Observable<IEmployee> {
+    public createEmployee(requestParam: number, requestBody: IEmployee): Observable<IEmployee> {
         const createMemberUrl: string = this.baseUrl + `/employees?adminId=${requestParam}`;
         return this.httpClient.post<IEmployee>(createMemberUrl, requestBody, {headers: this.headers});
     }
