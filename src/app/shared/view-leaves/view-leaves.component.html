@@ -1,14 +1,15 @@
+<app-side-navigation-bar></app-side-navigation-bar>
 <div class="main">
     <div class="credit-status">
         <div class="used-leave-credits">
-            <span class="status-header">Used Credits:</span>
+            <span class="status-header">Total Credits:</span>
             <br>
-            <span class="status-data">{{usedLeaves}}</span>
+            <span class="status-data">{{totalLeaves}}</span>
         </div>
         <div class="available-leave-credits">
-            <span class="status-header">Available Credits:</span>
+            <span class="status-header">Remaining Credits:</span>
             <br>
-            <span class="status-data">{{availableLeaves}}</span>
+            <span class="status-data">{{currentLeaves}}</span>
         </div>
     </div>
 
@@ -30,6 +31,7 @@
                 <th></th>
             </tr>
             </thead>
+            <br>
             <tbody>
             <tr *ngFor="let leave of leavesInPage.content">
                 <td>{{leave.startDate}}</td>
@@ -37,8 +39,8 @@
                 <td>{{leave.days}}</td>
                 <td>{{leave.reason}}</td>
                 <td>{{leave.leaveStatus}}</td>
-                <td>
-                    <button (click)="cancelLeave(leave.id)" *ngIf="cancelButton" class="cancel">Cancel</button>
+                <td *ngIf="leave.leaveStatus === 'PENDING'">
+                    <button (click)="cancelLeave(leave.id)" class="cancel">Cancel</button>
                 </td>
             </tr>
 

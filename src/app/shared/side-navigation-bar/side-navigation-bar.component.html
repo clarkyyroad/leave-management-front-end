@@ -1,54 +1,51 @@
 <div class="sidenav">
-    <div class="nav-list">
-        <span class="leaves-nav">Welcome Back</span>
+    <h3>Welcome Back!</h3>
+    <form>
+        <h3 class="username">- {{ userName }} -</h3>
+    </form>
+    <br>
+    <div *ngIf="hradmin">
+        <br>
+        <h3>· Employees ·</h3>
+        <span (click)="viewAllEmployee()" class="nav-item">View All</span>
+        <br>
+        <span (click)="addEmployee()" class="nav-item">Add New</span>
         <br>
         <br>
-        <form>
-            <h3>User</h3>
-        </form>
-
+        <h3 class="leaves-nav">Leaves</h3>
+        <span class="nav-item" routerLink="leaves">View All</span>
         <br>
-        <div *ngIf="false">
-            <span class="leaves-nav">Employees</span>
-            <br>
-            <br>
-            <span class="nav-item">View All</span>
-            <br>
-            <span class="nav-item">Add New</span>
-            <br>
-
-        </div>
-
-        <div *ngIf="true">
-            <br><br>
-            <span *ngIf="true" class="leaves-nav">Leaves</span>
-            <br>
-            <span *ngIf="true" class="nav-item">View All</span>
-            <br>
-            <span *ngIf="true" class="nav-item" routerLink="apply">Apply</span>
-            <br>
-            <span *ngIf="true" class="nav-item">My Leaves</span>
-            <br>
-            <span *ngIf="true" class="nav-item">View All</span>
-
-            <div *ngIf="true">
-                <br><br>
-                <span *ngIf="true" class="leaves-nav">Leaves</span>
-                <br>
-                <span *ngIf="true" class="nav-item">View All</span>
-                <br>
-                <span *ngIf="true" class="nav-item" routerLink="apply">Apply</span>
-                <br>
-                <span *ngIf="true" class="nav-item">My Leaves</span>
-            </div>
-        </div>
-
-        <div *ngIf="true" class="site-title">
-            <img alt="rise-logo" height="335" ngSrc="assets/logo-white.png" width="1069">
-
-            <br>
-            <span>My Personal</span><br>
-            <span>Time Out</span><br>
-        </div>
+        <br>
     </div>
+
+    <div *ngIf="manager">
+        <h3>· Employees ·</h3>
+        <span (click)="viewAllEmployeeUnderManager()" class="nav-item">View All</span>
+        <br>
+        <br>
+        <h3>· Leaves ·</h3>
+        <span (click)="createLeave()" class="nav-item">Apply</span>
+        <br>
+        <br>
+        <span (click)="viewMyLeaves()" class="nav-item">View My Leaves</span>
+
+    </div>
+
+    <div *ngIf="member">
+        <br><br>
+        <span *ngIf="true" class="leaves-nav">Leaves</span>
+        <br>
+        <span (click)="createLeave()" *ngIf="true" class="nav-item">Apply</span>
+        <br>
+        <span *ngIf="true" class="nav-item">My Leaves</span>
+    </div>
+
+    <div *ngIf="true" class="site-title">
+        <img alt="rise-logo" height="335" ngSrc="assets/logo-white.png" width="1069">
+        <br>
+        <span>My Personal</span><br>
+        <span>Time Out</span><br>
+    </div>
+    <br>
+    <button (click)="logout()" class="logout">Logout</button>
 </div>
