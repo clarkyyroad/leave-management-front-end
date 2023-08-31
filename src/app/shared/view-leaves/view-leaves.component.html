@@ -43,10 +43,11 @@
                     <button (click)="cancelLeave(leave.id)" class="cancel">Cancel</button>
                 </td>
             </tr>
-
             </tbody>
         </table>
-
+        <div *ngIf="leavesInPage.content.length === 0" class="no-data-message">
+            No data available
+        </div>
         <div *ngIf="dataInfo" class="data-info">
             <span class="data-info">No leaves taken yet...</span>
         </div>

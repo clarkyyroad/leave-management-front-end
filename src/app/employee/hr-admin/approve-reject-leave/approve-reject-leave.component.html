@@ -60,7 +60,10 @@
             </tr>
             </tbody>
         </table>
-        <div class="pagination pagination-container">
+        <div *ngIf="leavesInPage.content.length === 0" class="no-data-message">
+            No data available
+        </div>
+        <div class="pagination pagination-container" *ngIf="leavesInPage.content.length > 0">
             <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
             <span>{{ currentPage }}</span>
             <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Next
