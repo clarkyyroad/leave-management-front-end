@@ -14,6 +14,7 @@ export class CreateLeaveComponent {
     userId: number = 0;
     userRole: string = '';
 
+    today = new Date().toISOString().split('T')[0];
     constructor(private leaveService: LeaveService, private routerService: RouterService, private router: Router) {
         const storedUserId = localStorage.getItem('userId');
         this.userId = storedUserId ? parseInt(storedUserId) : 0;
