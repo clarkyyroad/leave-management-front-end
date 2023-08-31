@@ -1,0 +1,150 @@
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  overflow-x: hidden;
+  padding-left: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.sidenav h3 {
+  color: white;
+  margin-top: 20px;
+}
+
+.sidenav form {
+  margin-bottom: 20px;
+}
+
+.sidenav .nav-item {
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.sidenav .nav-item:hover {
+  color: #F14E6D;
+}
+
+.sidenav .logout {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #F14E6D;
+  color: white;
+  cursor: pointer;
+}
+
+.sidenav .logout:hover {
+  background-color: #D43C5A;
+}
+
+.main {
+  padding: 50px;
+  margin-left: 250px;
+  font-family: Source Sans Pro, sans-serif;
+}
+
+.main .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.main .header h2 {
+  margin: 0;
+}
+
+.main .actions .add {
+  padding: 8px 20px;
+  margin: 10px 0;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.main .actions .add:hover {
+  background-color: white;
+  color: black;
+}
+
+.main .table {
+  width: 100%;
+}
+
+.main .table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.main .table th,
+.main .table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.main .table th {
+  background-color: #f2f2f2;
+}
+
+.main .table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination-container button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  background-color: #f2f2f2;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.pagination-container button:hover {
+  background-color: #e6e6e6;
+}
+
+.pagination-container button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.pagination-container span {
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.no-data-message {
+  color: rgb(128, 128, 128);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 250px;
+  font-style: italic;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
