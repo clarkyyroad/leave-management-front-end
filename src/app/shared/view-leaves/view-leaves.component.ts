@@ -20,13 +20,14 @@ export class ViewLeavesComponent {
     public dataInfo: boolean = false;
 
     userName = '';
+    private employeeId: number = 0;
     public readonly MAX_LIMIT: number = 5;
     public currentLeaves: number = 0;
     public totalLeaves: number = 0;
     public cancelButton: boolean = false;
-    private page: number = 1;
-    private employeeId: number = 0;
-    private leaveStatus: string = '';
+    public page: number = 1;
+    totalPages!: number;
+
 
     constructor(private leaveService: LeaveService, private employeeService: EmployeeService, private routerService: RouterService) {
         const storedUserId = localStorage.getItem('userId');
@@ -40,12 +41,24 @@ export class ViewLeavesComponent {
         this.fetchEmployee();
     }
 
+    next(){
+        this.page += 1;
+        this.ngOnInit();
+    }
+
+    back(){
+        this.page -= 1;
+        this.ngOnInit();
+    }
+
+
+
     public cancelLeave(id: number) {
         this.leaveService.cancelLeave(id)
             .subscribe({
                 next: (data) => {
                     console.log('Leave successfully cancelled: ', data);
-
+                    this.ngOnInit();
                 }, error: (err) => {
 
                     console.log('An error occurred while cancelling leave');
@@ -66,6 +79,7 @@ export class ViewLeavesComponent {
                     console.log('Response', data);
                     this.leavesInPage = data;
                     this.dataInfo = data.totalCount == 0;
+                    this.totalPages = Math.ceil(data.totalCount / this.MAX_LIMIT);
                 }
             });
     }

@@ -13,6 +13,7 @@ export class SideNavigationBarComponent {
     member: boolean = false;
     hradmin: boolean = false;
 
+    userRole: string = '';
     roleType: string = '';
     userName: string = '';
 
@@ -21,6 +22,7 @@ export class SideNavigationBarComponent {
         const storedUserName = localStorage.getItem("userName");
         this.userName = storedUserName || 'Null';
         this.roleType = storedUserRole || 'Null';
+        this.userRole = this.toSentenceCase(this.roleType);
         if (this.roleType == "MANAGER") {
             this.manager = true;
         } else if (this.roleType == "MEMBER") {
@@ -28,6 +30,14 @@ export class SideNavigationBarComponent {
         } else if (this.roleType == "HR_ADMIN") {
             this.hradmin = true;
         }
+    }
+
+     toSentenceCase(inputString: string): string {
+        const words = inputString.split(/\s+/);
+        const sentenceCaseWords = words.map((word) =>
+            word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+        );
+        return sentenceCaseWords.join(' ');
     }
 
     viewAllEmployeeUnderManager() {
