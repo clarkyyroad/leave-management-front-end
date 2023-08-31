@@ -1,4 +1,4 @@
-# LeaveManagementUi
+# Leave Management System
 
 This project is a user interface for a leave management system built with Angular. It allows users to manage their leave requests, view their leave balances, and track the status of their leave applications.
 
@@ -12,14 +12,12 @@ To run the development server, follow these steps:
 4. Run the command `ng serve` to start the development server.
 5. Open your web browser and navigate to `http://localhost:4200/`. The application will automatically reload if you make any changes to the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also
-use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Features
+- User-friendly web interface for HR Admin, Managers, and Member.
+- Role-based access control (HR Admin, Manager, and Member roles).
+- Leave request submission and approval workflows.
+- Employee creation.
+- Leave balance tracking.
 
 ## Contact
 If you have any questions or suggestions, please feel free to contact us at [romeo.fermano@synacy.com], [carlina.amaba@synacy.com], [clark.tabar@synacy.com]
