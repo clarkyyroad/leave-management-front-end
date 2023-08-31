@@ -108,8 +108,8 @@ table {
 }
 
 .table-container {
-   min-width: 800px;
-  margin-left: 30px;
+    min-width: 800px;
+    margin-left: 30px;
 }
 
 .main .table th,
@@ -134,14 +134,14 @@ td {
 }
 
 .pagination-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
 
 .pagination-container button {
-  padding: 5px 10px;
+    padding: 5px 10px;
 }
 
 .pagination-container {
@@ -172,6 +172,14 @@ td {
 .pagination-container span {
     margin: 0 10px;
     font-weight: bold;
+}
+
+.no-data-message {
+    color: rgb(128, 128, 128);
+    font-weight: bold;
+    text-align: center;
+    margin-top: 250px;
+    font-style: italic;
 }
 
 @keyframes fadeIn {

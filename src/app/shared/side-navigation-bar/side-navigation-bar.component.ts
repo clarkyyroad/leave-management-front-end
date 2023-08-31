@@ -32,7 +32,7 @@ export class SideNavigationBarComponent {
         }
     }
 
-     toSentenceCase(inputString: string): string {
+    toSentenceCase(inputString: string): string {
         const words = inputString.split(/\s+/);
         const sentenceCaseWords = words.map((word) =>
             word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
@@ -47,15 +47,15 @@ export class SideNavigationBarComponent {
     }
 
     createLeave(): void {
-      if(this.roleType == "MANAGER"){
-        this.routerService.navigate('/manager/apply')
-          .then(() => console.log('Navigation successful'))
-          .catch((error) => console.log('Navigation error: ', error));
-      }else {
-        this.routerService.navigate('/member/apply')
-          .then(() => console.log('Navigation successful'))
-          .catch((error) => console.log('Navigation error: ', error));
-      }
+        if (this.roleType == "MANAGER") {
+            this.routerService.navigate('/manager/apply')
+                .then(() => console.log('Navigation successful'))
+                .catch((error) => console.log('Navigation error: ', error));
+        } else {
+            this.routerService.navigate('/member/apply')
+                .then(() => console.log('Navigation successful'))
+                .catch((error) => console.log('Navigation error: ', error));
+        }
 
     }
 

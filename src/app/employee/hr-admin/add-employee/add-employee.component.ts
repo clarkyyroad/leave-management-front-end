@@ -38,7 +38,7 @@ export class AddEmployeeComponent implements OnInit {
     public onSubmit() {
         console.warn(this.addEmployeeForm.getRawValue());
         const formValue = this.addEmployeeForm.getRawValue();
-        this.employeeService.createMember(this.userId, formValue).subscribe({
+        this.employeeService.createEmployee(this.userId, formValue).subscribe({
             next: (data: IEmployee) => {
                 console.log('Successfully Created', data);
                 this.routerService.navigate('/hr-admin/').then(() => console.log('Navigated successful'))

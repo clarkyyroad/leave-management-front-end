@@ -24,7 +24,7 @@ export class EmployeeService {
 
     }
 
-    public createMember(requestParam: number, requestBody: IEmployee) {
-        return this.employeeRepository.createMemberEmployee(requestParam, requestBody);
+    public createEmployee(requestParam: number, requestBody: IEmployee) {
+        return this.employeeRepository.createEmployee(requestParam, requestBody);
     }
 }

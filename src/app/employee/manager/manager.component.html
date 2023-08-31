@@ -17,6 +17,7 @@
                 <th>Days</th>
                 <th>Reason</th>
                 <th>Status</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -37,13 +38,16 @@
                     </button>
                 </td>
             </tr>
-
             </tbody>
         </table>
-        <div class="pagination">
-            <button  class="page-button" (click)="back()" [disabled]="page === 1">Previous</button>
+        <div *ngIf="leavesInPage.content.length === 0" class="no-data-message">
+            No data available
+        </div>
+        <div *ngIf="leavesInPage.content.length > 0" class="pagination">
+            <button (click)="back()" [disabled]="page === 1" class="page-button">Previous</button>
             <span>{{ page }}</span>
-            <button  class="page-button" (click)="next()" [disabled]="page === totalPages || leavesInPage.totalCount === 0">Next
+            <button (click)="next()" [disabled]="page === totalPages || leavesInPage.totalCount === 0"
+                    class="page-button">Next
             </button>
         </div>
     </div>
