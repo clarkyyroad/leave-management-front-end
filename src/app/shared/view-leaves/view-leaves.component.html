@@ -1,58 +1,59 @@
 <app-side-navigation-bar></app-side-navigation-bar>
 <div class="main">
-    <div class="credit-status">
-        <div class="used-leave-credits">
-            <span class="status-header">Total Credits:</span>
-            <br>
-            <span class="status-data">{{totalLeaves}}</span>
-        </div>
-        <div class="available-leave-credits">
-            <span class="status-header">Remaining Credits:</span>
-            <br>
-            <span class="status-data">{{currentLeaves}}</span>
-        </div>
+  <div class="credit-status">
+    <div class="used-leave-credits">
+      <span class="status-header">Total Credits:</span>
+      <br>
+      <span class="status-data">{{totalLeaves}}</span>
+    </div>
+    <div class="available-leave-credits">
+      <span class="status-header">Remaining Credits:</span>
+      <br>
+      <span class="status-data">{{currentLeaves}}</span>
+    </div>
+  </div>
+
+  <div class="header">
+    <h2>My Leaves</h2>
+    <div class="actions">
+    </div>
+  </div>
+
+  <div class="table">
+    <table>
+      <thead>
+      <tr>
+        <th>Start</th>
+        <th>End</th>
+        <th>Days</th>
+        <th>Reason</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+      </thead>
+      <br>
+      <tbody>
+      <tr *ngFor="let leave of leavesInPage.content">
+        <td>{{leave.startDate}}</td>
+        <td>{{leave.endDate}}</td>
+        <td>{{leave.days}}</td>
+        <td>{{leave.reason}}</td>
+        <td>{{leave.leaveStatus}}</td>
+        <td *ngIf="leave.leaveStatus === 'PENDING'">
+          <button (click)="cancelLeave(leave.id)" class="cancel">Cancel</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div *ngIf="leavesInPage.content.length === 0" class="no-data-message">
+      <span class="data-info">No leaves taken yet...</span>
     </div>
 
-    <div class="header">
-        <h2>My Leaves</h2>
-        <div class="actions">
-        </div>
+    <div *ngIf="leavesInPage.content.length > 0" class="pagination">
+      <button (click)="back()" [disabled]="page === 1" class="page-button">Previous</button>
+      <span>{{ page }}</span>
+      <button (click)="next()" [disabled]="page === totalPages" class="page-button">Next
+      </button>
     </div>
-
-    <div class="table">
-        <table>
-            <thead>
-            <tr>
-                <th>Start</th>
-                <th>End</th>
-                <th>Days</th>
-                <th>Reason</th>
-                <th>Status</th>
-                <th></th>
-            </tr>
-            </thead>
-            <br>
-            <tbody>
-            <tr *ngFor="let leave of leavesInPage.content">
-                <td>{{leave.startDate}}</td>
-                <td>{{leave.endDate}}</td>
-                <td>{{leave.days}}</td>
-                <td>{{leave.reason}}</td>
-                <td>{{leave.leaveStatus}}</td>
-                <td *ngIf="leave.leaveStatus === 'PENDING'">
-                    <button (click)="cancelLeave(leave.id)" class="cancel">Cancel</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <div *ngIf="leavesInPage.content.length === 0" class="no-data-message">
-            <span class="data-info">No leaves taken yet...</span>
-        </div>
-
-        <div *ngIf="leavesInPage.content.length > 0" class="pagination">
-            <button (click)="back()" [disabled]="page === 1" class="page-button">Previous</button>
-            <span>{{ page }}</span>
-            <button (click)="next()" [disabled]="page === totalPages" class="page-button">Next
-            </button>
-        </div>
-    </div>
+  </div>
+</div>

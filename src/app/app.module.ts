@@ -21,32 +21,32 @@ import {ConfirmationModalComponent} from './shared/confirmation-modal/confirmati
 import {ErrorModalComponent} from './shared/error-modal/error-modal.component';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HrAdminComponent,
-        ManagerComponent,
-        MemberComponent,
-        AddEmployeeComponent,
-        EditEmployeeComponent,
-        CreateLeaveComponent,
-        ViewLeavesComponent,
-        SideNavigationBarComponent,
-        LandingPageComponent,
-        UserSelectionModalComponent,
-        ApproveRejectLeaveComponent,
-        ConfirmationModalComponent,
-        ErrorModalComponent
-    ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        NgOptimizedImage,
-        HttpClientModule,
-        ReactiveFormsModule,
-        FormsModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    HrAdminComponent,
+    ManagerComponent,
+    MemberComponent,
+    AddEmployeeComponent,
+    EditEmployeeComponent,
+    CreateLeaveComponent,
+    ViewLeavesComponent,
+    SideNavigationBarComponent,
+    LandingPageComponent,
+    UserSelectionModalComponent,
+    ApproveRejectLeaveComponent,
+    ConfirmationModalComponent,
+    ErrorModalComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgOptimizedImage,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

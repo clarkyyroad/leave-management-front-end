@@ -1,35 +1,35 @@
 <div class="content">
-    <button (click)="back()" class="back">< Back</button>
+  <button (click)="back()" class="back">< Back</button>
 
-    <div class="main">
-        <div class="header">
-            <h2>Apply for Leave</h2>
-        </div>
+  <div class="main">
+    <div class="header">
+      <h2>Apply for Leave</h2>
     </div>
-    <div class="body">
-        <form (ngSubmit)="addLeave()" [formGroup]="addLeaveForm" class="">
+  </div>
+  <div class="body">
+    <form (ngSubmit)="addLeave()" [formGroup]="addLeaveForm" class="">
 
-            <div>
-                <label for="start-date">Start Date </label>
-                <input [min]="today" formControlName="startDate" id="start-date" type="date">
-            </div>
+      <div>
+        <label for="start-date">Start Date </label>
+        <input [min]="today" formControlName="startDate" id="start-date" type="date">
+      </div>
 
-            <div>
-                <label for="end-date">End Date </label>
-                <input [min]="today" formControlName="endDate" id="end-date" type="date">
-            </div>
+      <div>
+        <label for="end-date">End Date </label>
+        <input [min]="today" formControlName="endDate" id="end-date" type="date">
+      </div>
 
-            <div>
-                <label for="reason">Reason </label>
-                <input formControlName="reason" id="reason" placeholder="Reason" type="text">
-            </div>
+      <div>
+        <label for="reason">Reason </label>
+        <input formControlName="reason" id="reason" placeholder="Reason" type="text">
+      </div>
 
-            <div class="bottom">
-                <button class="submit" type="submit">Apply</button>
-            </div>
-        </form>
-    </div>
-    <!--    <app-error-modal (closeModal)="onCloseModal()" *ngIf="showModal" [errorCode]="errorCode"-->
-    <!--                     [errorMessage]="errorMessage"></app-error-modal>-->
+      <div class="bottom">
+        <button class="submit" type="submit">Apply</button>
+      </div>
+    </form>
+  </div>
+  <!--    <app-error-modal (closeModal)="onCloseModal()" *ngIf="showModal" [errorCode]="errorCode"-->
+  <!--                     [errorMessage]="errorMessage"></app-error-modal>-->
 
 </div>
