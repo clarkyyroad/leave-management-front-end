@@ -29,15 +29,21 @@
                 <td>{{leaves.reason}}</td>
                 <td>{{leaves.leaveStatus}}</td>
                 <td>
-                    <button (click)="approveLeave(leaves.id)" *ngIf="leaves.leaveStatus !== 'APPROVED'" class="approve">
+                    <button (click)="approveLeave(leaves.id)" *ngIf="leaves.leaveStatus === 'PENDING'" class="approve">
                         Approve
                     </button>
-                    <button (click)="rejectLeave(leaves.id)" *ngIf="leaves.leaveStatus !== 'REJECTED'" class="reject">
+                    <button (click)="rejectLeave(leaves.id)" *ngIf="leaves.leaveStatus === 'PENDING'" class="reject">
                         Reject
                     </button>
                 </td>
             </tr>
             </tbody>
         </table>
+        <div class="pagination">
+            <button  class="page-button" (click)="back()" [disabled]="page === 1">Previous</button>
+            <span>{{ page }}</span>
+            <button  class="page-button" (click)="next()" [disabled]="page === totalPages">Next
+            </button>
+        </div>
     </div>
 </div>

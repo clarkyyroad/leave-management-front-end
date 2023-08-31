@@ -110,6 +110,11 @@ td {
     text-align: center;
 }
 
+.pagination button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
 .page-button {
     width: 90px;
     padding: 5px 5px;

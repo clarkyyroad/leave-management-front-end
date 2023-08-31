@@ -55,3 +55,29 @@ td {
 .table {
     margin-left: 50px;
 }
+
+.pagination {
+    text-align: center;
+}
+
+.pagination button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.page-button {
+    width: 90px;
+    padding: 5px 5px;
+    margin: 10px 5px;
+    border: 1px solid #616161;
+    border-radius: 20px;
+    box-sizing: border-box;
+    background-color: #616161;
+    color: white;
+}
+
+.page-button:hover {
+    border: 1px solid black;
+    background-color: black;
+}
+
