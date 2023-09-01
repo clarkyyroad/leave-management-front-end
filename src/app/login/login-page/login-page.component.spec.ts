@@ -1,16 +1,16 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {ManagerComponent} from './manager.component';
+import {LoginPageComponent} from './login-page.component';
 
-describe('ManagerComponent', () => {
-    let component: ManagerComponent;
-    let fixture: ComponentFixture<ManagerComponent>;
+describe('LandingPageComponent', () => {
+    let component: LoginPageComponent;
+    let fixture: ComponentFixture<LoginPageComponent>;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            declarations: [ManagerComponent]
+            declarations: [LoginPageComponent]
         });
-        fixture = TestBed.createComponent(ManagerComponent);
+        fixture = TestBed.createComponent(LoginPageComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

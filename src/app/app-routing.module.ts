@@ -6,12 +6,12 @@ import {EditEmployeeComponent} from "./employee/hr-admin/edit-employee/edit-empl
 import {ManagerComponent} from "./employee/manager/manager.component";
 import {MemberComponent} from "./employee/member/member.component";
 import {ApproveRejectLeaveComponent} from "./employee/hr-admin/approve-reject-leave/approve-reject-leave.component";
-import {LandingPageComponent} from "./landing/landing-page/landing-page.component";
+import {LoginPageComponent} from "./login/login-page/login-page.component";
 import {CreateLeaveComponent} from "./shared/create-leave/create-leave.component";
 import {ViewLeavesComponent} from "./shared/view-leaves/view-leaves.component";
 
 const routes: Routes = [
-    {path: 'landing', component: LandingPageComponent},
+    {path: 'landing', component: LoginPageComponent},
     {
         path: 'hr-admin',
         children: [
