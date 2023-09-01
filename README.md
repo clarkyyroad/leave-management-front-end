@@ -9,7 +9,7 @@ To run the development server, follow these steps:
 1. Make sure you have Node.js installed on your machine.
 2. Open a terminal or command prompt and navigate to the project directory.
 3. Run the command `npm install` to install the project dependencies.
-4. Run the command `ng serve` to start the development server.
+4. Run the command `ng serve --proxy-config proxy.conf.json` to start the development server.
 5. Open your web browser and navigate to `http://localhost:4200/`. The application will automatically reload if you make any changes to the source files.
 
 ## Features
