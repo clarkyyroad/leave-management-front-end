@@ -8,23 +8,23 @@ import {IEmployeePageResponse} from "../employee-model/employee-page-response.mo
 @Injectable({providedIn: 'root'})
 
 export class EmployeeService {
-  constructor(private employeeRepository: EmployeeRepository) {
-  }
+    constructor(private employeeRepository: EmployeeRepository) {
+    }
 
-  public getUsers(roleType: string): Observable<IUsers[]> {
-    return this.employeeRepository.getListEmployees(roleType);
-  }
+    public getUsers(roleType: string): Observable<IUsers[]> {
+        return this.employeeRepository.getListEmployees(roleType);
+    }
 
-  public getEmployees(max: number, page: number): Observable<IEmployeePageResponse> {
-    return this.employeeRepository.getPagedEmployees(max, page);
-  }
+    public getEmployees(max: number, page: number): Observable<IEmployeePageResponse> {
+        return this.employeeRepository.getPagedEmployees(max, page);
+    }
 
-  public getEmployee(id: number): Observable<IEmployee> {
-    return this.employeeRepository.getEmployeeById(id);
+    public getEmployee(id: number): Observable<IEmployee> {
+        return this.employeeRepository.getEmployeeById(id);
 
-  }
+    }
 
-  public createEmployee(requestParam: number, requestBody: IEmployee) {
-    return this.employeeRepository.createEmployee(requestParam, requestBody);
-  }
+    public createEmployee(requestParam: number, requestBody: IEmployee) {
+        return this.employeeRepository.createEmployee(requestParam, requestBody);
+    }
 }
