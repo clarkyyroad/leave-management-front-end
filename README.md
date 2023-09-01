@@ -18,7 +18,7 @@ To run the development server, follow these steps:
 
 Run `ng generate component component-name` to generate a new component. You can also
 use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
->>>>>>>>> Temporary merge branch 2
+> > > > > > > > > Temporary merge branch 2
 
 ## Contact
 
