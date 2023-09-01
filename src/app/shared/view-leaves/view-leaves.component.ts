@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {Component} from '@angular/core';
 import {LeaveService} from "../../leave/leave-service/leave.service";
 import {RouterService} from "../router-service/router.service";
@@ -92,4 +93,15 @@ export class ViewLeavesComponent {
             })
     }
 
+=======
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-view-leaves',
+  templateUrl: './view-leaves.component.html',
+  styleUrls: ['./view-leaves.component.css']
+})
+export class ViewLeavesComponent {
+
+>>>>>>> origin
 }

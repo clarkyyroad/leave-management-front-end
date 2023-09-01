@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {Component} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {LeaveService} from "../../leave/leave-service/leave.service";
@@ -57,4 +58,15 @@ export class CreateLeaveComponent {
             }
         });
     }
+=======
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-create-leave',
+  templateUrl: './create-leave.component.html',
+  styleUrls: ['./create-leave.component.css']
+})
+export class CreateLeaveComponent {
+
+>>>>>>> origin
 }
