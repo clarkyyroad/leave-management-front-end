@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {Component} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {LeaveService} from "../../leave/leave-service/leave.service";

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {Component} from '@angular/core';
 import {LeaveService} from "../../leave/leave-service/leave.service";
 import {RouterService} from "../router-service/router.service";

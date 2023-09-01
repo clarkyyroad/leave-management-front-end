@@ -3,8 +3,8 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {CreateLeaveComponent} from './create-leave.component';
 
 describe('CreateLeaveComponent', () => {
-  let component: CreateLeaveComponent;
-  let fixture: ComponentFixture<CreateLeaveComponent>;
+    let component: CreateLeaveComponent;
+    let fixture: ComponentFixture<CreateLeaveComponent>;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -18,24 +18,25 @@ describe('CreateLeaveComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+    import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CreateLeaveComponent } from './create-leave.component';
+    import {CreateLeaveComponent} from './create-leave.component';
 
-describe('CreateLeaveComponent', () => {
-  let component: CreateLeaveComponent;
-  let fixture: ComponentFixture<CreateLeaveComponent>;
+    describe('CreateLeaveComponent', () => {
+        let component: CreateLeaveComponent;
+        let fixture: ComponentFixture<CreateLeaveComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [CreateLeaveComponent]
+        beforeEach(() => {
+            TestBed.configureTestingModule({
+                declarations: [CreateLeaveComponent]
+            });
+            fixture = TestBed.createComponent(CreateLeaveComponent);
+            component = fixture.componentInstance;
+            fixture.detectChanges();
+        });
+
+        it('should create', () => {
+            expect(component).toBeTruthy();
+        });
     });
-    fixture = TestBed.createComponent(CreateLeaveComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
