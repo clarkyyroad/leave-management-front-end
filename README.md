@@ -1,5 +1,4 @@
 # Leave Management System
-
 This project is a user interface for a leave management system built with Angular. It allows users to manage their leave
 requests, view their leave balances, and track the status of their leave applications.
 
@@ -15,10 +14,11 @@ To run the development server, follow these steps:
    any changes to the source files.
 
 ## Features
-
-Run `ng generate component component-name` to generate a new component. You can also
-use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-> > > > > > > > > Temporary merge branch 2
+- User-friendly web interface for HR Admin, Managers, and Member.
+- Role-based access control (HR Admin, Manager, and Member roles).
+- Leave request submission and approval workflows.
+- Employee creation.
+- Leave balance tracking.
 
 ## Contact
 
