@@ -1,54 +1,54 @@
 <app-side-navigation-bar></app-side-navigation-bar>
 <div class="main">
-    <div class="header">
-        <h2>All Leaves</h2>
-        <div class="actions">
+  <div class="header">
+    <h2>All Leaves</h2>
+    <div class="actions">
 
-        </div>
     </div>
-    <div class="table">
-        <table>
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Applied By</th>
-                <th>Start</th>
-                <th>End</th>
-                <th>Days</th>
-                <th>Reason</th>
-                <th>Status</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let leaves of leavesInPage.content">
-                <td>{{leaves.id}}</td>
-                <td>{{leaves.employeeName}}</td>
-                <td>{{leaves.startDate}}</td>
-                <td>{{leaves.endDate}}</td>
-                <td>{{leaves.days}}</td>
-                <td>{{leaves.reason}}</td>
-                <td>{{leaves.leaveStatus}}</td>
-                <td>
-                    <button (click)="approveLeave(leaves.id)" *ngIf="leaves.leaveStatus === 'PENDING'" class="approve">
-                        Approve
-                    </button>
-                    <button (click)="rejectLeave(leaves.id)" *ngIf="leaves.leaveStatus === 'PENDING'" class="reject">
-                        Reject
-                    </button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <div *ngIf="leavesInPage.content.length === 0" class="no-data-message">
-            No data available
-        </div>
-        <div *ngIf="leavesInPage.content.length > 0" class="pagination">
-            <button (click)="back()" [disabled]="page === 1" class="page-button">Previous</button>
-            <span>{{ page }}</span>
-            <button (click)="next()" [disabled]="page === totalPages || leavesInPage.totalCount === 0"
-                    class="page-button">Next
-            </button>
-        </div>
+  </div>
+  <div class="table">
+    <table>
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Applied By</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Days</th>
+        <th>Reason</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let leaves of leavesInPage.content">
+        <td>{{leaves.id}}</td>
+        <td>{{leaves.employeeName}}</td>
+        <td>{{leaves.startDate}}</td>
+        <td>{{leaves.endDate}}</td>
+        <td>{{leaves.days}}</td>
+        <td>{{leaves.reason}}</td>
+        <td>{{leaves.leaveStatus}}</td>
+        <td>
+          <button (click)="approveLeave(leaves.id)" *ngIf="leaves.leaveStatus === 'PENDING'" class="approve">
+            Approve
+          </button>
+          <button (click)="rejectLeave(leaves.id)" *ngIf="leaves.leaveStatus === 'PENDING'" class="reject">
+            Reject
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div *ngIf="leavesInPage.content.length === 0" class="no-data-message">
+      No data available
     </div>
+    <div *ngIf="leavesInPage.content.length > 0" class="pagination">
+      <button (click)="back()" [disabled]="page === 1" class="page-button">Previous</button>
+      <span>{{ page }}</span>
+      <button (click)="next()" [disabled]="page === totalPages || leavesInPage.totalCount === 0"
+              class="page-button">Next
+      </button>
+    </div>
+  </div>
 </div>

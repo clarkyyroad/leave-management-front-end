@@ -5,16 +5,16 @@ import {Router} from "@angular/router";
 
 export class RouterService {
 
-    constructor(private router: Router) {
-    }
+  constructor(private router: Router) {
+  }
 
-    public navigate(url: any, queryParams?: any) {
-        return this.router.navigate([url], {state: {queryParams: queryParams}})
-    }
+  public navigate(url: any, queryParams?: any) {
+    return this.router.navigate([url], {state: {queryParams: queryParams}})
+  }
 
-    public getQueryParams() {
-        if (window.history.state) {
-            return window.history.state.queryParams;
-        }
+  public getQueryParams() {
+    if (window.history.state) {
+      return window.history.state.queryParams;
     }
+  }
 }

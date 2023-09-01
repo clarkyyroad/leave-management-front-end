@@ -1,11 +1,10 @@
-<<<<<<< HEAD
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {CreateLeaveComponent} from './create-leave.component';
 
 describe('CreateLeaveComponent', () => {
-    let component: CreateLeaveComponent;
-    let fixture: ComponentFixture<CreateLeaveComponent>;
+  let component: CreateLeaveComponent;
+  let fixture: ComponentFixture<CreateLeaveComponent>;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -19,7 +18,6 @@ describe('CreateLeaveComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
-=======
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreateLeaveComponent } from './create-leave.component';
@@ -40,5 +38,4 @@ describe('CreateLeaveComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
->>>>>>> origin
 });

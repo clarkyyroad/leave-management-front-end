@@ -16,11 +16,9 @@ To run the development server, follow these steps:
 
 ## Features
 
-- User-friendly web interface for HR Admin, Managers, and Member.
-- Role-based access control (HR Admin, Manager, and Member roles).
-- Leave request submission and approval workflows.
-- Employee creation.
-- Leave balance tracking.
+Run `ng generate component component-name` to generate a new component. You can also
+use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+>>>>>>>>> Temporary merge branch 2
 
 ## Contact
 

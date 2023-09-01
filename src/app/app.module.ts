@@ -50,3 +50,4 @@ import {ErrorModalComponent} from './shared/error-modal/error-modal.component';
 })
 export class AppModule {
 }
+>>>>>>>>> Temporary merge branch 2

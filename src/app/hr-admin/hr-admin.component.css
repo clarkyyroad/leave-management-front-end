@@ -1,4 +1,4 @@
-.sidenav{
+.sidenav {
   height: 100%;
   width: 160px;
   position: fixed;
@@ -9,22 +9,24 @@
   overflow-x: hidden;
   padding-left: 50px;
 }
-.main{
+
+.main {
   margin-left: 160px;
   background-color: whitesmoke;
   height: 100%;
 }
-table{
+
+table {
   padding-left: 20px;
   display: table;
   width: 100%;
   border-collapse: collapse;
 }
 
-td{
+td {
   text-align: center;
 }
 
-.table{
+.table {
   margin-left: 50px;
 }

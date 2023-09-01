@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ApproveRejectLeaveComponent } from './approve-reject-leave.component';
+import {ApproveRejectLeaveComponent} from './approve-reject-leave.component';
 
 describe('ApproveRejectLeaveComponent', () => {
   let component: ApproveRejectLeaveComponent;
