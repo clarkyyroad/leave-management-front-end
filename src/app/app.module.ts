@@ -12,7 +12,7 @@ import {CreateLeaveComponent} from './shared/create-leave/create-leave.component
 import {ViewLeavesComponent} from './shared/view-leaves/view-leaves.component';
 import {NgOptimizedImage} from "@angular/common";
 import {SideNavigationBarComponent} from './shared/side-navigation-bar/side-navigation-bar.component';
-import {LandingPageComponent} from './landing/landing-page/landing-page.component';
+import {LoginPageComponent} from './login/login-page/login-page.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {UserSelectionModalComponent} from './shared/user-selection-modal/user-selection-modal.component';
@@ -31,7 +31,7 @@ import {ErrorModalComponent} from './shared/error-modal/error-modal.component';
         CreateLeaveComponent,
         ViewLeavesComponent,
         SideNavigationBarComponent,
-        LandingPageComponent,
+        LoginPageComponent,
         UserSelectionModalComponent,
         ApproveRejectLeaveComponent,
         ConfirmationModalComponent,

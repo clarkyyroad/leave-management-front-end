@@ -7,10 +7,10 @@ import {EmployeeService} from "../../employee/employee-service/employee.service"
 
 @Component({
     selector: 'app-landing-page',
-    templateUrl: './landing-page.component.html',
-    styleUrls: ['./landing-page.component.css']
+    templateUrl: './login-page.component.html',
+    styleUrls: ['./login-page.component.css']
 })
-export class LandingPageComponent implements OnInit {
+export class LoginPageComponent implements OnInit {
 
     public users: IUsers[] = [];
     public selectedUser: any;
